@@ -1,0 +1,2 @@
+# forritaripunkturis
+Hugbúnaðarverkefni 2
