@@ -1,22 +1,123 @@
-<!DOCTYPE html>
-<html>
+  <!doctype html>
+  <html>
   <head>
     <title>Profile</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <style>
+    body        /*{ padding-top:20px; word-wrap:break-word; }*/
+    </style>
   </head>
   <body>
-    <div class="wrapper">
-      <!--<div class="logo"></div>-->
-      <div class="hor_navigation"></div>
-      <div class="ver_navigation">
-        <div class="user_profile"></div>
-        <div class="user_name"><%= user.local.email %></div>
-        <div class="settings">
-          <ul><li><a href="/logout">Logout</a>
+
+    <nav class="navbar navbar-inverse  ">
+      <div class="container-fluid">
+        <div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Page 1</a></li>
+            <li><a href="#">Page 2</a></li> 
+            <li><a href="#">Page 3</a></li> 
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+
+            <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+
           </ul>
         </div>
       </div>
-      <div class="content"></div>
-    </div>
-  </body>
+    </nav>
+
+    <div class="container">
+
+      <h1>Edit Profile</h1>
+      <hr>
+
+      <div class="row">
+        <!-- left column -->
+        <div class="col-md-3">
+          <div class="text-center">
+            <img src="//placehold.it/100" class="avatar img-square" alt="avatar">
+            <h6>Upload a different photo...</h6>
+
+            <input type="file" class="form-control">
+          </div>
+        </div>
+
+        <div class="container">
+         <div class="col-md-9 personal-info">
+          <h3 >Personal info</h3>
+          <form class="form-horizontal" role="form">
+
+            <div class="form-group">
+              <label class="col-md-2 control-label" >First name:</label>
+              <div class="col-md-6">
+                <input class="form-control" type="text" placeholder=" Type Your First Name Here">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-2 control-label">Last name:</label>
+              <div class="col-md-6">
+                <input class="form-control" type="text" placeholder=" Type Your Last Name Here">
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <label for="birthday" class="col-xs-3 col-sm-2 control-label">Birthday</label>
+              <div class="col-xs-2">
+                <input type="text" class="form-control" placeholder="year"/>
+              </div>
+              <div class="col-xs-2">
+                <input type="text" class="form-control" placeholder="month"/>
+              </div>
+              <div class="col-xs-2">
+                <input type="text" class="form-control" placeholder="day"/>
+              </div>    
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-2 control-label">Gender:</label>
+              <div class="col-md-6">
+                <label class="radio-inline"><input type="radio" name="optradio">Male</label>
+
+                <label class="radio-inline"><input type="radio" name="optradio">Female</label>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <label class="col-md-3 control-label"></label>
+              <div class="col-md-8">
+                <input type="button" class="btn btn-primary" value="Save Changes">
+                <span></span>
+                <input type="reset" class="btn btn-default" value="Cancel">
+              </div>
+            </div>
+      <!-- <div class="row">
+
+      <!-- LOCAL INFORMATION -->
+      <!--   <div class="col-sm-6">
+          <div class="well">
+            <h3><span class="fa fa-user"></span> Local</h3>
+
+            <p>
+              <strong>id</strong>: <%= user._id %><br>
+              <strong>email</strong>: <%= user.local.email %><br>
+              <strong>password</strong>: <%= user.local.password %>
+            </p>
+
+          </div>
+        </div>
+
+      </div> --> 
+    </form>
+  </div>
+
+</div>
+</div>
+</hr>
+</body>
 </html>
