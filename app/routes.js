@@ -5,10 +5,10 @@ module.exports = function(app, passport) {
 
 	// Front-Page
 	app.get('/', function(req, res) {
-		Test.find({}, {'local.fullname': 1, 'local.birthday': 1, _id: 0}, function(err, todos){
+		Test.find({}, {'local.fullname': 1, 'local.birthday': 1, _id: 0}, function(err, show){
 			if(err) return console.log(err);
 			res.render('index', {
-				mamma: todos
+				usersprofile: show
 			});
 		});
 	});
