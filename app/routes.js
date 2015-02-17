@@ -5,7 +5,7 @@ module.exports = function(app, passport) {
 
 	// Front-Page
 	app.get('/', function(req, res) {
-		Test.find({}, {'local.fullname': 1, _id: 0}, function(err, todos){
+		Test.find({}, {'local.fullname': 1, 'local.birthday': 1, _id: 0}, function(err, todos){
 			if(err) return console.log(err);
 			res.render('index', {
 				mamma: todos
@@ -43,12 +43,27 @@ module.exports = function(app, passport) {
 	});
 
 	app.post('/profile', function(req, res, next) {
-		console.log("jebb");
-		console.log(req.body.fullName);
+		//console.log(req.body.fullName);
+		console.log(req.body);
+		console.log(req.body.men);
 		console.log(req.user._id);
+		console.log(req.body.comments);
 		//Test.save({_id:req.user._id, fullname:req.body.fullName},{w:1});
 		
 		req.user.local.fullname = req.body.fullName;
+		req.user.local.birthday = req.body.dateBirth;
+		if(req.body.men) {
+			req.user.local.men = "checked";
+		}
+		if(req.body.women){
+			req.user.local.women = "checked";
+			req.user.local.men = "";
+		}
+		req.user.local.website = req.body.website;
+		req.user.local.feisbook = req.body.facebook;
+		req.user.local.skype = req.body.skype;
+		req.user.local.telephone = req.body.telephone;
+		
 		
 
 		req.user.save(function(err) {

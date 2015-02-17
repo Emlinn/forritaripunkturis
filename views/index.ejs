@@ -15,13 +15,16 @@
         <!--<div class="user_name">Emil Ragnarsson</div>-->
         <div class="settings">
           <ul>
+            <li class="active"><a href="/">Forsíða</a></li>
             <li><a href="/login">Login</a></li>
+             <li><a href="/profile">Prófíll </a></li>
         </ul>
         </div>
       </div>
           <div class="content">
                    <div class="user_name"><% mamma.forEach( function( todo ){ %>
   <p><%= todo.local.fullname %></p>
+  <p><%= todo.local.birthday %></p>
 <% }); %></div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>

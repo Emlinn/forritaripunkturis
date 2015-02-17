@@ -14,8 +14,8 @@
       <div class="container-fluid">
         <div>
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">About Us </a></li>
+            <li><a href="/">Forsíða</a></li>
+            <li class="active"><a href="/profile">Prófíll </a></li>
             <li><a href="#">Page 2</a></li> 
             <li><a href="#">Page 3</a></li> 
           </ul>
@@ -51,48 +51,37 @@
             <div class="form-group">
               <label class="col-md-2 control-label" type:"text">Fullt nafn:</label>
               <div class="col-md-6">
-                <input class="form-control" type="text" name="fullName" placeholder=<%= user.local.fullname %>>
+                <input class="form-control" type="text" name="fullName" value=<%= user.local.fullname %>>
               </div>
             </div>
 
-
             <div class="form-group">
               <label for="birthday" class="col-xs-3 col-sm-2 control-label">Fæðingardagur:</label>
-              <div class="col-xs-2">
-                <input type="text" class="form-control" placeholder="Ár"/>
+              <div class="col-xs-6">
+                 <input class="form-control" type="date" name="dateBirth" value=<%= user.local.birthday %>>
               </div>
-              <div class="col-xs-2">
-                <input type="text" class="form-control" placeholder="Mánuður"/>
-              </div>
-              <div class="col-xs-2">
-                <input type="text" class="form-control" placeholder="Dagur"/>
-              </div>    
             </div>
 
             <div class="form-group">
               <label class="col-md-2 control-label">Kyn:</label>
               <div class="col-md-6">
-                <label class="radio-inline"><input type="radio" name="optradio">kk</label>
+                <label class="radio-inline"><input type="radio" name="men" <%= user.local.men %>>kk</label>
 
-                <label class="radio-inline"><input type="radio" name="optradio">kvk</label>
+                <label class="radio-inline"><input type="radio" name="women" <%= user.local.women %>>kvk</label>
               </div>
             </div>
 
 
-            
-
             <div class="form-group">
               <label class="col-md-2 control-label">Um mig</label>
  <div class="col-md-6">
-  <textarea class="form-control " rows="5" id="comment"></textarea>
+  <textarea class="form-control " rows="5" name:"comments"></textarea>
 </div>
 </div>
-
-
             <div class="form-group">
               <label class="col-md-2 control-label" >Vefsíða:</label>
               <div class="col-md-6">
-                <input class="form-control" type="text" >
+                <input class="form-control" type="text" name="website" value=<%= user.local.website %>>
               </div>
             </div>
 
@@ -101,7 +90,7 @@
                         <div class="form-group">
               <label class="col-md-2 control-label" >Facebook:</label>
               <div class="col-md-6">
-                <input class="form-control" type="text" >
+                <input class="form-control" type="text" name="facebook" value=<%= user.local.feisbook %>>
               </div>
             </div>
 
@@ -109,13 +98,13 @@
                         <div class="form-group">
               <label class="col-md-2 control-label" >Skype:</label>
               <div class="col-md-6">
-                <input class="form-control" type="text" >
+                <input class="form-control" type="text" name="skype" value=<%= user.local.skype %>>
               </div>
             </div>
                         <div class="form-group">
               <label class="col-md-2 control-label" >Símanúmer:</label>
               <div class="col-md-6">
-                <input class="form-control" type="text" >
+                <input class="form-control" type="text" name="telephone" value=<%= user.local.telephone %>>
               </div>
             </div>
 
