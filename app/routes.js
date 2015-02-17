@@ -1,10 +1,16 @@
-// Rotues
+var Test = require('../app/models/user');
 
+// Rotues
 module.exports = function(app, passport) {
 
 	// Front-Page
 	app.get('/', function(req, res) {
-		res.render('index');
+		Test.find({}, {'local.fullname': 1, _id: 0}, function(err, todos){
+			if(err) return console.log(err);
+			res.render('index', {
+				mamma: todos
+			});
+		});
 	});
 
 	// Login
@@ -35,6 +41,27 @@ module.exports = function(app, passport) {
 			user: req.user
 		});
 	});
+
+	app.post('/profile', function(req, res, next) {
+		console.log("jebb");
+		console.log(req.body.fullName);
+		console.log(req.user._id);
+		//Test.save({_id:req.user._id, fullname:req.body.fullName},{w:1});
+		
+		req.user.local.fullname = req.body.fullName;
+		
+
+		req.user.save(function(err) {
+			if(err) {
+				throw err; 
+			}
+			else {console.log("tókst"); }
+		});
+
+		res.redirect('/profile');
+		
+	});
+	
 
 	// Logout
 	app.get('/logout', function(req, res) {

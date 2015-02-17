@@ -19,7 +19,11 @@
         </ul>
         </div>
       </div>
-          <div class="content"></div>
+          <div class="content">
+                   <div class="user_name"><% mamma.forEach( function( todo ){ %>
+  <p><%= todo.local.fullname %></p>
+<% }); %></div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>
   </body>
 </html>
