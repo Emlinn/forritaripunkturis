@@ -47,7 +47,9 @@
         <div class="container">
          <div class="col-md-9 personal-info">
           <h3 >Síðan mín</h3>
+
           <form class="form-horizontal" role="form" method="post" action="/profile">
+
             <div class="form-group">
               <label class="col-md-2 control-label" type:"text">Fullt nafn:</label>
               <div class="col-md-6">
@@ -56,105 +58,105 @@
             </div>
 
             <div class="form-group">
-              <label for="birthday" class="col-xs-3 col-sm-2 control-label">Fæðingardagur:</label>
-              <div class="col-xs-6">
-                 <input class="form-control" type="date" name="dateBirth" value=<%= user.local.birthday %>>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="col-md-2 control-label">Kyn:</label>
+              <label for="birthday" class="col-sm-2 control-label">Fæðingardagur:</label>
               <div class="col-md-6">
-                <label class="radio-inline"><input type="radio" name="men" <%= user.local.men %>>kk</label>
+               <input class="form-control" type="date" name="dateBirth" value=<%= user.local.birthday %>>
+             </div>
+           </div>
 
-                <label class="radio-inline"><input type="radio" name="women" <%= user.local.women %>>kvk</label>
-              </div>
+           <div class="form-group">
+            <label class="col-md-2 control-label">Kyn:</label>
+            <div class="col-md-6">
+              <label class="radio-inline"><input type="radio" name="men" <%= user.local.men %>>kk</label>
+
+              <label class="radio-inline"><input type="radio" name="women" <%= user.local.women %>>kvk</label>
             </div>
+          </div>
 
-            <div class="form-group">
-              <label class="col-md-2 control-label">Vinna:</label>
-              <div class="col-md-6">
-                <label class="radio-inline"><input type="checkbox" name="framtíðarstarf">Framtíðarstarf</label>
-                <label class="radio-inline"><input type="checkbox" name="sumarstarf">Sumarstarf</label>
-                <label class="radio-inline"><input type="checkbox" name="tímabundið starf">Tímabundið starf</label>
-                <label class="radio-inline"><input type="checkbox" name="verkefni">Verkefni</label>
-                <label class="radio-inline"><input type="checkbox" name="startup">Startup samstarf</label>
-              </div>
+          <div class="form-group">
+            <label class="col-md-2 control-label">Vinna:</label>
+            <div class="col-md-6">
+              <label class="radio-inline"><input type="checkbox" name="framtíðarstarf">Framtíðarstarf</label>
+              <label class="radio-inline"><input type="checkbox" name="sumarstarf">Sumarstarf</label>
+              <label class="radio-inline"><input type="checkbox" name="tímabundið starf">Tímabundið starf</label>
+              <label class="radio-inline"><input type="checkbox" name="verkefni">Verkefni</label>
+              <label class="radio-inline"><input type="checkbox" name="startup">Startup samstarf</label>
             </div>
+          </div>
 
-            <div class="form-group">
-              <label class="col-md-3 control-label">Háskólagráða:</label>
-              <select>
-                <option value="Bshug">B.Sc. Hugbúnaðarverkfræði</option>
-                <option value="Bstöl">B.Sc. Tölvunarfræði</option>
-                <option value="Mshug">M.Sc. Hugbúnaðarverkfræði</option>
-                <option value="Mstöl">M.Sc. Tölvunarfræði</option>
-              </select>
-              <input type="submitDegree" class="btn btn-default" value="Bæta við">
+          <div class="form-group">
+            <label class="col-md-3 control-label">Háskólagráða:</label>
+            <select>
+              <option value="Bshug">B.Sc. Hugbúnaðarverkfræði</option>
+              <option value="Bstöl">B.Sc. Tölvunarfræði</option>
+              <option value="Mshug">M.Sc. Hugbúnaðarverkfræði</option>
+              <option value="Mstöl">M.Sc. Tölvunarfræði</option>
+            </select>
+            <input type="submitDegree" class="btn btn-default btn-sm" value="Bæta við">
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-3 control-label">Forritunarreynsla:</label>
+            <select>
+              <option value="Css">CSS</option>
+              <option value="Html">HTML</option>
+              <option value="Java">Java</option>
+              <option value="Morpho">Morpho</option>
+            </select>
+            <select>
+              <option value="Grunnreynsla">Grunnreynsla</option>
+              <option value="Meðalreynsla">Meðalreynsla</option>
+              <option value="Reynslumikill">Reynslumikill</option>
+            </select>
+            <input type="submitDegree" class="btn btn-default btn-sm" value="Bæta við">
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-2 control-label">Um mig:</label>
+            <div class="col-md-6">
+              <textarea class="form-control " rows="5" name:"comments"></textarea>
             </div>
+          </div>
 
-            <div class="form-group">
-              <label class="col-md-3 control-label">Forritunarreynsla:</label>
-              <select>
-                <option value="Css">CSS</option>
-                <option value="Html">HTML</option>
-                <option value="Java">Java</option>
-                <option value="Morpho">Morpho</option>
-              </select>
-              <select>
-                <option value="Grunnreynsla">Grunnreynsla</option>
-                <option value="Meðalreynsla">Meðalreynsla</option>
-                <option value="Reynslumikill">Reynslumikill</option>
-              </select>
-              <input type="submitDegree" class="btn btn-default" value="Bæta við">
+          <div class="form-group">
+            <label class="col-md-2 control-label" >Vefsíða:</label>
+            <div class="col-md-6">
+              <input class="form-control" type="text" name="website" value=<%= user.local.website %>>
             </div>
+          </div>
 
-            <div class="form-group">
-              <label class="col-md-2 control-label">Um mig:</label>
-              <div class="col-md-6">
-                <textarea class="form-control " rows="5" name:"comments"></textarea>
-              </div>
+
+
+          <div class="form-group">
+            <label class="col-md-2 control-label" >Facebook:</label>
+            <div class="col-md-6">
+              <input class="form-control" type="text" name="facebook" value=<%= user.local.feisbook %>>
             </div>
+          </div>
 
-            <div class="form-group">
-              <label class="col-md-2 control-label" >Vefsíða:</label>
-              <div class="col-md-6">
-                <input class="form-control" type="text" name="website" value=<%= user.local.website %>>
-              </div>
+
+          <div class="form-group">
+            <label class="col-md-2 control-label" >Skype:</label>
+            <div class="col-md-6">
+              <input class="form-control" type="text" name="skype" value=<%= user.local.skype %>>
             </div>
-
-
-
-                        <div class="form-group">
-              <label class="col-md-2 control-label" >Facebook:</label>
-              <div class="col-md-6">
-                <input class="form-control" type="text" name="facebook" value=<%= user.local.feisbook %>>
-              </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-2 control-label" >Símanúmer:</label>
+            <div class="col-md-6">
+              <input class="form-control" type="text" name="telephone" value=<%= user.local.telephone %>>
             </div>
+          </div>
 
 
-                        <div class="form-group">
-              <label class="col-md-2 control-label" >Skype:</label>
-              <div class="col-md-6">
-                <input class="form-control" type="text" name="skype" value=<%= user.local.skype %>>
-              </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label"></label>
+            <div class="col-md-8">
+              <input type="submit" class="btn btn-primary" value="Vista breytingar">
+              <span></span>
+              <input type="reset" class="btn btn-default" value="Hætta við">
             </div>
-                        <div class="form-group">
-              <label class="col-md-2 control-label" >Símanúmer:</label>
-              <div class="col-md-6">
-                <input class="form-control" type="text" name="telephone" value=<%= user.local.telephone %>>
-              </div>
-            </div>
-
-
-            <div class="form-group">
-              <label class="col-md-3 control-label"></label>
-              <div class="col-md-8">
-                <input type="submit" class="btn btn-primary" value="Vista breytingar">
-                <span></span>
-                <input type="reset" class="btn btn-default" value="Hætta við">
-              </div>
-            </div>
+          </div>
 
 
       <!-- <div class="row">
