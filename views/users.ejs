@@ -56,7 +56,7 @@
           <% usersprofile.forEach( function( info ){ %>
           <p><%= info.local.fullname %></p>
           <p><%= info.local.birthday %></p>
-          <form action='/<%= info._id %>', method="POST", input(type="hidden", name="_method", value="DELETE") butto(type="submit") Delete </form>
+          <p><a href="/<%= info._id %>/delete">Delete</a></p>
         <% }); %>
         </div><!-- /.col-lg-4 -->
         
