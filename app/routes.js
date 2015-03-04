@@ -90,6 +90,7 @@ module.exports = function(app, passport) {
 });
 
 
+	// Users
 	app.get('/:id?', function(req, res) {
 		var id = req.params.id;
 		Test.find({_id: id}, {'local.fullname': 1, 'local.birthday': 1, _id: 0}, function(err, show){
