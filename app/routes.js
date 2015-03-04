@@ -86,7 +86,7 @@ module.exports = function(app, passport) {
 
 	app.get('/:id?', function(req, res) {
 		var id = req.params.id;
-		Test.find({}, {'local.fullname': 1, 'local.birthday': 1, _id: 1}, function(err, show){
+		Test.find({_id: id}, {'local.fullname': 1, 'local.birthday': 1, _id: 0}, function(err, show){
 			if(err) return console.log(err);
 			res.render('users', {
 				usersprofile: show

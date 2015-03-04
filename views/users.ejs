@@ -22,6 +22,11 @@
         </div>
       </div>
           <div class="user_name">Something here</div>
+          <%= usersprofile.local %>
+          <% usersprofile.forEach( function( info ){ %>
+  <p><%= info.local.fullname %></p>
+  <p><%= info.local.birthday %></p>
+<% }); %></div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>
   </body>
