@@ -1,5 +1,5 @@
 // Index.js
-
+var idOfPerson = [];
 // Tools
 var express = require('express');
 var app = express();
