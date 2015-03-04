@@ -25,6 +25,7 @@
                    <div class="user_name"><% usersprofile.forEach( function( info ){ %>
   <p><%= info.local.fullname %></p>
   <p><%= info.local.birthday %></p>
+  <a href="/<%= info._id %>">Smelltu til að sjá meira</a>
 <% }); %></div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>

@@ -5,7 +5,7 @@ module.exports = function(app, passport) {
 
 	// Front-Page
 	app.get('/', function(req, res) {
-		Test.find({}, {'local.fullname': 1, 'local.birthday': 1, _id: 0}, function(err, show){
+		Test.find({}, {'local.fullname': 1, 'local.birthday': 1, _id: 1}, function(err, show){
 			if(err) return console.log(err);
 			res.render('index', {
 				usersprofile: show
@@ -49,7 +49,6 @@ module.exports = function(app, passport) {
 		console.log(req.user._id);
 		console.log(req.body.comments);
 		//Test.save({_id:req.user._id, fullname:req.body.fullName},{w:1});
-		
 		req.user.local.fullname = req.body.fullName;
 		req.user.local.birthday = req.body.dateBirth;
 		if(req.body.men) {
