@@ -83,6 +83,17 @@ module.exports = function(app, passport) {
 		res.redirect('/');
 	});
 
+
+	app.get('/:id?', function(req, res) {
+		var id = req.params.id;
+		Test.find({}, {'local.fullname': 1, 'local.birthday': 1, _id: 1}, function(err, show){
+			if(err) return console.log(err);
+			res.render('users', {
+				usersprofile: show
+			});
+		});
+	});
+
 };
 
 // Function fyrir redirect ef ekki loggaður inn -> Redirect á frontpage
