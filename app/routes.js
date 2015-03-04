@@ -83,6 +83,12 @@ module.exports = function(app, passport) {
 		res.redirect('/');
 	});
 
+	app.get('/about', function(req, res){
+  		res.render('about', {
+    	title: 'About'
+  });
+});
+
 
 	app.get('/:id?', function(req, res) {
 		var id = req.params.id;
