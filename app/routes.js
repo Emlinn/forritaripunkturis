@@ -5,7 +5,7 @@ module.exports = function(app, passport) {
 
 	// Front-Page
 	app.get('/', function(req, res) {
-		Test.find({}, {'local.fullname': 1, 'local.birthday': 1, _id: 1}, function(err, show){
+		Test.find({}, {'local.firstname': 1, 'local.lastname': 1, 'local.birthday': 1, 'local.degrees':1, _id: 1}, function(err, show){
 			if(err) return console.log(err);
 			res.render('index', {
 				usersprofile: show
@@ -49,7 +49,8 @@ module.exports = function(app, passport) {
 		console.log(req.user._id);
 		console.log(req.body.comments);
 		//Test.save({_id:req.user._id, fullname:req.body.fullName},{w:1});
-		req.user.local.fullname = req.body.fullName;
+		req.user.local.firstname = req.body.firstName;
+		req.user.local.lastname = req.body.lastName;
 		req.user.local.birthday = req.body.dateBirth;
 		if(req.body.men) {
 			req.user.local.men = "checked";
@@ -62,6 +63,7 @@ module.exports = function(app, passport) {
 		req.user.local.feisbook = req.body.facebook;
 		req.user.local.skype = req.body.skype;
 		req.user.local.telephone = req.body.telephone;
+		req.user.local.degrees = req.body.selectDegree;
 		
 		
 
@@ -93,7 +95,7 @@ module.exports = function(app, passport) {
 	// Users
 	app.get('/:id?', function(req, res) {
 		var id = req.params.id;
-		Test.find({_id: id}, {'local.fullname': 1, 'local.birthday': 1, _id: 1}, function(err, show){
+		Test.find({_id: id}, {'local.firstname': 1, 'local.birthday': 1, _id: 1}, function(err, show){
 			if(err) return console.log(err);
 			res.render('users', {
 				usersprofile: show

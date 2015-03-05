@@ -8,7 +8,8 @@ var userSchema = mongoose.Schema({
 	local			: {
 		email		: String,
 		password	: String,
-		fullname	: String,
+		firstname	: String,
+		lastname	: String,
 		birthday	: String,
 		comments	: String,
 		men			: String,
@@ -16,7 +17,8 @@ var userSchema = mongoose.Schema({
 		website		: String,
 		feisbook	: String,
 		skype		: String,
-		telephone	: String
+		telephone	: String,
+		degrees		: String
 
 	}
 });

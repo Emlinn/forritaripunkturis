@@ -54,7 +54,7 @@
           <img class="img-circle" src="http://www.fm-base.co.uk/forum/attachments/football-manager-2012-stories/216066d1326419781-forever-blowing-bubbles-unknown.gif" alt="Generic placeholder image" style="width: 140px; height: 140px;"><br><br>
           <%= usersprofile.local %>
           <% usersprofile.forEach( function( info ){ %>
-          <p><%= info.local.fullname %></p>
+          <p><%= info.local.firstname %></p>
           <p><%= info.local.birthday %></p>
           <p><a href="/<%= info._id %>/delete">Delete</a></p>
         <% }); %>
