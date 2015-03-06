@@ -84,11 +84,11 @@
           <div class="form-group">
             <label class="col-md-2 control-label">Vinna:</label>
             <div class="col-md-6">
-              <label class="radio-inline"><input type="checkbox" name="framtíðarstarf">Framtíðarstarf</label>
-              <label class="radio-inline"><input type="checkbox" name="sumarstarf">Sumarstarf</label>
-              <label class="radio-inline"><input type="checkbox" name="tímabundið starf">Tímabundið starf</label>
-              <label class="radio-inline"><input type="checkbox" name="verkefni">Verkefni</label>
-              <label class="radio-inline"><input type="checkbox" name="startup">Startup samstarf</label>
+              <label class="radio-inline"><input type="checkbox" name="careerJob" <%= user.local.careerJob%> >Framtíðarstarf</label>
+              <label class="radio-inline"><input type="checkbox" name="summerJob" <%= user.local.summerJob%>>Sumarstarf</label>
+              <label class="radio-inline"><input type="checkbox" name="partialJob" <%= user.local.partialJob%>>Tímabundið starf</label>
+              <label class="radio-inline"><input type="checkbox" name="assignmentJob" <%= user.local.assignmentJob%>>Verkefni</label>
+              <label class="radio-inline"><input type="checkbox" name="startupJob" <%= user.local.startupJob%>>Startup samstarf</label>
             </div>
           </div>
 
@@ -124,7 +124,7 @@
           <div class="form-group">
             <label class="col-md-2 control-label">Um mig:</label>
             <div class="col-md-6">
-              <textarea class="form-control " rows="5" name:"comments"></textarea>
+              <textarea name="textColumn" class="form-control" rows="5"><%=user.local.textColumn%> </textarea>
             </div>
           </div>
 
@@ -134,7 +134,6 @@
               <input class="form-control" type="text" name="website" value=<%= user.local.website %>>
             </div>
           </div>
-
 
 
           <div class="form-group">

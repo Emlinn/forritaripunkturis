@@ -5,7 +5,7 @@ module.exports = function(app, passport) {
 
 	// Front-Page
 	app.get('/', function(req, res) {
-		Test.find({}, {'local.firstname': 1, 'local.lastname': 1, 'local.birthday': 1, 'local.degrees':1, _id: 1}, function(err, show){
+		Test.find({}, {'local.firstname': 1, 'local.lastname': 1, 'local.birthday': 1, 'local.degrees':1, 'local.textColumn':1, 'local.careerJob': 1, _id: 1}, function(err, show){
 			if(err) return console.log(err);
 			res.render('index', {
 				usersprofile: show
@@ -59,6 +59,37 @@ module.exports = function(app, passport) {
 			req.user.local.women = "checked";
 			req.user.local.men = "";
 		}
+		if(req.body.careerJob) {
+			req.user.local.careerJob = "checked";
+		}
+		else {
+			req.user.local.careerJob = "";	
+		}
+		if(req.body.summerJob) {
+			req.user.local.summerJob = "checked";
+		}
+		else {
+			req.user.local.summerJob = "";	
+		}
+		if(req.body.partialJob) {
+			req.user.local.partialJob = "checked";
+		}
+		else {
+			req.user.local.partialJob = "";	
+		}
+		if(req.body.assignmentJob) {
+			req.user.local.assignmentJob = "checked";
+		}
+		else {
+			req.user.local.assignmentJob = "";	
+		}
+		if(req.body.startupJob) {
+			req.user.local.startupJob = "checked";
+		}
+		else {
+			req.user.local.startupJob = "";	
+		}
+		req.user.local.textColumn = req.body.textColumn;
 		req.user.local.website = req.body.website;
 		req.user.local.feisbook = req.body.facebook;
 		req.user.local.skype = req.body.skype;

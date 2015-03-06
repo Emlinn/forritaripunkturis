@@ -11,14 +11,20 @@ var userSchema = mongoose.Schema({
 		firstname	: String,
 		lastname	: String,
 		birthday	: String,
-		comments	: String,
+		textColumn	: String,
 		men			: String,
 		women		: String,
 		website		: String,
 		feisbook	: String,
 		skype		: String,
 		telephone	: String,
-		degrees		: String
+		degrees		: String,
+		careerJob	: String,
+		summerJob	: String,
+		partialJob 	: String,
+		assignmentJob : String,
+		startupJob	: String
+
 
 	}
 });
