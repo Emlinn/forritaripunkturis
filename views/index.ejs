@@ -172,7 +172,7 @@
         <% usersprofile.forEach( function( info ){ %>
         <div class="col-lg-4">
           <img class="img-circle" src="http://www.fm-base.co.uk/forum/attachments/football-manager-2012-stories/216066d1326419781-forever-blowing-bubbles-unknown.gif" alt="Generic placeholder image" style="width: 140px; height: 140px;">
-          <h2><%= info.local.fullname %></h2>
+          <h2><%= info.local.firstname  %> <%= info.local.lastname %></h2>
           <ul>
           <li><%= info._id %>
           <li><%= info.local.birthday %>
