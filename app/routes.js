@@ -129,7 +129,7 @@ module.exports = function(app, passport) {
 	// Users
 	app.get('/:id?', function(req, res) {
 		var id = req.params.id;
-		Test.find({_id: id}, {'local.firstname': 1, 'local.lastname': 1, 'local.birthday': 1, _id: 1}, function(err, show){
+		Test.find({_id: id}, {'local.firstname':1, 'local.lastname':1, 'local.birthday':1, 'local.textColumn':1, _id:1}, function(err, show){
 			if(err) return console.log(err);
 			res.render('users', {
 				user: req.user,
