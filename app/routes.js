@@ -46,7 +46,7 @@ module.exports = function(app, passport) {
 		//console.log(req.body.fullName);
 		console.log(req.body);
 		console.log(req.body.men);
-		console.log(req.user._id);
+		//console.log(req.user._id);
 		console.log(req.body.comments);
 		//Test.save({_id:req.user._id, fullname:req.body.fullName},{w:1});
 		req.user.local.firstname = req.body.firstName;
