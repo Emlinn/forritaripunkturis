@@ -148,21 +148,59 @@
               <% } }%>
         </div>
         <input type="submitDegree" class="btn btn-default btn-sm" id="submitDegrees" value="Bæta við">
-          <div class="form-group">
-            <label class="col-md-3 control-label">Forritunarreynsla:</label>
-            <select>
-              <option value="Css">CSS</option>
-              <option value="Html">HTML</option>
-              <option value="Java">Java</option>
-              <option value="Morpho">Morpho</option>
+
+         <h3 class="col-md-12">Starfsreynsla</h3>
+             <div class="form-group">
+            <label class="col-md-3">Fyrirtæki:</label>
+            <label class="col-md-2">Starfsheiti:</label>
+            <label class="col-md-2">Starfshlutfall:</label>
+            <label class="col-md-2">Dags.frá:</label>
+            <label class="col-md-2">Dags.til:</label>
+            </div>
+            <div id="workedJobs">
+            <%  if(user.local.job.job != undefined) {
+              var jobs = user.local.job;
+            var job = jobs.job.split(",");
+            var jobName = jobs.jobName.split(",");
+            var jobPerc = jobs.jobPerc.split(",");
+            var jobStartDate = jobs.jobStartDate.split(",");
+            var jobEndDate = jobs.jobEndDate.split(",");
+            for(var i=0; i<job.length; i++) {  %>
+          <div class="form-group" class="work">
+      <input class="col-md-3" name="job" value=<%=job[i]%>>
+      <input class="col-md-3" name="jobName" value=<%=jobName[i]%>>
+      <input class="col-md-1" name="jobPerc" value=<%=jobPerc[i]%>>
+      <input type="month" class="col-md-2" name="jobStartDate" value=<%=jobStartDate[i]%>>
+      <input type="month" class="col-md-2" name="jobEndDate" value=<%=jobEndDate[i]%>>
+      <input type="button" class="eydaJob" value="Eyða">
+    </div>
+ <% } } %>
+    </div>
+            <input type="submitDegree" class="btn btn-default btn-sm" id="submitJob" value="Bæta við">
+
+  <h3 class="col-md-12">Kunnátta</h3>
+             <div class="form-group">
+            <label class="col-md-4">Forritunarmál, kerfi eða annað:</label>
+            <label class="col-md-3">Reynsla:</label>
+            </div>
+            <div id="techknow">
+               <%  if(user.local.knowledge.knowledge != undefined) {
+               var know = user.local.knowledge;
+               var knowledges = know.knowledge.split(",");
+               var rateKnowledge = know.rateKnowledge.split(","); 
+               for(var i=0; i<knowledges.length; i++){ %>
+          <div class="form-group" class="knowing">
+          <input class="col-md-4" name="knowledge" value= <%= knowledges[i] %>> 
+            <select name="rateKnowledge">
+              <OPTION value=" "> </OPTION>
+              <OPTION value ="Grunnreynsla"<%if(rateKnowledge[i]=== "Grunnreynsla"){ %> Selected <% } %>>Grunnreynsla</OPTION>
+              <OPTION value="Meðalreynsla" <%if(rateKnowledge[i]=== "Meðalreynsla"){ %> Selected <% } %>>Meðalreynsla</OPTION>
+              <OPTION value="Sérfræðingur" <%if(rateKnowledge[i]=== "Sérfræðingur"){ %> Selected <% } %>Sérfræðingur</OPTION>
             </select>
-            <select>
-              <option value="Grunnreynsla">Grunnreynsla</option>
-              <option value="Meðalreynsla">Meðalreynsla</option>
-              <option value="Reynslumikill">Reynslumikill</option>
-            </select>
-            <input type="submitDegree" class="btn btn-default btn-sm" value="Bæta við">
           </div>
+          <% } } %>
+        </div>
+        <input type="submitDegree" class="btn btn-default btn-sm" id="submitKnow" value="Bæta við">
 
           <div class="form-group">
             <label class="col-md-2 control-label">Um mig:</label>

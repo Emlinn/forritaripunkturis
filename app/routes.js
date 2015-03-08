@@ -5,7 +5,7 @@ module.exports = function(app, passport) {
 
 	// Front-Page
 	app.get('/', function(req, res) {
-		Test.find({}, {'local.firstname': 1, 'local.lastname': 1, 'local.birthday': 1, 'local.degrees':1, 'local.textColumn':1, 'local.careerJob': 1, _id: 1}, function(err, show){
+		Test.find({}, {'local.firstname': 1, 'local.lastname': 1, 'local.birthday': 1, 'local.degrees':1, 'local.job':1, 'local.textColumn':1, 'local.careerJob': 1, 'local.knowledge':1, _id: 1}, function(err, show){
 			if(err) return console.log(err);
 			res.render('index', {
 				title: 'Home',
@@ -104,8 +104,17 @@ module.exports = function(app, passport) {
 		req.user.local.degrees.startDate = req.body.startDate;
 		req.user.local.degrees.endDate = req.body.finishDate;
 		req.user.local.degrees.statuss = req.body.statuss;
+
+		//Jobs
+		req.user.local.job.job = req.body.job;
+		req.user.local.job.jobName = req.body.jobName;
+		req.user.local.job.jobPerc = req.body.jobPerc;
+		req.user.local.job.jobStartDate = req.body.jobStartDate;
+		req.user.local.job.jobEndDate = req.body.jobEndDate;
 		
-		
+		//Knowledge
+		req.user.local.knowledge.knowledge = req.body.knowledge;
+		req.user.local.knowledge.rateKnowledge = req.body.rateKnowledge;
 
 		req.user.save(function(err) {
 			if(err) {

@@ -25,6 +25,33 @@ $(document).ready(function() {
 	});
 	$('.eyda').click(function() {
 		console.log("jebb");
-		$('.jebb').remove();
+		$('.eydaMenntun').remove();
+	});
+	$('#submitJob').click(function() {
+		$('#workedJobs').append('<div class="form-group" class="work">'+
+      '<input class="col-md-3" name="job">'+
+      '<input class="col-md-3" name="jobName">'+
+      '<input class="col-md-1" name="jobPerc">'+
+      '<input type="month" class="col-md-2" name="jobStartDate">'+
+      '<input type="month" class="col-md-2" name="jobEndDate">'+
+      '<input type="button" class="eydaJob" value="Eyða"></div>'+
+    '</div> ')
+	});
+
+	$('.eydaJob').click(function() {
+		console.log("eydaJob");
+		$('.work').remove();
+	});
+
+	$('#submitKnow').click(function() {
+		$('#techknow').append('<div class="form-group" class="knowing">'+
+          '<input class="col-md-4" name="knowledge" >'+ 
+            '<select name="rateKnowledge">'+
+              '<OPTION value" "> </OPTION>'+
+              '<OPTION value ="Grunnreynsla">Grunnreynsla</OPTION>'+
+              '<OPTION value="Meðalreynsla">Meðalreynsla</OPTION>'+
+              '<OPTION value="Sérfræðingur">Sérfræðingur</OPTION>'+
+            '</select>'+
+          '</div> ')
 	});
 });

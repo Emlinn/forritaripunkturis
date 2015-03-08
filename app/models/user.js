@@ -30,7 +30,18 @@ var userSchema = mongoose.Schema({
 		summerJob	: String,
 		partialJob 	: String,
 		assignmentJob : String,
-		startupJob	: String
+		startupJob	: String,
+		job 		: {
+					job 	: String,
+					jobName : String,
+					jobPerc : String,
+					jobStartDate : String,
+					jobEndDate   : String
+					},
+		knowledge	: {
+					knowledge    : String,
+					rateKnowledge: String
+					}
 
 
 	}
