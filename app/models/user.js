@@ -18,7 +18,14 @@ var userSchema = mongoose.Schema({
 		feisbook	: String,
 		skype		: String,
 		telephone	: String,
-		degrees		: String,
+		degrees		: {
+					school	 : String,
+					degree 	 : String,
+					education: String,
+					startDate: String,
+					endDate  : String,
+					statuss	 : String 
+					}, 
 		careerJob	: String,
 		summerJob	: String,
 		partialJob 	: String,

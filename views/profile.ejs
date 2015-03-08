@@ -105,20 +105,49 @@
               <label class="radio-inline"><input type="checkbox" name="startupJob" <%= user.local.startupJob%>>Startup samstarf</label>
             </div>
           </div>
-
-          <div id="degree"> 
-          <div class="form-group">
-            <label class="col-md-3 control-label">Háskólagráða:</label>
-            <select class="selectDegree" name="selectDegree">
-              <option value="Bshug">B.Sc. Hugbúnaðarverkfræði</option>
-              <option value="Bstöl">B.Sc. Tölvunarfræði</option>
-              <option value="Mshug">M.Sc. Hugbúnaðarverkfræði</option>
-              <option value="Mstöl">M.Sc. Tölvunarfræði</option>
-            </select>
-            <input type="submitDegree" class="btn btn-default btn-sm" id="submitDegrees" value="Bæta við">
-          </div>
+            <h3 class="col-md-12">Menntun</h3>
+             <div class="form-group">
+            <label class="col-md-2">Skóli:</label>
+            <label class="col-md-2">Gráða:</label>
+            <label class="col-md-2">Námsgrein:</label>
+            <label class="col-md-2">Dags.frá:</label>
+            <label class="col-md-2">Dags.til:</label>
+            <label class="col-md-1">Staða:</label>
+            </div>
+          <div id="degree">
+            <%  if(user.local.degrees.school != undefined) {
+              var deg = user.local.degrees;
+            var school = deg.school.split(",");
+            var degree = deg.degree.split(",");
+            var education = deg.education.split(",");
+            var startDate = deg.startDate.split(",");
+            var endDate = deg.endDate.split(",");
+            var statuss = deg.statuss.split(",");
+            for(var i=0; i<school.length; i++) {  %>
+            <div class="form-group" class="jebb">
+      <input class="col-md-2" name="school" value=<%=school[i]%>>
+      <select class="col-md-2" name="degree">
+                  <option value=" "> </option>
+                  <option value="Grunnskólapróf" <%if(degree[i]=== "Grunnskólapróf") {%> Selected <%}%>>Grunnskólapróf</option>
+                  <option value="Framhaldsskólapróf" <%if(degree[i]=== "Framhaldsskólapróf") {%> Selected <%}%>>Framhaldsskólapróf</option>
+                  <option value="Háskólanámsgr" <%if(degree[i]=== "Háskólanámsgr") {%> Selected <%}%>>Háskólanám grunnnám</option>
+                  <option value="Háskólanámfr" <%if(degree[i]=== "Háskólanámfr") {%> Selected <%}%>>Háskólanám framhaldsnám</option>
+                  <option value="Háskólanáman" <%if(degree[i]=== "Háskólanáman") {%> Selected <%}%>>Háskólanám annað</option>
+                  <option value="Starfsmenntun" <%if(degree[i]=== "Starfsmenntun") {%> Selected <%}%>>Starfsmenntun</option>
+                  <option value="Annað" <%if(degree[i]=== "Annað") {%> Selected <%}%>>Annað</option>
+                </select>
+                <input class="col-md-2" name="education" value=<%= education[i] %>>
+                <input type="month" class="col-md-2" name="startDate" value=<%=startDate[i]%>>
+                <input type="month" class="col-md-2" name="finishDate" value=<%=endDate[i]%>>
+                <select name = "statuss">
+                <OPTION value=" "> </OPTION>
+                <OPTION value="Lokið" <%if(statuss[i]=== "Lokið") {%> Selected <%}%>>Lokið</OPTION>
+                <OPTION value="Ólokið" <%if(statuss[i]=== "Ólokið") {%> Selected <%}%>>Ólokið</OPTION>
+              </select>
+              <input type="button" id="virk" class="eyda" value="eyda"></div>
+              <% } }%>
         </div>
-
+        <input type="submitDegree" class="btn btn-default btn-sm" id="submitDegrees" value="Bæta við">
           <div class="form-group">
             <label class="col-md-3 control-label">Forritunarreynsla:</label>
             <select>

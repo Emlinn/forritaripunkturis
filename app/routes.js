@@ -96,7 +96,14 @@ module.exports = function(app, passport) {
 		req.user.local.feisbook = req.body.facebook;
 		req.user.local.skype = req.body.skype;
 		req.user.local.telephone = req.body.telephone;
-		req.user.local.degrees = req.body.selectDegree;
+		
+		//Degrees
+		req.user.local.degrees.school = req.body.school;
+		req.user.local.degrees.degree = req.body.degree;
+		req.user.local.degrees.education = req.body.education;
+		req.user.local.degrees.startDate = req.body.startDate;
+		req.user.local.degrees.endDate = req.body.finishDate;
+		req.user.local.degrees.statuss = req.body.statuss;
 		
 		
 
