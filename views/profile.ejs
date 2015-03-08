@@ -54,10 +54,13 @@
           <div class="text-center">
             <img src="//placehold.it/100" class="avatar img-square" alt="avatar">
             <h6>Hlaða inn mynd</h6>
-
-            <input type="file" class="form-control">
+            <form method="post" enctype="multipart/form-data" action="/file-upload">
+              <input type="file" name="thumbnail" >
+              <input type="submit">
+            </form>
           </div>
         </div>
+
 
         <div class="container">
          <div class="col-md-9 personal-info">
@@ -85,7 +88,6 @@
                <input class="form-control" type="date" name="dateBirth" value=<%= user.local.birthday %>>
              </div>
            </div>
-
            <div class="form-group">
             <label class="col-md-2 control-label">Kyn:</label>
             <div class="col-md-6">

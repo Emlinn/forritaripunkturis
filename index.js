@@ -10,8 +10,8 @@ var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var multipart = require('multer')
 
-var mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/db_name', function(err) {
 	if(err){
@@ -22,19 +22,7 @@ mongoose.connect('mongodb://localhost/db_name', function(err) {
 }); // Tengist gagnagrunni.
 
 
-// app/models/profileinfo.js
 
-var mongoose = require('mongoose');
-
-
-// Database Schema fyrir profileinfo models
-var profileinfoSchema = mongoose.Schema({
-
-		email		: String,
-		name		: String
-		
-
-});
 /*
 // Býr til model fyrir profileinfo
 var Profilemodel = mongoose.model('Profileinfo', profileinfoSchema);
@@ -84,7 +72,7 @@ exports.index = function ( req, res ){
 */
 var mamma = '22';
 require('./config/passport')(passport);
-
+app.use(multipart());
 app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(bodyParser());

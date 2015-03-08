@@ -41,6 +41,17 @@ var userSchema = mongoose.Schema({
 		knowledge	: {
 					knowledge    : String,
 					rateKnowledge: String
+					},
+		userPhoto	: String,
+		thumpnail	: {
+					fieldname	: String,
+					originalname: String,
+					encoding	: String,
+					mimetype	: String,
+					extension	: String,
+					size		: String,
+					truncated	: String,
+					buffer		: String 
 					}
 
 
