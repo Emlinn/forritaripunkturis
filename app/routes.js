@@ -135,7 +135,8 @@ module.exports = function(app, passport) {
 
 	app.get('/about', function(req, res){
   		res.render('about', {
-    		title: 'About'
+    		title: 'About',
+    		user: req.user
   		});
 	});
 
@@ -146,7 +147,8 @@ module.exports = function(app, passport) {
 		Test.find({_id: id}, {'local.firstname': 1, 'local.birthday': 1, _id: 1}, function(err, show){
 			if(err) return console.log(err);
 			res.render('users', {
-				usersprofile: show
+				usersprofile: show,
+				user: req.user
 			});
 		});
 	});
