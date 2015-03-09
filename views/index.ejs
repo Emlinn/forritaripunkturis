@@ -137,48 +137,6 @@
     <div class="container marketing">
       <!-- Three columns of text below the carousel -->
       <div class="row">
-        <div class="col-lg-4">
-          <img class="img-circle" src="/images/profile.jpg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
-          <h2>Emil Ragnarsson</h2>
-          <ul>
-            <li>BSc í Hugbúnaðarverkfræði við Háskóla Íslands
-            <li>Javascript : Góður
-            <li>C++ : Góður
-          </ul>
-          <p><a class="btn btn-default" href="#" role="button">Skoða nánar &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle" src="/images/profile3.jpg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
-          <h2>Sindri Snær Rúnarsson</h2>
-          <ul>
-            <li>BSc í Hugbúnaðarverkfræði við Háskóla Íslands
-            <li>Javascript : Legendary
-            <li>C++ : Góður
-          </ul>
-          <p><a class="btn btn-default" href="#" role="button">Skoða nánar &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle" src="/images/profile4.jpg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
-          <h2>Sigurbjörn Jónsson</h2>
-          <ul>
-            <li>BSc í Hugbúnaðarverkfræði við Háskóla Íslands
-            <li>Javascript : Góður
-            <li>C++ : Godlike
-          </ul>
-          <p><a class="btn btn-default" href="#" role="button">Skoða nánar &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-       <!-- <div class="row">
-        <div class="col-lg-4">
-          <img class="img-circle" src="/images/profile5.jpg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
-          <h2>Priyaphon Kaengjaroenkasikorn</h2>
-          <ul>
-            <li>BSc í Hugbúnaðarverkfræði við Háskóla Íslands
-            <li>Javascript : Legendary
-            <li>C++ : Legendary
-          </ul>
-          <p><a class="btn btn-default" href="#" role="button">Skoða nánar &raquo;</a></p>
-        </div>
-      --><!-- /.col-lg-4 -->
         <% usersprofile.forEach( function( info ){ %>
         <div class="col-lg-4">
           <img  <%if(info.local.userPhoto) {%>src=<%=info.local.userPhoto%> class="img-circle" alt="Generic placeholder image" style="width: 140px; height: 140px;"<%}
@@ -196,7 +154,7 @@
       </div>
         <% }); %>
       </div><!-- /.row -->
-      
+     </div> 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

@@ -92,7 +92,7 @@ module.exports = function(app, passport) {
 			req.user.local.startupJob = "";	
 		}
 
-		if(req.files.thumbnail.name === undefined){
+		if(req.files.thumbnail){
 			req.user.local.userPhoto = "/images/"+req.user._id;
 			// get the temporary location of the file
     		var tmp_path = req.files.thumbnail.path;
