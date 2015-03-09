@@ -10,7 +10,8 @@ module.exports = function(app, passport) {
 		Test.find({}, {'local.firstname': 1, 'local.lastname': 1, 'local.birthday': 1, 'local.degrees':1, 'local.textColumn':1, 'local.careerJob': 1, _id: 1, 'local.userPhoto': 1, 'local.men': 1}, function(err, show){
 			if(err) return console.log(err);
 			res.render('index', {
-				usersprofile: show
+				usersprofile: show,
+				user: req.user
 			});
 		});
 	});
