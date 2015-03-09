@@ -97,7 +97,22 @@ module.exports = function(app, passport) {
 		req.user.local.skype = req.body.skype;
 		req.user.local.telephone = req.body.telephone;
 		req.user.local.degrees = req.body.selectDegree;
+			
+		console.log(req.files.thumbnail);
 		
+		req.user.local.userPhoto = "/images/"+req.files.thumbnail.name;
+		// get the temporary location of the file
+    	var tmp_path = req.files.thumbnail.path;
+    	// set where the file should actually exists - in this case it is in the "images" directory
+    	var target_path = './public/images/' + req.files.thumbnail.name;
+    	// move the file from the temporary location to the intended location
+    	fs.rename(tmp_path, target_path, function(err) {
+        	if (err) throw err;
+        	// delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
+        	fs.unlink(tmp_path, function() {
+        	if (err) throw err;
+        	});
+    	});
 		
 
 		req.user.save(function(err) {
@@ -124,23 +139,6 @@ module.exports = function(app, passport) {
   		});
 	});
 
-
-
-	app.post('/file-upload', function(req, res) {
-    	// get the temporary location of the file
-    	var tmp_path = req.files.thumbnail.path;
-    	// set where the file should actually exists - in this case it is in the "images" directory
-    	var target_path = './public/images/' + req.files.thumbnail.name;
-    	// move the file from the temporary location to the intended location
-    	fs.rename(tmp_path, target_path, function(err) {
-        	if (err) throw err;
-        	// delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
-        	fs.unlink(tmp_path, function() {
-        	if (err) throw err;
-            	res.send('File uploaded to: ' + target_path + ' - ' + req.files.thumbnail.size + ' bytes');
-        	});
-    	});
-	});
 
 	// Users
 	app.get('/:id?', function(req, res) {

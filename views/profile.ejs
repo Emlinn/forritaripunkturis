@@ -47,17 +47,15 @@
 
       <h1>Stillingar</h1>
       <hr>
-
       <div class="row">
         <!-- left column -->
         <div class="col-md-3">
           <div class="text-center">
-            <img src="//placehold.it/100" class="avatar img-square" alt="avatar">
+            <img <%if(user.local.userPhoto) {%>src=<%=user.local.userPhoto%> class="img-circle" alt="Generic placeholder image" style="width: 140px; height: 140px;"<%}else{%> src="//placehold.it/100" class=" avatar img-circle" alt="avatar"<% }%>>
             <h6>Hlaða inn mynd</h6>
-            <form method="post" enctype="multipart/form-data" action="/file-upload">
+            <form method="post" enctype="multipart/form-data" action="/profile" class="form-horizontal">
               <input type="file" name="thumbnail" >
-              <input type="submit">
-            </form>
+ 
           </div>
         </div>
 
@@ -65,8 +63,6 @@
         <div class="container">
          <div class="col-md-9 personal-info">
           <h3 >Síðan mín</h3>
-
-          <form class="form-horizontal" role="form" method="post" action="/profile">
 
             <div class="form-group">
               <label class="col-md-2 control-label" type:"text"> Fornafn:</label>
