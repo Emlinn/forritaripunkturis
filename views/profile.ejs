@@ -1,37 +1,37 @@
 <!doctype html>
   <html>
-  <head>
-    <title>Profile</title>
-    <link rel="icon" type="image/ico" href="http://www.mysite.com/favicon.ico"/>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-    <link href="/stylesheets/hover.css" rel="stylesheet">
-    <link href="/stylesheets/style.css" rel="stylesheet">
-  </head>
-  <body>
+    <head>
+      <title>Profile</title>
+      <link rel="icon" type="image/ico" href="http://www.mysite.com/favicon.ico"/>
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+      <link href="/stylesheets/hover.css" rel="stylesheet">
+      <link href="/stylesheets/style.css" rel="stylesheet">
+    </head>
+    <body>
 
     <!-- NAVBAR -->
       <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">Forritari.is</a>
-        </div><!--/.navbar-header -->
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="/" class="hvr-underline-from-left">Heim</a></li>
-            <li><a href="/about" class="hvr-underline-from-left">Um okkur</a></li>
-              <% if(user){ %>
-                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= user.local.firstname + " " + user.local.lastname %><b class="caret"></b></a>
-              <ul class="dropdown-menu">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Forritari.is</a>
+          </div><!--/.navbar-header -->
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/" class="hvr-underline-from-left">Heim</a></li>
+              <li><a href="/about" class="hvr-underline-from-left">Um okkur</a></li>
+                <% if(user){ %>
+                  <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= user.local.firstname + " " + user.local.lastname %><b class="caret"></b></a>
+                <ul class="dropdown-menu">
                 <li class="active"><a href="/profile" class="hvr-underline-from-left">Stillingar</a></li>
                 <li><a href="/logout" class="hvr-underline-from-left">Útskráning</a></li>
-            </li>
+                </li>
                <% } else{ %>  
                  <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Skrá inn<b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -44,7 +44,7 @@
       </nav>
 
     <div class="container marketing">
-
+<form method="post" enctype="multipart/form-data" action="/profile" class="form-horizontal">
       <h1>Stillingar</h1>
       <hr>
       <div class="row">
@@ -53,7 +53,6 @@
           <div class="text-center">
             <img <%if(user.local.userPhoto) {%>src=<%=user.local.userPhoto%> class="img-circle" alt="Generic placeholder image" style="width: 140px; height: 140px;"<%}else{%> src="//placehold.it/100" class=" avatar img-circle" alt="avatar"<% }%>>
             <h6>Hlaða inn mynd</h6>
-            <form method="post" enctype="multipart/form-data" action="/profile" class="form-horizontal">
               <input type="file" name="thumbnail" >
  
           </div>
@@ -113,7 +112,7 @@
             <label class="col-md-1">Staða:</label>
             </div>
           <div id="degree">
-            <%  if(user.local.degrees.school != undefined) {
+            <%  if(typeof user.local.degrees.school != 'undefined') {
               var deg = user.local.degrees;
             var school = deg.school.split(",");
             var degree = deg.degree.split(",");
@@ -156,7 +155,7 @@
             <label class="col-md-2">Dags.til:</label>
             </div>
             <div id="workedJobs">
-            <%  if(user.local.job.job != undefined) {
+            <%  if(typeof user.local.job.job != 'undefined') {
               var jobs = user.local.job;
             var job = jobs.job.split(",");
             var jobName = jobs.jobName.split(",");
@@ -182,7 +181,7 @@
             <label class="col-md-3">Reynsla:</label>
             </div>
             <div id="techknow">
-               <%  if(user.local.knowledge.knowledge != undefined) {
+               <%  if(typeof user.local.knowledge.knowledge != 'undefined') {
                var know = user.local.knowledge;
                var knowledges = know.knowledge.split(",");
                var rateKnowledge = know.rateKnowledge.split(","); 
@@ -193,7 +192,7 @@
               <OPTION value=" "> </OPTION>
               <OPTION value ="Grunnreynsla"<%if(rateKnowledge[i]=== "Grunnreynsla"){ %> Selected <% } %>>Grunnreynsla</OPTION>
               <OPTION value="Meðalreynsla" <%if(rateKnowledge[i]=== "Meðalreynsla"){ %> Selected <% } %>>Meðalreynsla</OPTION>
-              <OPTION value="Sérfræðingur" <%if(rateKnowledge[i]=== "Sérfræðingur"){ %> Selected <% } %>Sérfræðingur</OPTION>
+              <OPTION value="Sérfræðingur" <%if(rateKnowledge[i]=== "Sérfræðingur"){ %> Selected <% } %>>Sérfræðingur</OPTION>
             </select>
           </div>
           <% } } %>
@@ -264,11 +263,12 @@
         </div>
 
       </div> --> 
-    </form>
+  
   </div>
 
 </div>
 </div>
+  </form>
 </hr>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

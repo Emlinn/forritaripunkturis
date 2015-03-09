@@ -7,7 +7,7 @@ module.exports = function(app, passport) {
 
 	// Front-Page
 	app.get('/', function(req, res) {
-		Test.find({}, {'local.firstname': 1, 'local.lastname': 1, 'local.birthday': 1, 'local.degrees':1, 'local.textColumn':1, 'local.careerJob': 1, _id: 1, 'local.userPhoto': 1, 'local.men': 1}, function(err, show){
+		Test.find({}, {'local.firstname': 1, 'local.lastname': 1, 'local.birthday': 1, 'local.degrees':1, 'local.textColumn':1, 'local.careerJob': 1, _id: 1, 'local.userPhoto': 1, 'local.men': 1, 'local.knowledge': 1}, function(err, show){
 			if(err) return console.log(err);
 			res.render('index', {
 				usersprofile: show,
@@ -49,7 +49,6 @@ module.exports = function(app, passport) {
 		//console.log(req.body.fullName);
 		console.log(req.body);
 		console.log(req.body.men);
-		console.log(req.user._id);
 		console.log(req.body.comments);
 		//Test.save({_id:req.user._id, fullname:req.body.fullName},{w:1});
 		req.user.local.firstname = req.body.firstName;
@@ -92,28 +91,48 @@ module.exports = function(app, passport) {
 		else {
 			req.user.local.startupJob = "";	
 		}
+
+		if(req.files.thumbnail.name === undefined){
+			req.user.local.userPhoto = "/images/"+req.user._id;
+			// get the temporary location of the file
+    		var tmp_path = req.files.thumbnail.path;
+    		// set where the file should actually exists - in this case it is in the "images" directory
+    		var target_path = './public/images/' + req.user._id;
+    		// move the file from the temporary location to the intended location
+    		fs.rename(tmp_path, target_path, function(err) {
+        		if (err) throw err;
+        		// delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
+        		fs.unlink(tmp_path, function() {
+        		if (err) throw err;
+        		});
+    		});
+		}
 		req.user.local.textColumn = req.body.textColumn;
 		req.user.local.website = req.body.website;
 		req.user.local.feisbook = req.body.facebook;
 		req.user.local.skype = req.body.skype;
 		req.user.local.telephone = req.body.telephone;
-		req.user.local.degrees = req.body.selectDegree;
-			
-		console.log(req.files.thumbnail);
+
+		//Degrees 
+		req.user.local.degrees.school = req.body.school; 
+		req.user.local.degrees.degree = req.body.degree; 
+		req.user.local.degrees.education = req.body.education; 
+		req.user.local.degrees.startDate = req.body.startDate; 
+		req.user.local.degrees.endDate = req.body.finishDate; 
+		req.user.local.degrees.statuss = req.body.statuss; 
+		//Jobs 
+		req.user.local.job.job = req.body.job;
+		req.user.local.job.jobName = req.body.jobName;
+		req.user.local.job.jobPerc = req.body.jobPerc;
+		req.user.local.job.jobStartDate = req.body.jobStartDate; 
+		req.user.local.job.jobEndDate = req.body.jobEndDate; 
+		//Knowledge 
+		req.user.local.knowledge.knowledge = req.body.knowledge; 
+		req.user.local.knowledge.rateKnowledge = req.body.rateKnowledge;
+
+
 		
-		req.user.local.userPhoto = "/images/"+req.user._id;
-		// get the temporary location of the file
-    	var tmp_path = req.files.thumbnail.path;
-    	// set where the file should actually exists - in this case it is in the "images" directory
-    	var target_path = './public/images/' + req.user._id;
-    	// move the file from the temporary location to the intended location
-    	fs.rename(tmp_path, target_path, function(err) {
-        	if (err) throw err;
-        	// delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
-        	fs.unlink(tmp_path, function() {
-        	if (err) throw err;
-        	});
-    	});
+
 		
 
 		req.user.save(function(err) {
