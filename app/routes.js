@@ -7,7 +7,7 @@ module.exports = function(app, passport) {
 
 	// Front-Page
 	app.get('/', function(req, res) {
-		Test.find({}, {'local.firstname': 1, 'local.lastname': 1, 'local.birthday': 1, 'local.degrees':1, 'local.textColumn':1, 'local.careerJob': 1, _id: 1}, function(err, show){
+		Test.find({}, {'local.firstname': 1, 'local.lastname': 1, 'local.birthday': 1, 'local.degrees':1, 'local.textColumn':1, 'local.careerJob': 1, _id: 1, 'local.userPhoto': 1, 'local.men': 1}, function(err, show){
 			if(err) return console.log(err);
 			res.render('index', {
 				usersprofile: show
@@ -100,11 +100,11 @@ module.exports = function(app, passport) {
 			
 		console.log(req.files.thumbnail);
 		
-		req.user.local.userPhoto = "/images/"+req.files.thumbnail.name;
+		req.user.local.userPhoto = "/images/"+req.user._id;
 		// get the temporary location of the file
     	var tmp_path = req.files.thumbnail.path;
     	// set where the file should actually exists - in this case it is in the "images" directory
-    	var target_path = './public/images/' + req.files.thumbnail.name;
+    	var target_path = './public/images/' + req.user._id;
     	// move the file from the temporary location to the intended location
     	fs.rename(tmp_path, target_path, function(err) {
         	if (err) throw err;
