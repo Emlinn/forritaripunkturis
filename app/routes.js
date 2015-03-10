@@ -131,7 +131,7 @@ module.exports = function(app, passport) {
 		req.user.local.knowledge.knowledge = req.body.knowledge; 
 		req.user.local.knowledge.rateKnowledge = req.body.rateKnowledge;
 
-		
+
 		if(req.files.projects) {
 			for(var i=0; i<req.files.projects.length;i++) {
 				if(i===0) {
@@ -194,7 +194,7 @@ module.exports = function(app, passport) {
 	// Users
 	app.get('/:id?', function(req, res) {
 		var id = req.params.id;
-		Test.find({_id: id}, {'local.firstname': 1, 'local.birthday': 1, _id: 1, 'local.textColumn': 1}, function(err, show){
+		Test.find({_id: id}, {'local.firstname': 1, 'local.lastname': 1, 'local.birthday': 1, 'local.degrees':1, 'local.textColumn':1, 'local.careerJob': 1, _id: 1, 'local.userPhoto': 1, 'local.men': 1, 'local.knowledge': 1}, function(err, show){
 			if(err) return console.log(err);
 			res.render('users', {
 				usersprofile: show,
