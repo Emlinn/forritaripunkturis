@@ -86,11 +86,8 @@
                           if(info.local.men=="checked"){%> src="/images/unknown-man.jpeg" class=" avatar img-circle" alt="avatar" style="width: 140px; height: 140px;"<%}
                           else{%> src="/images/unknown-woman.png" class=" avatar img-circle" alt="avatar" style="width: 140px; height: 140px;"<%}
                         }%>>
-<br><br>
-
-
-
-                      <p><%= info.local.firstname %></p>
+                      <br><br>
+                      <p> <b><%= info.local.firstname %></b></p>
                       <p><%= info.local.birthday %></p>
 
 
@@ -99,7 +96,7 @@
                     <div class="umMig">
 
                       <div class="col-xs-12 col-sm-6 col-md-8 col-center">
-                       <p><%= info.local.textColumn %></p>
+                       <p class="text"><%= info.local.textColumn %></p>
 
                      </div>
 
@@ -120,16 +117,16 @@
 
 
                               <div class="col-md-4">
-                                <a class="thumbnail" href="http://max.dreamtemplate.com/product/images/6/5928/20090824102151_1.jpg" data-lightbox="project-image" data-title="I built a Website called Printlab for Blabla Company"  ><img alt="" src=<%=info.local.projects.pic0%>></a>
+                                <a class="thumbnail" href="<%=info.local.projects.pic0%>" data-lightbox="project-image" data-title=""  ><img alt="" src=<%=info.local.projects.pic0%>></a>
                               </div>
                               
 
                               <div class="col-md-4">
-                                <a class="thumbnail" href="http://www.gameworldco.com/wp-content/uploads/2015/01/ball-game.jpg" data-lightbox="project-image" ><img  alt="" src=<%=info.local.projects.pic1%>></a>
+                                <a class="thumbnail" href="<%=info.local.projects.pic1%>" data-lightbox="project-image" ><img  alt="" src=<%=info.local.projects.pic1%>></a>
                               </div>
 
                               <div class="col-md-4">
-                                <a class="thumbnail" href="http://screenshots.s32cdn.com/23/228835/solitaire.png" data-lightbox="project-image" ><img alt="" src=<%=info.local.projects.pic2%>></a>
+                                <a class="thumbnail" href="<%=info.local.projects.pic2%>" data-lightbox="project-image" ><img alt="" src=<%=info.local.projects.pic2%>></a>
                               </div>        
                             </div>
 
