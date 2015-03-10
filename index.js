@@ -22,55 +22,6 @@ mongoose.connect('mongodb://localhost/db_name', function(err) {
 }); // Tengist gagnagrunni.
 
 
-
-/*
-// Býr til model fyrir profileinfo
-var Profilemodel = mongoose.model('Profileinfo', profileinfoSchema);
-
-var johndoe = new Profilemodel ({
-	email: 'johndoe@email.com',
-	name: 'John Doe'
-});
-
-//johndoe.save(function (err) {if (err) console.log('Error on save')});
-
-Profilemodel.find({}, {email: 1, _id: 0}, function(err, todos){
-	if(err) return console.log(err);
-	console.log(todos);
-});
-
-
-export.index = function(req, res) {
-	Profilemodel.find(function (err, profile, count) {
-		res.render('index', {
-			profileinfos: profileinfos
-		});
-	});
-}
-*/
-/*
-var userSchema = mongoose.Schema({
-	local			: {
-		email		: String,
-		password	: String,
-	}
-});
-module.exports = mongoose.model('User', userSchema);
-
-var Schema   = mongoose.Schema;
-var persons = new Schema({
-    users    : String
-});
-
-exports.index = function ( req, res ){
-  persons.find( function ( err, todos, count ){
-    res.render( 'index', {
-      title : 'Express Todo Example'
-    });
-  });
-};
-*/
-var mamma = '22';
 require('./config/passport')(passport);
 app.use(multipart());
 app.use(morgan('dev'));

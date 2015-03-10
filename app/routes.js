@@ -159,6 +159,19 @@ module.exports = function(app, passport) {
 		        		if (err) throw err;
 		        		});
 		    		});	
+				}
+				else if(i===2) {
+					req.user.local.projects.pic2 = "/images/"+req.files.projects[i].name;
+					var tmp_path = req.files.projects[i].path;
+					var target_path = './public/images/'+req.files.projects[i].name;
+					// move the file from the temporary location to the intended location
+		    		fs.rename(tmp_path, target_path, function(err) {
+		        		if (err) throw err;
+		        		// delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
+		        		fs.unlink(tmp_path, function() {
+		        		if (err) throw err;
+		        		});
+		    		});	
 				}		
 			}
 		}
@@ -194,7 +207,7 @@ module.exports = function(app, passport) {
 	// Users
 	app.get('/:id?', function(req, res) {
 		var id = req.params.id;
-		Test.find({_id: id}, {'local.firstname': 1, 'local.lastname': 1, 'local.birthday': 1, 'local.degrees':1, 'local.textColumn':1, 'local.careerJob': 1, _id: 1, 'local.userPhoto': 1, 'local.men': 1, 'local.knowledge': 1}, function(err, show){
+		Test.find({_id: id}, {'local.firstname': 1, 'local.lastname': 1, 'local.birthday': 1, 'local.degrees':1, 'local.textColumn':1, 'local.careerJob': 1, _id: 1, 'local.userPhoto': 1, 'local.men': 1, 'local.knowledge': 1, 'local.projects': 1}, function(err, show){
 			if(err) return console.log(err);
 			res.render('users', {
 				usersprofile: show,

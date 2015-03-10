@@ -77,12 +77,19 @@
                 <section class="detailpartur">
                   <div class="row">
 
-                    <div class="col-xs-6 col-md-2">
-                      <img class="img-circle col-md-8" src="http://www.fm-base.co.uk/forum/attachments/football-manager-2012-stories/216066d1326419781-forever-blowing-bubbles-unknown.gif" alt="Generic placeholder image" style="width: 140px; height: 140px;"><br><br>
-
 
                       <%= usersprofile.local %>
                       <% usersprofile.forEach( function( info ){ %>
+                    <div class="col-xs-6 col-md-2">
+                      <img <%if(info.local.userPhoto) {%>src=<%=info.local.userPhoto%> class="img-circle" alt="Generic placeholder image" style="width: 140px; height: 140px;"<%}
+                        else{ 
+                          if(info.local.men=="checked"){%> src="/images/unknown-man.jpeg" class=" avatar img-circle" alt="avatar" style="width: 140px; height: 140px;"<%}
+                          else{%> src="/images/unknown-woman.png" class=" avatar img-circle" alt="avatar" style="width: 140px; height: 140px;"<%}
+                        }%>>
+<br><br>
+
+
+
                       <p><%= info.local.firstname %></p>
                       <p><%= info.local.birthday %></p>
 
@@ -113,16 +120,16 @@
 
 
                               <div class="col-md-4">
-                                <a class="thumbnail" href="http://max.dreamtemplate.com/product/images/6/5928/20090824102151_1.jpg" data-lightbox="project-image" data-title="I built a Website called Printlab for Blabla Company"  ><img alt="" src="http://max.dreamtemplate.com/product/images/6/5928/20090824102151_1.jpg"></a>
+                                <a class="thumbnail" href="http://max.dreamtemplate.com/product/images/6/5928/20090824102151_1.jpg" data-lightbox="project-image" data-title="I built a Website called Printlab for Blabla Company"  ><img alt="" src=<%=info.local.projects.pic0%>></a>
                               </div>
                               
 
                               <div class="col-md-4">
-                                <a class="thumbnail" href="http://www.gameworldco.com/wp-content/uploads/2015/01/ball-game.jpg" data-lightbox="project-image" data-title="Bubble Game 2013  "><img  alt="" src="http://www.gameworldco.com/wp-content/uploads/2015/01/ball-game.jpg"></a>
+                                <a class="thumbnail" href="http://www.gameworldco.com/wp-content/uploads/2015/01/ball-game.jpg" data-lightbox="project-image" ><img  alt="" src=<%=info.local.projects.pic1%>></a>
                               </div>
 
                               <div class="col-md-4">
-                                <a class="thumbnail" href="http://screenshots.s32cdn.com/23/228835/solitaire.png" data-lightbox="project-image" data-title=" Solutaire(2014) "><img alt="" src="http://screenshots.s32cdn.com/23/228835/solitaire.png"></a>
+                                <a class="thumbnail" href="http://screenshots.s32cdn.com/23/228835/solitaire.png" data-lightbox="project-image" ><img alt="" src=<%=info.local.projects.pic2%>></a>
                               </div>        
                             </div>
 
