@@ -1,0 +1,71 @@
+.users {
+    margin-top: 50px;
+    text-align: center;
+
+    border: 2px solid #a1a1a1;
+    padding: 10px 40px; 
+    background: #FFFFFF;
+    width: 1200px;
+    border-radius: 25px;
+}
+
+.imagescontainer
+{
+   padding:7px 0px 7px 0px;
+}
+
+.detailpartur{
+    margin-bottom: 50px;
+}
+.umMig{
+
+margin: 170px 0 30px 0;
+
+}
+.background {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-image: url(http://www.freepsdfile.com/wp-content/uploads/2011/07/Digital-Black-Background-PSD.jpg);
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+  }
+
+.single-image
+{
+  width:7rem;
+  -webkit-border-radius:5px;
+  -moz-border-radius:5px;
+  -ms-border-radius:5px;
+  -o-border-radius:5px;
+  border-radius:5px
+}
+
+.image-link
+{
+  display:inline-block;padding:4px;
+  margin:0 0.5rem 1rem 0.5rem;
+  background-color:#fff;
+  line-height:0;
+  -webkit-border-radius:6px;
+  -moz-border-radius:6px;
+  -ms-border-radius:6px;
+  -o-border-radius:6px;
+  border-radius:6px;
+  -webkit-transition:background-color 0.5s ease-out;
+  -moz-transition:background-color 0.5s ease-out;
+  -o-transition:background-color 0.5s ease-out;
+  transition:background-color 0.5s ease-out
+}
+.image-set
+{
+  width: 700px;
+  display:inline-block;
+}
+
+
+
+

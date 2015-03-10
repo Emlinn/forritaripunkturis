@@ -3,6 +3,12 @@
 }
 
 
+.users {
+    margin-top: 20px;
+    text-align: center;
+}
+
+
 .item{
     background: #333;    
     text-align: center;
