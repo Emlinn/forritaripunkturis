@@ -52,7 +52,13 @@ var userSchema = mongoose.Schema({
 					size		: String,
 					truncated	: String,
 					buffer		: String 
-					}
+					},
+		projects	: {
+					pic0 : String,
+					pic1 : String,
+					pic2 : String,
+					pic3 : String
+		}
 
 
 	}

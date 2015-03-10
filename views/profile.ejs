@@ -199,6 +199,8 @@
         </div>
         <input type="submitDegree" class="btn btn-default btn-sm" id="submitKnow" value="Bæta við">
 
+          <p></p>
+
           <div class="form-group">
             <label class="col-md-2 control-label">Um mig:</label>
             <div class="col-md-6">
@@ -235,6 +237,13 @@
             </div>
           </div>
 
+      <h3 class="col-md-12">Myndir af gömlum verkefnum</h3>
+          <div class="form-group">
+            <input type="file" name="projects">
+            <input type="file" name="projects">
+          </div>
+
+
 
           <div class="form-group">
             <label class="col-md-3 control-label"></label>
@@ -244,6 +253,7 @@
               <input type="reset" class="btn btn-default" value="Hætta við">
             </div>
           </div>
+
 
 
       <!-- <div class="row">
@@ -274,5 +284,14 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="/javascript/bootstrap.min.js"></script>
     <script src="/javascript/profileFrontend.js"></script>
+    <script src="//cdn.jsdelivr.net/webshim/1.14.5/polyfiller.js"></script>
+<script>
+    webshims.setOptions('forms-ext', {types: 'date'});
+webshims.polyfill('forms forms-ext');
+</script>
+<script>
+    webshims.setOptions('forms-ext', {types: 'month'});
+webshims.polyfill('forms forms-ext');
+</script>
 </body>
 </html>

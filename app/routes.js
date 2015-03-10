@@ -130,7 +130,36 @@ module.exports = function(app, passport) {
 		req.user.local.knowledge.knowledge = req.body.knowledge; 
 		req.user.local.knowledge.rateKnowledge = req.body.rateKnowledge;
 
-
+		if(req.files.projects) {
+			for(var i=0; i<req.files.projects.length;i++) {
+				if(i===0) {
+					console.log(req.files.projects);
+					req.user.local.projects.pic0 = "/images/"+req.files.projects[i].name;
+					var tmp_path = req.files.projects[i].path;
+					var target_path = './public/images/'+req.files.projects[i].name;
+					// move the file from the temporary location to the intended location
+		    		fs.rename(tmp_path, target_path, function(err) {
+		        		if (err) throw err;
+		        		// delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
+		        		fs.unlink(tmp_path, function() {
+		        		if (err) throw err;
+		        		});
+		    		});	
+				}else if(i===1) {
+					req.user.local.projects.pic1 = "/images/"+req.files.projects[i].name+i;
+					var tmp_path = req.files.projects[i].path;
+					var target_path = './public/images/'+req.files.projects[i].name;
+					// move the file from the temporary location to the intended location
+		    		fs.rename(tmp_path, target_path, function(err) {
+		        		if (err) throw err;
+		        		// delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
+		        		fs.unlink(tmp_path, function() {
+		        		if (err) throw err;
+		        		});
+		    		});	
+				}		
+			}
+		}
 		
 
 		
