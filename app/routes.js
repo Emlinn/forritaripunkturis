@@ -7,7 +7,7 @@ module.exports = function(app, passport) {
 
 	// Front-Page
 	app.get('/', function(req, res) {
-		Test.find({}, {'local.firstname': 1, 'local.lastname': 1, 'local.birthday': 1, 'local.degrees':1, 'local.textColumn':1, 'local.careerJob': 1, _id: 1, 'local.userPhoto': 1, 'local.men': 1, 'local.knowledge': 1}, function(err, show){
+		Test.find({}, {'local.firstname': 1, 'local.lastname': 1, 'local.birthday': 1, 'local.degrees':1, 'local.headline':1,  'local.textColumn':1, 'local.careerJob': 1, _id: 1, 'local.userPhoto': 1, 'local.men': 1, 'local.knowledge': 1}, function(err, show){
 			if(err) return console.log(err);
 			res.render('index', {
 				usersprofile: show,
@@ -207,7 +207,7 @@ module.exports = function(app, passport) {
 	// Users
 	app.get('/:id?', function(req, res) {
 		var id = req.params.id;
-		Test.find({_id: id}, {'local.firstname': 1, 'local.lastname': 1, 'local.birthday': 1, 'local.degrees':1, 'local.textColumn':1, 'local.careerJob': 1, _id: 1, 'local.userPhoto': 1, 'local.men': 1, 'local.knowledge': 1, 'local.projects': 1}, function(err, show){
+		Test.find({_id: id}, {'local.firstname': 1, 'local.lastname': 1, 'local.birthday': 1, 'local.degrees':1,'local.headline':1, 'local.textColumn':1, 'local.careerJob': 1, _id: 1, 'local.userPhoto': 1, 'local.men': 1, 'local.knowledge': 1, 'local.projects': 1}, function(err, show){
 			if(err) return console.log(err);
 			res.render('users', {
 				usersprofile: show,

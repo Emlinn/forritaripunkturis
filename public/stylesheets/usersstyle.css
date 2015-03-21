@@ -5,8 +5,11 @@
     border: 2px solid #a1a1a1;
     padding: 10px 40px; 
     background: #FFFFFF;
-    width: 1200px;
     border-radius: 25px;
+}
+.row-contaioner
+{
+margin: 20px 0 10px 0;
 }
 
 .imagescontainer
@@ -17,12 +20,8 @@
 .detailpartur{
     margin-bottom: 50px;
 }
-.umMig{
 
-margin: 170px 0 30px 0;
-
-}
-.background {
+/*.background {
     position: fixed;
     top: 0px;
     left: 0px;
@@ -32,11 +31,39 @@ margin: 170px 0 30px 0;
       background-position: center center;
       background-repeat: no-repeat;
       background-size: cover;
-  }
-p.text{
+  }*/
+/*p.text-muted{
 
 
 text-align: left;
+}*/
+hr.line-color
+{
+  border-width: 3px;
+border-color:rgba(48, 127, 173, 1);
+margin-top: 1px;
+margin-bottom: 1px;
 }
+p.text-left.infostyle.text-info{
+  
+  margin-bottom: 2px;
+}
+p.contact-me-info
+{
+  text-align: left;
+  margin-bottom: 2px;
+}
+hr.line-between-contact-me
+{
+  margin-top: 1px;
+margin-bottom: 1px;
+}
+p.contact-me-text
+{
+  text-align: left;
+  margin-bottom: 1px;
+}
+
+
 
 

@@ -15,6 +15,7 @@
   <link href="/stylesheets/style.css" rel="stylesheet">
   <link href="/stylesheets/lightbox.css" rel="stylesheet" >
   <link href="/stylesheets/usersstyle.css" rel="stylesheet" >
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
 
 
@@ -61,9 +62,9 @@
                   <li><a href="/signup" class="hvr-underline-from-left">Nýr notandi</a></li>
                 </li>
                 <% } %>
-              </div><!--/.navbar-collapse -->
-            </div><!--/.container-fluid -->
-          </nav>
+          </div><!--/.navbar-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
 
 
 
@@ -73,114 +74,167 @@
             <div class="row">
 
 
-              <div class="users col-lg-12"> 
+              <div class="users col-xs-12"> 
                 <section class="detailpartur">
                   <div class="row">
 
 
-                      <%= usersprofile.local %>
-                      <% usersprofile.forEach( function( info ){ %>
-                    <div class="col-xs-6 col-md-2">
-                      <img <%if(info.local.userPhoto) {%>src=<%=info.local.userPhoto%> class="img-circle" alt="Generic placeholder image" style="width: 140px; height: 140px;"<%}
+                    <%= usersprofile.local %>
+                    <% usersprofile.forEach( function( info ){ %>
+
+                    <div class="col-xs-8">
+
+                      <div class="row">
+                      <div class="col-xs-6 col-sm-4 ">
+                        <img <%if(info.local.userPhoto) {%>src=<%=info.local.userPhoto%> class="img-circle" alt="Generic placeholder image" style="width: 140px; height: 140px;"<%}
                         else{ 
                           if(info.local.men=="checked"){%> src="/images/unknown-man.jpeg" class=" avatar img-circle" alt="avatar" style="width: 140px; height: 140px;"<%}
                           else{%> src="/images/unknown-woman.png" class=" avatar img-circle" alt="avatar" style="width: 140px; height: 140px;"<%}
-                        }%>>
-                      <br><br>
-                      <p> <b><%= info.local.firstname %></b></p>
-                      <p><%= info.local.birthday %></p>
+                          }%>>
+                      </div>
+
+                      <div class =" col-xs-12 col-sm-9 col-md-8 text-left ">
+                        <h2><%= info.local.firstname %></h2>
+                        
+                       
+                        <h3 class="text-muted"> Mobile & Web Develope  <%= info.local.headline %></h3> 
+                          <!--      <p><%= info.local.birthday %></p>  -->
+                      </div>
+
+                      <div class="col-xs-12">
+                        <div class="row-contaioner">
+                          <p class="text-muted text-left"><%= info.local.textColumn %></p>
+                        </div>
+                      </div>
 
 
-                    </div>
+                      <div class="col-xs-12">
+                        <div class="row-contaioner">
+                          <h4 class="text-left text-info"> Menntun </h4>
+                           <hr class="line-color"></hr>
+                        </div>
+                     </div>
+                      
 
-                    <div class="umMig">
-
-                      <div class="col-xs-12 col-sm-6 col-md-8 col-center">
-                       <p class="text"><%= info.local.textColumn %></p>
-
+                      <div class="col-xs-12">
+                        <div class="row-contaioner">
+                          <h4 class="text-left text-info"> Starfsreynsla </h4>
+                          <hr class="line-color"></hr>
+                        </div>
                      </div>
 
-                   </div>  
-                 </div>
-               </section> 
 
-               <div class = "imagescontainer">
-                  <div class = "row">
-                    <h7>Myndagallerí</h7>
-                    <hr >
-                    <div class="col-md-8 col-center-block">
-                      <div class="carousel slide media-carousel" id="media">
-                        <div class="carousel-inner">
-                          <div class="item  active">
-                            <div class="row">
+                     </div>
+                   </div>
+
+                    <div class="col-xs-4 ">
+                      <h4 class="text-left infostyle text-info"> Contact me </h4>
+                      <hr class="line-color"></hr>
+
+                      <%if(user.local.telephone != undefined) { %>
+                       <p class="contact-me-info"><strong> Símanúmer</strong> </p>
+                      <p class="contact-me-text text-muted">
+                        <i class="fa fa-phone fa-2x"></i>&nbsp;
+                        <%= user.local.telephone %> </p>
+                      <hr class =" line-between-contact-me"> 
+                      <%}%>
+
+                         <%if(user.local.skype != undefined) { %>
+                      <p class="contact-me-info"><strong> Skype</strong> </p>  
+                      <p class="contact-me-text text-muted">
+                        <i class="fa fa-skype fa-2x"></i>&nbsp;
+                        <%= user.local.skype %> </p>
+                      <hr class =" line-between-contact-me"></hr>
+                        <%}%>
+                      
+                      <%if(user.local.website != undefined) { %>
+                      <p class="contact-me-info" ><strong> Vefsíða</strong> </p>  
+                      <p class="contact-me-text text-muted">  
+                       <i class="fa fa-globe fa-2x"></i>&nbsp;
+                       <a href ="<%= user.local.website %>"> <%= user.local.website %></a></p>
+                      <hr class =" line-between-contact-me">
+                      <%}%>
+
+                      <%if(user.local.feisbook != undefined) { %>
+                      <p class="contact-me-info"><strong> Facebook</strong> </p>
+                      <p class="contact-me-text text-muted"> 
+                        <i class="fa fa-facebook fa-2x"></i> &nbsp;
+                        <a href ="<%= user.local.feisbook %>">www.facebook.com/<%= info.local.firstname %></a></p> 
+                      <hr class =" line-between-contact-me">
+                      <%}%>
+
+                      <h4 class="text-left infostyle text-info">Kunnátta</h4>  
+                          <!-- <hr style="border-top: 2px dotted grey"/> -->
+                          
+                      <hr class="line-color"></hr>
+                    </div>
+
+                      </div>
 
 
 
-                              <div class="col-md-4">
-                                <a class="thumbnail" href="<%=info.local.projects.pic0%>" data-lightbox="project-image" data-title=""  ><img alt="" src=<%=info.local.projects.pic0%>></a>
+                      <div class = "imagescontainer">
+                        <div class = "row">
+                          <div class="col-xs-8 ">
+                            <h4 class ="text-info">Myndagallerí</h4>
+                            <hr >
+                            <div class="carousel slide media-carousel" id="media">
+                              <div class="carousel-inner">
+                                <div class="item  active">
+                                  <div class="row">
+
+                                    <div class="col-md-4">
+                                      <a class="thumbnail" href="<%=info.local.projects.pic0%>" data-lightbox="project-image" data-title=""  ><img alt="" src=<%=info.local.projects.pic0%>></a>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                      <a class="thumbnail" href="<%=info.local.projects.pic1%>" data-lightbox="project-image" ><img  alt="" src=<%=info.local.projects.pic1%>></a>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                      <a class="thumbnail" href="<%=info.local.projects.pic2%>" data-lightbox="project-image" ><img alt="" src=<%=info.local.projects.pic2%>></a>
+                                    </div>        
+                                  </div>
+
+                                </div>
+                                <div class="item">
+                                  <div class="row">
+                                    <div class="col-md-4">
+                                      <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                                    </div>        
+
+                                    <div class="col-md-4">
+                                      <a class="thumbnail" href="#"><img alt="" src="http://www.smitwallpaper.com/wallpaper/original/Birds-Wide-Screen-Wallpaper.jpg"></a>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                      <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                                    </div>        
+                                  </div>
+                                </div>
                               </div>
-                              
-
-                              <div class="col-md-4">
-                                <a class="thumbnail" href="<%=info.local.projects.pic1%>" data-lightbox="project-image" ><img  alt="" src=<%=info.local.projects.pic1%>></a>
-                              </div>
-
-                              <div class="col-md-4">
-                                <a class="thumbnail" href="<%=info.local.projects.pic2%>" data-lightbox="project-image" ><img alt="" src=<%=info.local.projects.pic2%>></a>
-                              </div>        
-                            </div>
-
-                          </div>
-                          <div class="item">
-                            <div class="row">
-                              <div class="col-md-4">
-                                <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
-                              </div>        
-
-                              <div class="col-md-4">
-                                <a class="thumbnail" href="#"><img alt="" src="http://www.smitwallpaper.com/wallpaper/original/Birds-Wide-Screen-Wallpaper.jpg"></a>
-                              </div>
-
-                              <div class="col-md-4">
-                                <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
-                              </div>        
-                            </div>
-                          </div>
-
-                          <div class="item">
-                            <div class="row">
-                              <div class="col-md-4">
-                                <a class="thumbnail" href="#"><img alt="" src="http://www.ynaija.com/wp-content/uploads/2014/05/Bird.jpg"></a>
-                              </div>      
-
-                              <div class="col-md-4">
-                                <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
-                              </div>
-
-                              <div class="col-md-4">
-                                <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
-                              </div>      
-                            </div>
+                              <a data-slide="prev" href="#media" class="left carousel-control">‹</a>
+                              <a data-slide="next" href="#media" class="right carousel-control">›</a>
+                            </div>                          
                           </div>
                         </div>
-                        <a data-slide="prev" href="#media" class="left carousel-control">‹</a>
-                        <a data-slide="next" href="#media" class="right carousel-control">›</a>
-                      </div>                          
+                        <hr>
+                      </div><!--imagecontainer-->
+
                     </div>
-                  </div>
-                  <hr>
-                </div>
 
 
-
-
+                  
+                </section> 
+              
+              
               <p><a href="/<%= info._id %>/delete">Delete</a></p>
               <% }); %>
-            </div><!-- /.col-lg-4 -->
+            
 
 
-          </div><!-- /.row -->
-        </div> 
+          </div>
+        </div> <!-- /.row -->
       </div> 
 
 
