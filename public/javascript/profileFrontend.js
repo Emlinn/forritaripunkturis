@@ -56,7 +56,6 @@ $(document).ready(function() {
 			$(this).parent().remove();
 		}); 
 	});
-
 	$('#submitKnow').click(function() {
 		$('#techknow').append('<div class="form-group" class="knowing">'+
           '<input class="col-md-4" name="knowledge" >'+ 
@@ -72,7 +71,6 @@ $(document).ready(function() {
 			$(this).parent().remove();
 		}); 
 	});
-
 	$(function() {
     	$( ".datepicker" ).datepicker({
     		changeMonth: true,
