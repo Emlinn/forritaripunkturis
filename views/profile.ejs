@@ -79,7 +79,7 @@
             <div class="form-group">
               <label for="birthday" class="col-sm-2 control-label">Fæðingardagur:</label>
               <div class="col-md-6">
-               <input class="form-control" type="date" name="dateBirth" value=<%= user.local.birthday %>>
+               <input class="form-control datepicker" type="text" name="dateBirth" value=<%= user.local.birthday %>>
              </div>
            </div>
            <div class="form-group">
@@ -133,8 +133,8 @@
                   <option value="Annað" <%if(degree[i]=== "Annað") {%> Selected <%}%>>Annað</option>
                 </select>
                 <input class="col-md-2" name="education" value=<%= education[i] %>>
-                <input type="month" class="col-md-2" name="startDate" value=<%=startDate[i]%>>
-                <input type="month" class="col-md-2" name="finishDate" value=<%=endDate[i]%>>
+                <input type="text" class="col-md-2 datepicker" name="startDate" value=<%=startDate[i]%>>
+                <input type="text" class="col-md-2 datepicker" name="finishDate" value=<%=endDate[i]%>>
                 <select name = "statuss">
                 <OPTION value=" "> </OPTION>
                 <OPTION value="Lokið" <%if(statuss[i]=== "Lokið") {%> Selected <%}%>>Lokið</OPTION>
@@ -166,8 +166,8 @@
       <input class="col-md-3" name="job" value=<%=job[i]%>>
       <input class="col-md-3" name="jobName" value=<%=jobName[i]%>>
       <input class="col-md-1" name="jobPerc" value=<%=jobPerc[i]%>>
-      <input type="month" class="col-md-2" name="jobStartDate" value=<%=jobStartDate[i]%>>
-      <input type="month" class="col-md-2" name="jobEndDate" value=<%=jobEndDate[i]%>>
+      <input type="text" class="col-md-2 datepicker" name="jobStartDate" value=<%=jobStartDate[i]%>>
+      <input type="text" class="col-md-2 datepicker" name="jobEndDate" value=<%=jobEndDate[i]%>>
       <input type="button" class="eydaJob" value="Eyða">
     </div>
  <% } } %>
@@ -272,18 +272,13 @@
 </div>
   </form>
 </hr>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    
+
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="/javascript/bootstrap.min.js"></script>
     <script src="/javascript/profileFrontend.js"></script>
-    <script src="//cdn.jsdelivr.net/webshim/1.14.5/polyfiller.js"></script>
-<script>
-    webshims.setOptions('forms-ext', {types: 'date'});
-webshims.polyfill('forms forms-ext');
-</script>
-<script>
-    webshims.setOptions('forms-ext', {types: 'month'});
-webshims.polyfill('forms forms-ext');
-</script>
 </body>
 </html>
