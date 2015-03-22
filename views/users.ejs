@@ -131,31 +131,31 @@
                       <h4 class="text-left infostyle text-info"> Contact me </h4>
                       <hr class="line-color"></hr>
 
-                      <%if(user.local.telephone != undefined) { %>
+                      <%if(info.local.telephone != undefined) { %>
                        <p class="contact-me-info"><strong> Símanúmer</strong> </p>
                       <p class="contact-me-text text-muted">
                         <i class="fa fa-phone fa-2x"></i>&nbsp;
-                        <%= user.local.telephone %> </p>
+                        <%= user.info.telephone %> </p>
                       <hr class =" line-between-contact-me"> 
                       <%}%>
 
-                         <%if(user.local.skype != undefined) { %>
+                         <%if(info.local.skype != undefined) { %>
                       <p class="contact-me-info"><strong> Skype</strong> </p>  
                       <p class="contact-me-text text-muted">
                         <i class="fa fa-skype fa-2x"></i>&nbsp;
-                        <%= user.local.skype %> </p>
+                        <%= info.local.skype %> </p>
                       <hr class =" line-between-contact-me"></hr>
                         <%}%>
                       
-                      <%if(user.local.website != undefined) { %>
+                      <%if(info.local.website != undefined) { %>
                       <p class="contact-me-info" ><strong> Vefsíða</strong> </p>  
                       <p class="contact-me-text text-muted">  
                        <i class="fa fa-globe fa-2x"></i>&nbsp;
-                       <a href ="<%= user.local.website %>"> <%= user.local.website %></a></p>
+                       <a href ="<%= user.local.website %>"> <%= info.local.website %></a></p>
                       <hr class =" line-between-contact-me">
                       <%}%>
 
-                      <%if(user.local.feisbook != undefined) { %>
+                      <%if(info.local.feisbook != undefined) { %>
                       <p class="contact-me-info"><strong> Facebook</strong> </p>
                       <p class="contact-me-text text-muted"> 
                         <i class="fa fa-facebook fa-2x"></i> &nbsp;

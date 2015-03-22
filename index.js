@@ -37,23 +37,6 @@ app.use(passport.initialize());  // Byrjar passport module.
 app.use(passport.session());  // Importar session aðferð úr passport.
 app.use(flash());
 
-
-app.locals.scripts = [];
-app.locals.addScripts=function (all) {
-    app.locals.scripts = [];
-    if (all != undefined) {
-        return all.map(function(script) {
-            return "<script src='/javascripts/" + script + "'></script>";
-        }).join('\n ');
-    }
-    else {
-        return '';
-    }
-};
-app.locals.getScripts = function(req, res) {
-    return scripts;
-};
-
 // Routes
 require('./app/routes.js')(app, passport);
 
