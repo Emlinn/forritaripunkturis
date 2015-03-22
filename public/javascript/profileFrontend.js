@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	$('#submitDegrees').click(function() {
 		console.log("takki virkar!");
-		$('#degree').append('<div class="form-group" class="jebb">'+
+		$('#degree').append('<div class="form-group" class="work">'+
 			'<input class="col-md-2" name="school">'+
 			'<select class="col-md-2" name="degree">'+
 	                '<option value=" "> </option>'+
@@ -21,18 +21,20 @@ $(document).ready(function() {
 	              '<OPTION>Lokið</OPTION>'+
 	              '<OPTION>Ólokið</OPTION>'+
 	            '</select>'+
-	            '<input type="button" id="virk" class="eyda" value="eyda"></div>');
+	            '<input type="button" class="eyda" value="X"></div>');
 		$(function() {
     		$( ".datepicker" ).datepicker({
       			changeMonth: true,
       			changeYear: true,
       			yearRange: "-100:+0"
       		});
-    	}); 
+    	});
+    	$('.eyda').click(function() {
+			$(this).parent().remove();
+		}); 
 	});
 	$('.eyda').click(function() {
-		console.log("jebb");
-		$('.eydaMenntun').remove();
+		$(this).parent().remove()
 	});
 	$('#submitJob').click(function() {
 		$('#workedJobs').append('<div class="form-group" class="work">'+
@@ -41,7 +43,7 @@ $(document).ready(function() {
 	      '<input class="col-md-1" name="jobPerc">'+
 	      '<input type="text" class="col-md-2 datepicker" name="jobStartDate">'+
 	      '<input type="text" class="col-md-2 datepicker" name="jobEndDate">'+
-	      '<input type="button" class="eydaJob" value="Eyða"></div>'+
+	      '<input type="button" class="eyda" value="X"></div>'+
     	  '</div> ');
 		$(function() {
     		$( ".datepicker" ).datepicker({
@@ -49,12 +51,10 @@ $(document).ready(function() {
       			changeYear: true,
       			yearRange: "-100:+0"
       		});
-    	}); 
-	});
-
-	$('.eydaJob').click(function() {
-		console.log("eydaJob");
-		$('.work').remove();
+    	});
+    	$('.eyda').click(function() {
+			$(this).parent().remove();
+		}); 
 	});
 
 	$('#submitKnow').click(function() {
@@ -66,7 +66,11 @@ $(document).ready(function() {
               '<OPTION value="Meðalreynsla">Meðalreynsla</OPTION>'+
               '<OPTION value="Sérfræðingur">Sérfræðingur</OPTION>'+
             '</select>'+
-          '</div> ')
+            ' <input type="button" class="eyda" value="X">'+
+          '</div> ');
+		$('.eyda').click(function() {
+			$(this).parent().remove();
+		}); 
 	});
 
 	$(function() {

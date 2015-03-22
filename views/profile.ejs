@@ -140,7 +140,7 @@
                 <OPTION value="Lokið" <%if(statuss[i]=== "Lokið") {%> Selected <%}%>>Lokið</OPTION>
                 <OPTION value="Ólokið" <%if(statuss[i]=== "Ólokið") {%> Selected <%}%>>Ólokið</OPTION>
               </select>
-              <input type="button" id="virk" class="eyda" value="eyda"></div>
+              <input type="button" id="virk" class="eyda" value="X"></div>
               <% } }%>
         </div>
         <input type="submitDegree" class="btn btn-default btn-sm" id="submitDegrees" value="Bæta við">
@@ -168,7 +168,7 @@
       <input class="col-md-1" name="jobPerc" value=<%=jobPerc[i]%>>
       <input type="text" class="col-md-2 datepicker" name="jobStartDate" value=<%=jobStartDate[i]%>>
       <input type="text" class="col-md-2 datepicker" name="jobEndDate" value=<%=jobEndDate[i]%>>
-      <input type="button" class="eydaJob" value="Eyða">
+      <input type="button" class="eyda" value="X">
     </div>
  <% } } %>
     </div>
@@ -193,6 +193,7 @@
               <OPTION value="Meðalreynsla" <%if(rateKnowledge[i]=== "Meðalreynsla"){ %> Selected <% } %>>Meðalreynsla</OPTION>
               <OPTION value="Sérfræðingur" <%if(rateKnowledge[i]=== "Sérfræðingur"){ %> Selected <% } %>>Sérfræðingur</OPTION>
             </select>
+             <input type="button" class="eyda" value="X">
           </div>
           <% } } %>
         </div>
