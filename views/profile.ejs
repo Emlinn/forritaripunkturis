@@ -57,7 +57,6 @@
  
           </div>
         </div>
-
         <div class="container">
          <div class="col-md-9 personal-info">
           <h3 >Síðan mín</h3>
@@ -65,21 +64,21 @@
             <div class="form-group">
               <label class="col-md-2 control-label" type:"text"> Fornafn:</label>
               <div class="col-md-6">
-                <input class="form-control" type="text" name="firstName" value=<%= user.local.firstname %>>
+                <input class="form-control" type="text" name="firstName" value="<%= user.local.firstname %>">
               </div>
             </div>
 
             <div class="form-group">
               <label class="col-md-2 control-label" type:"text"> Eftirnafn:</label>
               <div class="col-md-6">
-                <input class="form-control" type="text" name="lastName" value=<%= user.local.lastname %>>
+                <input class="form-control" type="text" name="lastName" value="<%= user.local.lastname %>">
               </div>
             </div>
 
             <div class="form-group">
               <label for="birthday" class="col-sm-2 control-label">Fæðingardagur:</label>
               <div class="col-md-6">
-               <input class="form-control datepicker" type="text" name="dateBirth" value=<%= user.local.birthday %>>
+               <input class="form-control datepicker" type="text" name="dateBirth" value="<%= user.local.birthday %>">
              </div>
            </div>
            <div class="form-group">
@@ -121,7 +120,7 @@
             var statuss = deg.statuss.split(",");
             for(var i=0; i<school.length; i++) {  %>
             <div class="form-group" class="jebb">
-      <input class="col-md-2" name="school" value=<%=school[i]%>>
+      <input class="col-md-2" name="school" value="<%=school[i]%>">
       <select class="col-md-2" name="degree">
                   <option value=" "> </option>
                   <option value="Grunnskólapróf" <%if(degree[i]=== "Grunnskólapróf") {%> Selected <%}%>>Grunnskólapróf</option>
@@ -132,7 +131,7 @@
                   <option value="Starfsmenntun" <%if(degree[i]=== "Starfsmenntun") {%> Selected <%}%>>Starfsmenntun</option>
                   <option value="Annað" <%if(degree[i]=== "Annað") {%> Selected <%}%>>Annað</option>
                 </select>
-                <input class="col-md-2" name="education" value=<%= education[i] %>>
+                <input class="col-md-2" name="education" value="<%= education[i] %>">
                 <input type="text" class="col-md-2 datepicker" name="startDate" value=<%=startDate[i]%>>
                 <input type="text" class="col-md-2 datepicker" name="finishDate" value=<%=endDate[i]%>>
                 <select name = "statuss">
@@ -163,9 +162,9 @@
             var jobEndDate = jobs.jobEndDate.split(",");
             for(var i=0; i<job.length; i++) {  %>
           <div class="form-group" class="work">
-      <input class="col-md-3" name="job" value=<%=job[i]%>>
-      <input class="col-md-3" name="jobName" value=<%=jobName[i]%>>
-      <input class="col-md-1" name="jobPerc" value=<%=jobPerc[i]%>>
+      <input class="col-md-3" name="job" value="<%=job[i]%>">
+      <input class="col-md-3" name="jobName" value="<%=jobName[i]%>">
+      <input class="col-md-1" name="jobPerc" value="<%=jobPerc[i]%>">
       <input type="text" class="col-md-2 datepicker" name="jobStartDate" value=<%=jobStartDate[i]%>>
       <input type="text" class="col-md-2 datepicker" name="jobEndDate" value=<%=jobEndDate[i]%>>
       <input type="button" class="eyda" value="X">
@@ -186,7 +185,7 @@
                var rateKnowledge = know.rateKnowledge.split(","); 
                for(var i=0; i<knowledges.length; i++){ %>
           <div class="form-group" class="knowing">
-          <input class="col-md-4" name="knowledge" value= <%= knowledges[i] %>> 
+          <input class="col-md-4" name="knowledge" value= "<%= knowledges[i] %>"> 
             <select name="rateKnowledge">
               <OPTION value=" "> </OPTION>
               <OPTION value ="Grunnreynsla"<%if(rateKnowledge[i]=== "Grunnreynsla"){ %> Selected <% } %>>Grunnreynsla</OPTION>
