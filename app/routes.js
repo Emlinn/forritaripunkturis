@@ -92,7 +92,6 @@ module.exports = function(app, passport) {
 			req.user.local.startupJob = "";	
 		}
 		console.log(req.files);
-		//console.log(req.files.thumbnail);
 		if(req.files.thumbnail){
 			req.user.local.userPhoto = "/images/"+req.user._id+"."+req.files.thumbnail.extension;
 			// get the temporary location of the file
@@ -132,49 +131,128 @@ module.exports = function(app, passport) {
 		req.user.local.knowledge.rateKnowledge = req.body.rateKnowledge;
 
 
-		if(req.files.projects) {
-			for(var i=0; i<req.files.projects.length;i++) {
-				if(i===0) {
-					//console.log(req.files.projects);
-					req.user.local.projects.pic0 = "/images/"+req.files.projects[i].name;
-					var tmp_path = req.files.projects[i].path;
-					var target_path = './public/images/'+req.files.projects[i].name;
-					// move the file from the temporary location to the intended location
-		    		fs.rename(tmp_path, target_path, function(err) {
-		        		if (err) throw err;
-		        		// delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
-		        		fs.unlink(tmp_path, function() {
-		        		if (err) throw err;
-		        		});
-		    		});	
-				}else if(i===1) {
-					req.user.local.projects.pic1 = "/images/"+req.files.projects[i].name;
-					var tmp_path = req.files.projects[i].path;
-					var target_path = './public/images/'+req.files.projects[i].name;
-					// move the file from the temporary location to the intended location
-		    		fs.rename(tmp_path, target_path, function(err) {
-		        		if (err) throw err;
-		        		// delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
-		        		fs.unlink(tmp_path, function() {
-		        		if (err) throw err;
-		        		});
-		    		});	
-				}
-				else if(i===2) {
-					req.user.local.projects.pic2 = "/images/"+req.files.projects[i].name;
-					var tmp_path = req.files.projects[i].path;
-					var target_path = './public/images/'+req.files.projects[i].name;
-					// move the file from the temporary location to the intended location
-		    		fs.rename(tmp_path, target_path, function(err) {
-		        		if (err) throw err;
-		        		// delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
-		        		fs.unlink(tmp_path, function() {
-		        		if (err) throw err;
-		        		});
-		    		});	
-				}		
-			}
+		if(req.files.projectspic0) {
+			req.user.local.projects.pic0 = "/images/"+req.files.projectspic0.name;
+			var tmp_path = req.files.projectspic0.path;
+			var target_path = './public/images/'+req.files.projectspic0.name;
+			// move the file from the temporary location to the intended location
+		    fs.rename(tmp_path, target_path, function(err) {
+		        if (err) throw err;
+		        // delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
+		        fs.unlink(tmp_path, function() {
+		        	if (err) throw err;
+		        });
+		    });
 		}
+		if(req.files.projectspic1) {
+			req.user.local.projects.pic1 = "/images/"+req.files.projectspic1.name;
+			var tmp_path = req.files.projectspic1.path;
+			var target_path = './public/images/'+req.files.projectspic1.name;
+			// move the file from the temporary location to the intended location
+		    fs.rename(tmp_path, target_path, function(err) {
+		        if (err) throw err;
+		        // delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
+		        fs.unlink(tmp_path, function() {
+		        	if (err) throw err;
+		        });
+		    });
+		}
+		if(req.files.projectspic2) {
+			req.user.local.projects.pic2 = "/images/"+req.files.projectspic2.name;
+			var tmp_path = req.files.projectspic2.path;
+			var target_path = './public/images/'+req.files.projectspic2.name;
+			// move the file from the temporary location to the intended location
+		    fs.rename(tmp_path, target_path, function(err) {
+		        if (err) throw err;
+		        // delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
+		        fs.unlink(tmp_path, function() {
+		        	if (err) throw err;
+		        });
+		    });
+		}
+		if(req.files.projectspic3) {
+			req.user.local.projects.pic3 = "/images/"+req.files.projectspic3.name;
+			var tmp_path = req.files.projectspic3.path;
+			var target_path = './public/images/'+req.files.projectspic3.name;
+			// move the file from the temporary location to the intended location
+		    fs.rename(tmp_path, target_path, function(err) {
+		        if (err) throw err;
+		        // delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
+		        fs.unlink(tmp_path, function() {
+		        	if (err) throw err;
+		        });
+		    });
+		}
+		if(req.files.projectspic4) {
+			req.user.local.projects.pic4 = "/images/"+req.files.projectspic4.name;
+			var tmp_path = req.files.projectspic4.path;
+			var target_path = './public/images/'+req.files.projectspic4.name;
+			// move the file from the temporary location to the intended location
+		    fs.rename(tmp_path, target_path, function(err) {
+		        if (err) throw err;
+		        // delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
+		        fs.unlink(tmp_path, function() {
+		        	if (err) throw err;
+		        });
+		    });
+		}
+		if(req.files.projectspic5) {
+			req.user.local.projects.pic5 = "/images/"+req.files.projectspic5.name;
+			var tmp_path = req.files.projectspic5.path;
+			var target_path = './public/images/'+req.files.projectspic5.name;
+			// move the file from the temporary location to the intended location
+		    fs.rename(tmp_path, target_path, function(err) {
+		        if (err) throw err;
+		        // delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
+		        fs.unlink(tmp_path, function() {
+		        	if (err) throw err;
+		        });
+		    });
+		}	
+
+		// if(req.files.projects) {
+		// 	for(var i=0; i<req.files.projects.length;i++) {
+		// 		if(i===0) {
+		// 			//console.log(req.files.projects);
+		// 			req.user.local.projects.pic0 = "/images/"+req.files.projects[i].name;
+		// 			var tmp_path = req.files.projects[i].path;
+		// 			var target_path = './public/images/'+req.files.projects[i].name;
+		// 			// move the file from the temporary location to the intended location
+		//     		fs.rename(tmp_path, target_path, function(err) {
+		//         		if (err) throw err;
+		//         		// delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
+		//         		fs.unlink(tmp_path, function() {
+		//         		if (err) throw err;
+		//         		});
+		//     		});	
+		// 		}else if(i===1) {
+		// 			req.user.local.projects.pic1 = "/images/"+req.files.projects[i].name;
+		// 			var tmp_path = req.files.projects[i].path;
+		// 			var target_path = './public/images/'+req.files.projects[i].name;
+		// 			// move the file from the temporary location to the intended location
+		//     		fs.rename(tmp_path, target_path, function(err) {
+		//         		if (err) throw err;
+		//         		// delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
+		//         		fs.unlink(tmp_path, function() {
+		//         		if (err) throw err;
+		//         		});
+		//     		});	
+		// 		}
+		// 		else if(i===2) {
+		// 			req.user.local.projects.pic2 = "/images/"+req.files.projects[i].name;
+		// 			var tmp_path = req.files.projects[i].path;
+		// 			var target_path = './public/images/'+req.files.projects[i].name;
+		// 			// move the file from the temporary location to the intended location
+		//     		fs.rename(tmp_path, target_path, function(err) {
+		//         		if (err) throw err;
+		//         		// delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
+		//         		fs.unlink(tmp_path, function() {
+		//         		if (err) throw err;
+		//         		});
+		//     		});	
+		// 		}		
+		// 	}
+		// }
 		
 		
 

@@ -57,7 +57,9 @@ var userSchema = mongoose.Schema({
 					pic0 : String,
 					pic1 : String,
 					pic2 : String,
-					pic3 : String
+					pic3 : String,
+					pic4 : String,
+					pic5 : String
 		}
 
 
