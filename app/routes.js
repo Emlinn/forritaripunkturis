@@ -7,7 +7,9 @@ module.exports = function(app, passport) {
 
 	// Front-Page
 	app.get('/', function(req, res) {
-		Test.find({}, {'local.firstname': 1, 'local.lastname': 1, 'local.birthday': 1, 'local.degrees':1, 'local.headline':1,  'local.textColumn':1, 'local.careerJob': 1, _id: 1, 'local.userPhoto': 1, 'local.men': 1, 'local.knowledge': 1}, function(err, show){
+		Test.find({}, {'local.firstname': 1, 'local.lastname': 1, 'local.birthday': 1, 'local.degrees':1, 'local.headline':1, 'local.telephone': 1,'local.skype': 1,'local.website':1,'local.feisbook': 1, 'local.textColumn':1, 'local.careerJob': 1,'local.summerJob': 1, 'local.partialJob': 1,'local.assignmentJob': 1, 'local.startupJob': 1, _id: 1, 'local.userPhoto': 1, 'local.men': 1, 'local.knowledge': 1,'local.projects.pic0 ': 1, 'local.projects.pic1': 1, 
+		   'local.projects.pic2 ': 1, 'local.projects.pic4 ': 1, 'local.projects.pic5 ': 1, 
+		   'local.projects.pic6 ': 1}, function(err, show){
 			if(err) return console.log(err);
 			res.render('index', {
 				usersprofile: show,
@@ -50,6 +52,10 @@ module.exports = function(app, passport) {
 		console.log(req.body);
 		console.log(req.body.men);
 		console.log(req.body.comments);
+
+		// headline
+		// reg.user.local.headline = reg.body.headline;
+
 		//Test.save({_id:req.user._id, fullname:req.body.fullName},{w:1});
 		req.user.local.firstname = req.body.firstName;
 		req.user.local.lastname = req.body.lastName;
@@ -285,7 +291,7 @@ module.exports = function(app, passport) {
 	// Users
 	app.get('/:id?', function(req, res) {
 		var id = req.params.id;
-		Test.find({_id: id}, {'local.firstname': 1, 'local.lastname': 1, 'local.birthday': 1, 'local.degrees':1,'local.headline':1, 'local.textColumn':1, 'local.careerJob': 1, _id: 1, 'local.userPhoto': 1, 'local.men': 1, 'local.knowledge': 1, 'local.projects': 1}, function(err, show){
+		Test.find({_id: id}, {'local.firstname': 1, 'local.lastname': 1, 'local.birthday': 1, 'local.degrees':1,'local.headline':1,'local.telephone': 1, 'local.skype': 1,'local.website':1,'local.feisbook': 1, 'local.textColumn':1, 'local.careerJob': 1, 'local.summerJob': 1, 'local.partialJob': 1,'local.assignmentJob': 1,'local.startupJob': 1, _id: 1, 'local.userPhoto': 1, 'local.men': 1, 'local.knowledge': 1, 'local.projects': 1, 'local.projects.pic0 ': 1, 'local.projects.pic1': 1,  'local.projects.pic2 ': 1, 'local.projects.pic4 ': 1, 'local.projects.pic5 ': 1, 'local.projects.pic6 ': 1}, function(err, show){
 			if(err) return console.log(err);
 			res.render('users', {
 				usersprofile: show,
