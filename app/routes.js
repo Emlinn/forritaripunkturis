@@ -70,16 +70,7 @@ module.exports = function(app, passport) {
 		});
 	});
 
-	app.post('/profile', function(req, res, next) {
-		//console.log(req.body.fullName);
-		console.log(req.body);
-		console.log(req.body.men);
-		console.log(req.body.comments);
-
-		// headline
-		// reg.user.local.headline = reg.body.headline;
-
-		//Test.save({_id:req.user._id, fullname:req.body.fullName},{w:1});
+	app.post('/profile', function(req, res, next) {	
 		req.user.local.firstname = req.body.firstName;
 		req.user.local.lastname = req.body.lastName;
 		req.user.local.birthday = req.body.dateBirth;
@@ -120,7 +111,6 @@ module.exports = function(app, passport) {
 		else {
 			req.user.local.startupJob = "";	
 		}
-		console.log(req.files);
 		if(req.files.thumbnail){
 			req.user.local.userPhoto = "/images/"+req.user._id+"."+req.files.thumbnail.extension;
 			// get the temporary location of the file
@@ -143,21 +133,40 @@ module.exports = function(app, passport) {
 		req.user.local.telephone = req.body.telephone;
 
 		//Degrees 
-		req.user.local.degrees.school = req.body.school; 
-		req.user.local.degrees.degree = req.body.degree; 
-		req.user.local.degrees.education = req.body.education; 
-		req.user.local.degrees.startDate = req.body.startDate; 
-		req.user.local.degrees.endDate = req.body.finishDate; 
-		req.user.local.degrees.statuss = req.body.statuss; 
+		if(req.body.school) {
+			req.user.local.degrees.school = req.body.school; 
+			if(req.body.degree) req.user.local.degrees.degree = req.body.degree;  
+			else req.user.local.degrees.degree = " ";
+			if(req.body.education) req.user.local.degrees.education = req.body.education; 
+			else req.user.local.degrees.education = " ";
+			if(req.body.startDate) req.user.local.degrees.startDate = req.body.startDate;
+			else req.user.local.degrees.startDate = " ";
+			if(req.body.finishDate) req.user.local.degrees.endDate = req.body.finishDate;
+			else req.user.local.degrees.endDate = " ";
+			if(req.body.statuss) req.user.local.degrees.statuss = req.body.statuss;	
+			else req.user.local.degrees.statuss = " ";
+		}
+		 
 		//Jobs 
-		req.user.local.job.job = req.body.job;
-		req.user.local.job.jobName = req.body.jobName;
-		req.user.local.job.jobPerc = req.body.jobPerc;
-		req.user.local.job.jobStartDate = req.body.jobStartDate; 
-		req.user.local.job.jobEndDate = req.body.jobEndDate; 
+		if(req.body.job) {
+			req.user.local.job.job = req.body.job;
+			if(req.body.jobName) req.user.local.job.jobName = req.body.jobName;
+			else req.user.local.job.jobName = " ";
+			if(req.body.jobPerc) req.user.local.job.jobPerc = req.body.jobPerc;
+			else req.user.local.job.jobPerc = " ";
+			if(req.body.jobStartDate) req.user.local.job.jobStartDate = req.body.jobStartDate;
+			else req.user.local.job.jobStartDate = " ";
+			if(req.body.jobEndDate) req.user.local.job.jobEndDate = req.body.jobEndDate;
+			else req.user.local.job.jobEndDate = " ";
+		}
+ 
 		//Knowledge 
-		req.user.local.knowledge.knowledge = req.body.knowledge; 
-		req.user.local.knowledge.rateKnowledge = req.body.rateKnowledge;
+		if(req.body.knowledge) {
+			req.user.local.knowledge.knowledge = req.body.knowledge;
+			if(req.body.rateKnowledge) req.user.local.knowledge.rateKnowledge = req.body.rateKnowledge;	
+			else req.user.local.knowledge.rateKnowledge = " ";
+		}
+		
 
 
 		if(req.files.projectspic0) {
@@ -238,53 +247,7 @@ module.exports = function(app, passport) {
 		        });
 		    });
 		}	
-
-		// if(req.files.projects) {
-		// 	for(var i=0; i<req.files.projects.length;i++) {
-		// 		if(i===0) {
-		// 			//console.log(req.files.projects);
-		// 			req.user.local.projects.pic0 = "/images/"+req.files.projects[i].name;
-		// 			var tmp_path = req.files.projects[i].path;
-		// 			var target_path = './public/images/'+req.files.projects[i].name;
-		// 			// move the file from the temporary location to the intended location
-		//     		fs.rename(tmp_path, target_path, function(err) {
-		//         		if (err) throw err;
-		//         		// delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
-		//         		fs.unlink(tmp_path, function() {
-		//         		if (err) throw err;
-		//         		});
-		//     		});	
-		// 		}else if(i===1) {
-		// 			req.user.local.projects.pic1 = "/images/"+req.files.projects[i].name;
-		// 			var tmp_path = req.files.projects[i].path;
-		// 			var target_path = './public/images/'+req.files.projects[i].name;
-		// 			// move the file from the temporary location to the intended location
-		//     		fs.rename(tmp_path, target_path, function(err) {
-		//         		if (err) throw err;
-		//         		// delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
-		//         		fs.unlink(tmp_path, function() {
-		//         		if (err) throw err;
-		//         		});
-		//     		});	
-		// 		}
-		// 		else if(i===2) {
-		// 			req.user.local.projects.pic2 = "/images/"+req.files.projects[i].name;
-		// 			var tmp_path = req.files.projects[i].path;
-		// 			var target_path = './public/images/'+req.files.projects[i].name;
-		// 			// move the file from the temporary location to the intended location
-		//     		fs.rename(tmp_path, target_path, function(err) {
-		//         		if (err) throw err;
-		//         		// delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
-		//         		fs.unlink(tmp_path, function() {
-		//         		if (err) throw err;
-		//         		});
-		//     		});	
-		// 		}		
-		// 	}
-		// }
 		
-		
-
 		req.user.save(function(err) {
 			if(err) {
 				throw err; 
