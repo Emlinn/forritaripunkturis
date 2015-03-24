@@ -64,41 +64,6 @@ p.contact-me-text
   margin-bottom: 1px;
 }
 
-/*ég er að leita eftir rafius box*/
-
-p.bg-primary.careerJob{
-
- /* width: 120px; */
-/* height: 25px; */
-border-radius: 5px;
-/* text-align: center; */
-margin: 10px 5px 10px 0; 
- 
-}
-/*proccess-bar*/
-
-
-.progress{
-  margin: 10px 0px 0 0px;;
-}
-.progress span {
-  position: absolute;
-  display: block;
-  width: 100%;
-  margin-left: 7px;
-  text-align: left;
-}
-.verticalline{
-border-left: 5px solid rgb(244, 51, 84);
-height: 35px;
-/* left: 80%; */
-margin-left: 33px;
-
-}
-.row.bg-info.kunnatabg{
-  border-radius: 5px;
-margin: 10px 0px 0px 0px;
-}
 
 
 

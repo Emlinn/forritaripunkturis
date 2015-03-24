@@ -42,3 +42,11 @@
   width: 15vh;
 }
 
+.list {
+  list-style-type: none;
+  display: inline;
+}
+
+.carousel {
+  margin-bottom: 0 !important;
+}
