@@ -1,6 +1,8 @@
+//Frontend jQuery fyrir /profile
+//Höfundur: Sigurbjörn Jónsson
 $(document).ready(function() {
+	//Ýtt á bæta við gráðu.
 	$('#submitDegrees').click(function() {
-		console.log("takki virkar!");
 		$('#degree').append('<div class="form-group" class="work">'+
 			'<input class="col-md-2" name="school">'+
 			'<select class="col-md-2" name="degree">'+
@@ -36,6 +38,7 @@ $(document).ready(function() {
 	$('.eyda').click(function() {
 		$(this).parent().remove()
 	});
+	// Ýtt á bæta við atvinnu
 	$('#submitJob').click(function() {
 		$('#workedJobs').append('<div class="form-group" class="work">'+
 	      '<input class="col-md-3" name="job">'+
@@ -56,6 +59,7 @@ $(document).ready(function() {
 			$(this).parent().remove();
 		}); 
 	});
+	//Ýtt á bæta við kunnáttu
 	$('#submitKnow').click(function() {
 		$('#techknow').append('<div class="form-group" class="knowing">'+
           '<input class="col-md-4" name="knowledge" >'+ 
