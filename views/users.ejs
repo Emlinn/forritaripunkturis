@@ -98,7 +98,7 @@
                             <h2><%= info.local.firstname %></h2>
 
 
-                            <h3 class="text-muted"> Mobile & Web Develope  <%= info.local.headline %></h3> 
+                            <!-- <h3 class="text-muted"> Mobile & Web Develope  <%= info.local.headline %></h3>  -->
                             <!--      <p><%= info.local.birthday %></p>  -->
                           </div>
 
@@ -113,6 +113,63 @@
                             <div class="row-contaioner">
                               <h4 class="text-left text-info"> Menntun </h4>
                               <hr class="line-color"></hr>
+
+                              <div class="row bg-info kunnatabg" >
+
+                                <div class=" col-xs-4 text-left ">
+                                  <strong> <%=info.local.degrees.startDate %></strong>
+                                  <div class="verticalline"> </div>
+                                  <strong><%=info.local.degrees.endDate %></strong>
+                                </div>
+
+                                <div class="col-xs-8 text-left ">
+                                  <strong> <%=info.local.degrees.school%></strong> &nbsp;
+                                  <%=info.local.degrees.statuss %>
+                                  <br>
+                                  <%=info.local.degrees.degree %>
+                                  <br>
+                                  <%=info.local.degrees.education %>
+                                </div>
+
+                              </div>
+
+                              <div class="row bg-info kunnatabg" >
+
+                                <div class=" col-xs-4 text-left ">
+                                  <strong> <%=info.local.degrees.startDate %></strong>
+                                  <div class="verticalline"></div>
+                                  <strong><%=info.local.degrees.endDate %></strong>
+                                </div>
+
+                                <div class="col-xs-8 text-left ">
+                                  <strong> <%=info.local.degrees.school%></strong> &nbsp;
+                                  <%=info.local.degrees.statuss %>
+                                  <br>
+                                  <%=info.local.degrees.degree %>
+                                  <br>
+                                  <%=info.local.degrees.education %>
+                                </div>
+                              </div>
+
+
+                              <div class="row bg-info kunnatabg" >
+                                <div class=" col-xs-4 text-left ">
+                                  <strong> <%=info.local.degrees.startDate %></strong>
+                                  <div class="verticalline"> 
+                                  </div>
+                                  <strong><%=info.local.degrees.endDate %></strong>
+                                </div>
+
+                                <div class="col-xs-8 text-left ">
+                                  <strong> <%=info.local.degrees.school%></strong> &nbsp;
+                                  <%=info.local.degrees.statuss %>
+                                  <br>
+                                  <%=info.local.degrees.degree %>
+                                  <br>
+                                  <%=info.local.degrees.education %>
+                                </div>
+                              </div>
+
                             </div>
                           </div>
 
@@ -121,6 +178,27 @@
                             <div class="row-contaioner">
                               <h4 class="text-left text-info"> Starfsreynsla </h4>
                               <hr class="line-color"></hr>
+
+                              <div class="row bg-info kunnatabg" >
+                                <div class=" col-xs-4 text-left ">
+                                  <strong> <%=info.local.job.jobStartDate %></strong>
+                                  <div class="verticalline"> 
+                                  </div>
+                                  <strong><%=info.local.job.jobEndDate %></strong>
+                                </div>
+
+                                <div class="col-xs-8 text-left ">
+                                  <strong> <%=info.local.job.job%></strong> &nbsp;
+                                 <p> Starfsheiti: &nbsp; <%=info.local.job.jobName%>
+                                  <br>
+                                   Starfshlutfall: &nbsp; <%=info.local.job.jobPerc %></p>
+                                  
+                                 
+                                </div>
+                              </div>  
+
+
+
                             </div>
                           </div>
 
@@ -135,7 +213,7 @@
                                       <div class="row">
 
                                         <div class="col-md-4">
-                                     
+
                                           <a class="thumbnail" href="<%=info.local.projects.pic0%>" data-lightbox="project-image" data-title=""  ><img <%if(info.local.projects.pic0) {%>src=<%=info.local.projects.pic0%>  <%}else{%> src="http://placehold.it/150x150"<% }%>></a>
                                         </div>
 
@@ -252,53 +330,53 @@
                                 <div class="progress-bar progress-bar-info "  role="progressbar" aria-valuenow="40"
                                 aria-valuemin="0" aria-valuemax="100" style="width:40%">
                                 <span> R </span>
-                               </div>
                               </div>
+                            </div>
 
-                              <div class="progress">
-                                <div class="progress-bar progress-bar-info" role="progressbar" aria- valuenow="100"
-                               aria-valuemin="0" aria-valuemax="100" style="width:100%">
-                                 <span> Java </span>
-                                </div>
-                              </div>
+                            <div class="progress">
+                              <div class="progress-bar progress-bar-info" role="progressbar" aria- valuenow="100"
+                              aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                              <span> Java </span>
+                            </div>
+                          </div>
 
-                               <div class="progress">
-                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50"
-                                  aria-valuemin="0" aria-valuemax="100" style="width:50%">
-                                  <span> Morpho</span>   
-                                </div>
-                               </div>
-  
-                              <div class="progress">
-                               <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="70"
-                                aria-valuemin="0" aria-valuemax="100" style="width:70%">
-                               <span> php</span>
-                              </div>
-                             </div>
+                          <div class="progress">
+                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50"
+                            aria-valuemin="0" aria-valuemax="100" style="width:50%">
+                            <span> Morpho</span>   
+                          </div>
+                        </div>
 
-                    </div>
+                        <div class="progress">
+                         <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="70"
+                         aria-valuemin="0" aria-valuemax="100" style="width:70%">
+                         <span> php</span>
+                       </div>
+                     </div>
 
-                  </div>
+                   </div>
 
-                </section> 
+                 </div>
 
-                <p><a href="/<%= info._id %>/delete">Delete</a></p>
-                <% }); %>
+               </section> 
 
-
-
-              </div>
-            </div> <!-- /.row -->
-          </div> 
+               <p><a href="/<%= info._id %>/delete">Delete</a></p>
+               <% }); %>
 
 
-          <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-          <!-- Include all compiled plugins (below), or include individual files as needed -->
-          <script src="/javascript/bootstrap.min.js"></script>
-          <script src="/javascript/timer.js"></script>
-          <script src="/javascript/lightbox.js"></script>
+
+             </div>
+           </div> <!-- /.row -->
+         </div> 
 
 
-        </body>
-        </html>
+         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+         <!-- Include all compiled plugins (below), or include individual files as needed -->
+         <script src="/javascript/bootstrap.min.js"></script>
+         <script src="/javascript/timer.js"></script>
+         <script src="/javascript/lightbox.js"></script>
+
+
+       </body>
+       </html>
