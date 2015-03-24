@@ -108,7 +108,7 @@
                             </div>
                           </div>
 
-
+                            <%if(info.local.degrees.school != undefined) { %>
                           <div class="col-xs-12">
                             <div class="row-contaioner">
                               <h4 class="text-left text-info"> Menntun </h4>
@@ -132,48 +132,12 @@
                                 </div>
 
                               </div>
-
-                              <div class="row bg-info kunnatabg" >
-
-                                <div class=" col-xs-4 text-left ">
-                                  <strong> <%=info.local.degrees.startDate %></strong>
-                                  <div class="verticalline"></div>
-                                  <strong><%=info.local.degrees.endDate %></strong>
-                                </div>
-
-                                <div class="col-xs-8 text-left ">
-                                  <strong> <%=info.local.degrees.school%></strong> &nbsp;
-                                  <%=info.local.degrees.statuss %>
-                                  <br>
-                                  <%=info.local.degrees.degree %>
-                                  <br>
-                                  <%=info.local.degrees.education %>
-                                </div>
-                              </div>
-
-
-                              <div class="row bg-info kunnatabg" >
-                                <div class=" col-xs-4 text-left ">
-                                  <strong> <%=info.local.degrees.startDate %></strong>
-                                  <div class="verticalline"> 
-                                  </div>
-                                  <strong><%=info.local.degrees.endDate %></strong>
-                                </div>
-
-                                <div class="col-xs-8 text-left ">
-                                  <strong> <%=info.local.degrees.school%></strong> &nbsp;
-                                  <%=info.local.degrees.statuss %>
-                                  <br>
-                                  <%=info.local.degrees.degree %>
-                                  <br>
-                                  <%=info.local.degrees.education %>
-                                </div>
-                              </div>
-
                             </div>
                           </div>
+                           <%}%>
 
 
+                        <%if(info.local.job.job!= undefined) { %>
                           <div class="col-xs-12">
                             <div class="row-contaioner">
                               <h4 class="text-left text-info"> Starfsreynsla </h4>
@@ -197,10 +161,9 @@
                                 </div>
                               </div>  
 
-
-
                             </div>
                           </div>
+                           <%}%>
 
                           <div class = "imagescontainer">
                             <div class = "row">
@@ -320,13 +283,15 @@
                               <%}%>
 
                               <!-- Kunnáta -->
-
+                              <%if(info.local.knowledge.knowledge != undefined) { %>
                               <h4 class="text-left infostyle text-info">Kunnátta</h4>  
                               <!-- <hr style="border-top: 2px dotted grey"/> -->
                               
-                              <hr class="line-color"></hr>
-                              
-                              <div class="progress">
+                            
+
+
+                              <%}%>
+                             <!--  <div class="progress">
                                 <div class="progress-bar progress-bar-info "  role="progressbar" aria-valuenow="40"
                                 aria-valuemin="0" aria-valuemax="100" style="width:40%">
                                 <span> R </span>
@@ -352,7 +317,7 @@
                          aria-valuemin="0" aria-valuemax="100" style="width:70%">
                          <span> php</span>
                        </div>
-                     </div>
+                     </div> -->
 
                    </div>
 
