@@ -223,6 +223,14 @@
                         <h4 class="text-left infostyle text-info"> Hafa samband</h4>
                         <hr class="line-color"></hr>
 
+                        
+                        <p class="contact-me-info"><strong> Póstfang</strong> </p>
+                        <p class="contact-me-text text-muted">
+                          <i class="fa fa-envelope-o fa-2x"></i>&nbsp;
+                          <%= info.local.email %> </p>
+                          <hr class =" line-between-contact-me"> 
+                          
+
                         <%if(info.local.telephone != undefined) { %>
                         <p class="contact-me-info"><strong> Símanúmer</strong> </p>
                         <p class="contact-me-text text-muted">
@@ -284,10 +292,12 @@
 
                               <!-- Kunnáta -->
 
-                              <h4 class="text-left infostyle text-info">Kunnátta</h4>
-                              <hr class="line-color"></hr>
 
-                              <%  if(typeof info.local.knowledge.knowledge != 'undefined') {
+
+                              <%  if(typeof info.local.knowledge.knowledge != 'undefined') {%>
+                                <h4 class="text-left infostyle text-info">Kunnátta</h4>
+                                <hr class="line-color"></hr>
+                                <%
                                 var know = info.local.knowledge;
                                 var knowledges = know.knowledge.split(",");
                                 var rateKnowledge = know.rateKnowledge.split(","); 
