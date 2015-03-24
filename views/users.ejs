@@ -283,41 +283,23 @@
                               <%}%>
 
                               <!-- Kunnáta -->
-                              <%if(info.local.knowledge.knowledge != undefined) { %>
-                              <h4 class="text-left infostyle text-info">Kunnátta</h4>  
-                              <!-- <hr style="border-top: 2px dotted grey"/> -->
-                              
-                            
 
+                              <h4 class="text-left infostyle text-info">Kunnátta</h4>
+                              <hr class="line-color"></hr>
 
-                              <%}%>
-                             <!--  <div class="progress">
+                              <%  if(typeof info.local.knowledge.knowledge != 'undefined') {
+                                var know = info.local.knowledge;
+                                var knowledges = know.knowledge.split(",");
+                                var rateKnowledge = know.rateKnowledge.split(","); 
+                                for(var i=0; i<knowledges.length; i++){ %>
+
+                              <div class="progress">
                                 <div class="progress-bar progress-bar-info "  role="progressbar" aria-valuenow="40"
-                                aria-valuemin="0" aria-valuemax="100" style="width:40%">
-                                <span> R </span>
+                                aria-valuemin="0" aria-valuemax="100" style="width:<%if (rateKnowledge[i] === "Grunnreynsla"){%>30%<%}else if (rateKnowledge[i] === "Meðalreynsla"){%>60%<%}else if(rateKnowledge[i] === "Sérfræðingur"){%>100%<%}%>">
+                                <span> "<%= knowledges[i] %>" </span>
+                               </div>
                               </div>
-                            </div>
-
-                            <div class="progress">
-                              <div class="progress-bar progress-bar-info" role="progressbar" aria- valuenow="100"
-                              aria-valuemin="0" aria-valuemax="100" style="width:100%">
-                              <span> Java </span>
-                            </div>
-                          </div>
-
-                          <div class="progress">
-                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50"
-                            aria-valuemin="0" aria-valuemax="100" style="width:50%">
-                            <span> Morpho</span>   
-                          </div>
-                        </div>
-
-                        <div class="progress">
-                         <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="70"
-                         aria-valuemin="0" aria-valuemax="100" style="width:70%">
-                         <span> php</span>
-                       </div>
-                     </div> -->
+                              <% } } %>
 
                    </div>
 
