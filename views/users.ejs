@@ -294,7 +294,7 @@
                                 for(var i=0; i<knowledges.length; i++){ %>
 
                               <div class="progress">
-                                <div class="progress-bar progress-bar-info "  role="progressbar" aria-valuenow="40"
+                                <div class="progress-bar progress-bar-info "  role="progressbar" 
                                 aria-valuemin="0" aria-valuemax="100" style="width:<%if (rateKnowledge[i] === "Grunnreynsla"){%>30%<%}else if (rateKnowledge[i] === "Meðalreynsla"){%>60%<%}else if(rateKnowledge[i] === "Sérfræðingur"){%>100%<%}%>">
                                 <span> "<%= knowledges[i] %>" </span>
                                </div>
@@ -307,7 +307,7 @@
 
                </section> 
 
-               <p><a href="/<%= info._id %>/delete">Delete</a></p>
+
                <% }); %>
 
 

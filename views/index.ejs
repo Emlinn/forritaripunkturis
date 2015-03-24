@@ -144,10 +144,10 @@
               if(info.local.men=="checked"){%> src="/images/unknown-man.jpeg" class=" avatar img-circle" alt="avatar" style="width: 140px; height: 140px;"<%}
                 else{%> src="/images/unknown-woman.png" class=" avatar img-circle" alt="avatar" style="width: 140px; height: 140px;"<%}
                 }%>>
-          <h2><%= info.local.firstname  %> <%= info.local.lastname %></h2>
+          <h2><%= info.local.firstname  %> <%= info.local.lastname %>.</h2>
           <ul>
-          <li><%= info.local.birthday %>
-          <li>Eh meira
+          <li><%= info.local.birthday %>.</li>
+          <li><%= info.local.knowledge.knowledge%>.</li>
           </ul>
         <p><a class="btn btn-default" href="/<%= info._id %>" role="button">Skoða nánar &raquo;</a></p>
       </div>
