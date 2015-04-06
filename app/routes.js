@@ -135,36 +135,26 @@ module.exports = function(app, passport) {
 		//Degrees 
 		if(req.body.school) {
 			req.user.local.degrees.school = req.body.school; 
-			if(req.body.degree) req.user.local.degrees.degree = req.body.degree;  
-			else req.user.local.degrees.degree = " ";
-			if(req.body.education) req.user.local.degrees.education = req.body.education; 
-			else req.user.local.degrees.education = " ";
-			if(req.body.startDate) req.user.local.degrees.startDate = req.body.startDate;
-			else req.user.local.degrees.startDate = " ";
-			if(req.body.finishDate) req.user.local.degrees.endDate = req.body.finishDate;
-			else req.user.local.degrees.endDate = " ";
-			if(req.body.statuss) req.user.local.degrees.statuss = req.body.statuss;	
-			else req.user.local.degrees.statuss = " ";
+			req.user.local.degrees.degree = req.body.degree; 
+			req.user.local.degrees.education = req.body.education; 
+			req.user.local.degrees.startDate = req.body.startDate; 
+			req.user.local.degrees.endDate = req.body.finishDate; 
+			req.user.local.degrees.statuss = req.body.statuss; 
 		}
 		 
 		//Jobs 
 		if(req.body.job) {
 			req.user.local.job.job = req.body.job;
-			if(req.body.jobName) req.user.local.job.jobName = req.body.jobName;
-			else req.user.local.job.jobName = " ";
-			if(req.body.jobPerc) req.user.local.job.jobPerc = req.body.jobPerc;
-			else req.user.local.job.jobPerc = " ";
-			if(req.body.jobStartDate) req.user.local.job.jobStartDate = req.body.jobStartDate;
-			else req.user.local.job.jobStartDate = " ";
-			if(req.body.jobEndDate) req.user.local.job.jobEndDate = req.body.jobEndDate;
-			else req.user.local.job.jobEndDate = " ";
+			req.user.local.job.jobName = req.body.jobName;
+			req.user.local.job.jobPerc = req.body.jobPerc;
+			req.user.local.job.jobStartDate = req.body.jobStartDate; 
+			req.user.local.job.jobEndDate = req.body.jobEndDate; 
 		}
  
 		//Knowledge 
 		if(req.body.knowledge) {
-			req.user.local.knowledge.knowledge = req.body.knowledge;
-			if(req.body.rateKnowledge) req.user.local.knowledge.rateKnowledge = req.body.rateKnowledge;	
-			else req.user.local.knowledge.rateKnowledge = " ";
+			req.user.local.knowledge.knowledge = req.body.knowledge; 
+			req.user.local.knowledge.rateKnowledge = req.body.rateKnowledge;
 		}
 		
 

@@ -64,21 +64,21 @@
             <div class="form-group">
               <label class="col-md-2 control-label" type:"text"> Fornafn:</label>
               <div class="col-md-6">
-                <input class="form-control" type="text" name="firstName" value="<%= user.local.firstname %>">
+                <input class="form-control fillOut" type="text" name="firstName" value="<%= user.local.firstname %>">
               </div>
             </div>
 
             <div class="form-group">
               <label class="col-md-2 control-label" type:"text"> Eftirnafn:</label>
               <div class="col-md-6">
-                <input class="form-control" type="text" name="lastName" value="<%= user.local.lastname %>">
+                <input class="form-control fillOut" type="text" name="lastName" value="<%= user.local.lastname %>">
               </div>
             </div>
 
             <div class="form-group">
               <label for="birthday" class="col-sm-2 control-label">Fæðingardagur:</label>
               <div class="col-md-6">
-               <input class="form-control datepicker" type="text" name="dateBirth" value="<%= user.local.birthday %>">
+               <input class="form-control datepicker fillOut" type="text" name="dateBirth" value="<%= user.local.birthday %>">
              </div>
            </div>
            <div class="form-group">
@@ -120,8 +120,8 @@
             var statuss = deg.statuss.split(",");
             for(var i=0; i<school.length; i++) {  %>
             <div class="form-group" class="jebb">
-      <input class="col-md-2" name="school" value="<%=school[i]%>">
-      <select class="col-md-2" name="degree">
+      <input class="col-md-2 fillOut" type="text" name="school" value="<%=school[i]%>">
+      <select class="col-md-2 fillOut" name="degree">
                   <option value=" "> </option>
                   <option value="Grunnskólapróf" <%if(degree[i]=== "Grunnskólapróf") {%> Selected <%}%>>Grunnskólapróf</option>
                   <option value="Framhaldsskólapróf" <%if(degree[i]=== "Framhaldsskólapróf") {%> Selected <%}%>>Framhaldsskólapróf</option>
@@ -131,10 +131,10 @@
                   <option value="Starfsmenntun" <%if(degree[i]=== "Starfsmenntun") {%> Selected <%}%>>Starfsmenntun</option>
                   <option value="Annað" <%if(degree[i]=== "Annað") {%> Selected <%}%>>Annað</option>
                 </select>
-                <input class="col-md-2" name="education" value="<%= education[i] %>">
-                <input type="text" class="col-md-2 datepicker" name="startDate" value=<%=startDate[i]%>>
-                <input type="text" class="col-md-2 datepicker" name="finishDate" value=<%=endDate[i]%>>
-                <select name = "statuss">
+                <input class="col-md-2 fillOut" type="text" name="education" value="<%= education[i] %>">
+                <input type="text" class="col-md-2 datepicker fillOut" name="startDate" value=<%=startDate[i]%>>
+                <input type="text" class="col-md-2 datepicker fillOut" name="finishDate" value=<%=endDate[i]%>>
+                <select class="fillOut" name = "statuss">
                 <OPTION value=" "> </OPTION>
                 <OPTION value="Lokið" <%if(statuss[i]=== "Lokið") {%> Selected <%}%>>Lokið</OPTION>
                 <OPTION value="Ólokið" <%if(statuss[i]=== "Ólokið") {%> Selected <%}%>>Ólokið</OPTION>
@@ -162,11 +162,11 @@
             var jobEndDate = jobs.jobEndDate.split(",");
             for(var i=0; i<job.length; i++) {  %>
           <div class="form-group" class="work">
-      <input class="col-md-3" name="job" value="<%=job[i]%>">
-      <input class="col-md-3" name="jobName" value="<%=jobName[i]%>">
-      <input class="col-md-1" name="jobPerc" value="<%=jobPerc[i]%>">
-      <input type="text" class="col-md-2 datepicker" name="jobStartDate" value=<%=jobStartDate[i]%>>
-      <input type="text" class="col-md-2 datepicker" name="jobEndDate" value=<%=jobEndDate[i]%>>
+      <input class="col-md-3 fillOut" type="text" name="job" value="<%=job[i]%>">
+      <input class="col-md-3 fillOut" type="text" name="jobName" value="<%=jobName[i]%>">
+      <input class="col-md-1 fillOut" type="text" name="jobPerc" value="<%=jobPerc[i]%>">
+      <input type="text" class="col-md-2 datepicker fillOut" name="jobStartDate" value=<%=jobStartDate[i]%>>
+      <input type="text" class="col-md-2 datepicker fillOut" name="jobEndDate" value=<%=jobEndDate[i]%>>
       <input type="button" class="eyda" value="X">
     </div>
  <% } } %>
@@ -185,8 +185,8 @@
                var rateKnowledge = know.rateKnowledge.split(","); 
                for(var i=0; i<knowledges.length; i++){ %>
           <div class="form-group" class="knowing">
-          <input class="col-md-4" name="knowledge" value= "<%= knowledges[i] %>"> 
-            <select name="rateKnowledge">
+          <input class="col-md-4 fillOut" type="text" name="knowledge" value= "<%= knowledges[i] %>"> 
+            <select class ="fillOut" name="rateKnowledge">
               <OPTION value=" "> </OPTION>
               <OPTION value ="Grunnreynsla"<%if(rateKnowledge[i]=== "Grunnreynsla"){ %> Selected <% } %>>Grunnreynsla</OPTION>
               <OPTION value="Meðalreynsla" <%if(rateKnowledge[i]=== "Meðalreynsla"){ %> Selected <% } %>>Meðalreynsla</OPTION>
@@ -282,11 +282,11 @@
                         </div>
                         <hr>
                       </div>
-
+          <p id="problemMessage"></p>
           <div class="form-group">
             <label class="col-md-3 control-label"></label>
             <div class="col-md-8">
-              <input type="submit" class="btn btn-primary" value="Vista breytingar">
+              <input type="submit" id="submitProfile" class="btn btn-primary" value="Vista breytingar">
               <span></span>
               <input type="reset" class="btn btn-default" value="Hætta við">
             </div>

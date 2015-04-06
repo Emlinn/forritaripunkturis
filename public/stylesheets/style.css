@@ -50,3 +50,13 @@
 .carousel {
   margin-bottom: 0 !important;
 }
+
+.warning {
+  background-color: #FF6633;
+}
+
+#problemMessage {
+    margin: 0;
+    padding: 0;
+    background-color: #FF6633;
+}
