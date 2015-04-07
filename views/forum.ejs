@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Forritari.is</title>
+    <link rel="icon" type="image/ico" href="http://www.mysite.com/favicon.ico"/>
+
+
+    <!-- Bootstrap -->
+    <!-- Bootstrap fengið frá Bootstrap : link(http://getbootstrap.com/) -->
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/carousel/carousel.css" rel="stylesheet">
+    <link href="/stylesheets/hover.css" rel="stylesheet">
+    <link href="/stylesheets/style.css" rel="stylesheet">
+    <link href="/stylesheets/stylefilter.css" rel="stylesheet">
+    <script src="/javascript/modernizr.js"></script> <!-- Modernizr -->
+  </head>
+  <body>
+    <!-- NAVBAR -->
+      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Forritari.is</a>
+        </div><!--/.navbar-header -->
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/" class="hvr-underline-from-left">Heim</a></li>
+            <li><a href="/about" class="hvr-underline-from-left">Um okkur</a></li>
+            <li class="active"><a href="/forum" class="hvr-underline-from-left">Umræða</a></li>
+              <% if(user){ %>
+                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= user.local.firstname + " " + user.local.lastname %><b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="/profile" class="hvr-underline-from-left">Stillingar</a></li>
+                <li><a href="/logout" class="hvr-underline-from-left">Útskráning</a></li>
+            </li>
+               <% } else{ %>  
+                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Skrá inn<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="/login" class="hvr-underline-from-left">Innskráning</a></li>
+                <li><a href="/signup" class="hvr-underline-from-left">Nýr notandi</a></li>
+            </li>
+              <% } %>
+        </div><!--/.navbar-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+    <div class="container marketing">
+      <% if(user){ %>
+        <input type="submit" id="newArticle" class="btn btn-primary" value="Búa til nýja grein">
+        <div class="articleMaker"> 
+          <form id="forumPost" action="forum" method="post">
+            <div class="form-group">
+               <label class="col-md-0">Titill:</label>
+              <input type="text" name="articleName" class="fillOut">
+            </br>
+              <label class="col-md-0">Texti:</label>
+              <textarea name="articleContent" class="form-control fillOut" rows="5"></textarea>
+              <input type="submit" id="newArticleBut" class="btn btn-primary" value="Skrá grein">
+              <a id="cancel" class="btn btn-primary">Hætta við</a>
+            </div>
+          </form>
+          <p id="problemMessage"></p>
+        </div>
+      <% }else { %>
+      <p>Þú þarft að vera skráður inn til þess að geta tekið þátt í umræðu</p>
+      <% } %>
+      </br> 
+      <% for(var i=allArticles.length-1;i>=0;i--) {%>
+        <div class="form-group col-md-6">
+          <h3 class="headlineArticle"><%= allArticles[i].articleName %></h3>
+          <span><b>Höfundur: <a href="/<%= allArticles[i].authorId %>"><%= allArticles[i].author %></a></b></span>
+          <p><%= allArticles[i].articleContent %></p>
+          <% if(allArticles[i].articleCommentAuthor) { %>
+          <span><b>Athugasemdir:</b></span>
+          <%var cAuthor = allArticles[i].articleCommentAuthor.split(",");
+          var idAuthor = allArticles[i].articleCommentAuthorId.split(",");
+          var cComment = allArticles[i].articleComment.split(",");
+          for(var j=0; j<cAuthor.length; j++) { %>
+           <div class="comments">
+                 <span><b><a href="/<%=idAuthor[j]%>"><%= cAuthor[j] %></a> sagði:</b></span>
+                 <p><%= cComment[j] %></p>
+            </div>
+          <% } %>
+          <% } %>
+          <%if(user) {%>
+            <form id="forumPost" action="comment" method="post">
+              <input name="id" class="hiddenId" value="<%= allArticles[i]._id %>">
+              <% if(allArticles[i].articleCommentAuthor) { %>
+                <input name="articleCommentAuthor" class="hiddenId" value="<%= allArticles[i].articleCommentAuthor %>">
+                <input name="articleCommentAuthorId" class="hiddenId" value="<%= allArticles[i].articleCommentAuthorId %>">
+                <input name="articleComment" class="hiddenId" value="<%= allArticles[i].articleComment %>">
+              <% } %>
+              <textarea name="comment" class="form-control" rows="2"></textarea>
+              <input type="submit" class="btn btn-primary btn-xs" value="Skrá athugasemd">
+            </form>
+          <% } %>
+        </div>
+      <% } %>
+
+
+    </div> <!--end of "container div" -->
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/javascript/bootstrap.min.js"></script>
+    <script src="/javascript/jquery-2.1.1.js"></script>
+    <script src="/javascript/jquery.mixitup.min.js"></script>
+    <script src="/javascript/instafilta.min.js"></script>
+    <script src="/javascript/userfilter.js"></script>
+    <script src="/javascript/forumFrontend.js"></script>
+  </body>
+</html>

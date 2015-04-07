@@ -60,3 +60,18 @@
     padding: 0;
     background-color: #FF6633;
 }
+.articleMaker {
+    display: none;
+}
+
+.headlineArticle {
+  margin-bottom: 0px;
+}
+
+.hiddenId {
+  display: none;
+}
+
+.comments {
+  background-color: #c0c0c0;
+}

@@ -1,4 +1,5 @@
 var Test = require('../app/models/user');
+var Article = require('../app/models/article');
 var fs = require('fs');
 
 
@@ -263,6 +264,65 @@ module.exports = function(app, passport) {
   		});
 	});
 
+	app.get('/forum', function(req, res) {
+		Article.find({}, {'articleName':1, 
+							'articleContent':1,
+							'author':1,
+							'authorId':1,
+							'articleCommentAuthorId':1,
+							'articleCommentAuthor':1,
+							'articleComment':1},
+						function(err, show){
+							if(err) return console.log(err);
+							res.render('forum', {
+								title: 'Forum',
+								allArticles: show,
+								user: req.user
+							});
+						});
+		
+	});
+
+	app.post('/forum', function(req, res, next) {	
+		console.log(req.body);
+		console.log(req.user.local.firstname);
+		var userArticle = new Article();
+		userArticle.save(function(err) {
+			// we've saved the dog into the db here
+			if (err) throw err;
+			userArticle.authorId = req.user._id;
+			userArticle.author = req.user.local.firstname +" "+ req.user.local.lastname;
+			userArticle.articleName = req.body.articleName;
+			userArticle.articleContent = req.body.articleContent;
+			userArticle.save(function(err) {
+				// we've updated the dog into the db here
+				if (err) throw err;
+			});
+		});
+		res.redirect('/forum');		
+	});
+
+	app.post('/comment', function(req, res, next) {	
+		console.log(req.body);
+		//Article.find({}, {'author':1});
+
+		Article.findOne({ _id: req.body.id }, function (err, doc) {
+			  if (err) throw err;
+			  if(req.body.articleCommentAuthor) {
+			  	doc.articleCommentAuthorId = req.body.articleCommentAuthorId+","+req.user._id;
+			  	doc.articleCommentAuthor = req.body.articleCommentAuthor+","+req.user.local.firstname +" "+ req.user.local.lastname;
+			  	doc.articleComment =  req.body.articleComment+","+req.body.comment.replace(","," ");
+			  }
+			  else {
+			  	doc.articleCommentAuthorId = req.user._id;
+			  	doc.articleCommentAuthor = req.user.local.firstname +" "+ req.user.local.lastname;
+			  	doc.articleComment = req.body.comment.replace(","," ");	
+			  }
+			  
+			  doc.save();
+		})
+		res.redirect('/forum');		
+	});
 
 	// Users
 	app.get('/:id?', function(req, res) {
