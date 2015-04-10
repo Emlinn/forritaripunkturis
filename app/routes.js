@@ -1,7 +1,7 @@
 var Test = require('../app/models/user');
 var Article = require('../app/models/article');
 var fs = require('fs');
-
+var nodemailer = require('nodemailer');
 
 // Rotues
 module.exports = function(app, passport) {
@@ -263,6 +263,48 @@ module.exports = function(app, passport) {
     		user: req.user
   		});
 	});
+
+
+	app.get('/contact', function(req, res){
+  		res.render('contact', {
+    		title: 'contact',
+    		user: req.user
+  		});
+	});
+
+    app.post('/contact', function(req, res, next) {
+	    // create reusable transporter object using SMTP transport
+		var transporter = nodemailer.createTransport({
+	    	service: 'Gmail',
+	    	auth: {
+	        	user: 'forritaripunkturis@gmail.com',
+	        	pass: 'HBV601Ghopur6'
+	    	}
+		});
+
+		// setup e-mail data with unicode symbols
+		var mailOptions = {
+	    	from: req.body.name + '<forritaripunkturis@gmail.com>', // sender address
+	    	to: 'forritaripunkturis@gmail.com', // list of receivers
+	    	subject: 'Auglýsing', // Subject line
+	    	text: 'Email: ' + req.body.email + 
+	    	'\nJob Title: ' + req.body.jobTitle + 
+	    	'\nJob Type: ' + req.body.jobType +
+	    	'\nJob Description: ' + req.body.jobDescription + 
+	    	'\nApply Information: ' + req.body.applyInfo,
+		};
+
+		// send mail with defined transport object
+		transporter.sendMail(mailOptions, function(error, info){
+		    if(error){
+		        console.log(error);
+		    }else{
+		        console.log('Message sent: ' + info.response);
+		    }
+		});
+		res.redirect('/');	
+    });
+
 
 	app.get('/forum', function(req, res) {
 		Article.find({}, {'articleName':1, 

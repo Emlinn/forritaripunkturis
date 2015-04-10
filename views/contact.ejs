@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Forritari.is</title>
+    <link rel="icon" type="image/ico" href="http://www.mysite.com/favicon.ico"/>
+
+
+    <!-- Bootstrap -->
+    <!-- Bootstrap fengið frá Bootstrap : link(http://getbootstrap.com/) -->
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/carousel/carousel.css" rel="stylesheet">
+    <link href="/stylesheets/hover.css" rel="stylesheet">
+    <link href="/stylesheets/style.css" rel="stylesheet">
+    <link href="/stylesheets/stylefilter.css" rel="stylesheet">
+    <script src="/javascript/modernizr.js"></script> <!-- Modernizr -->
+  </head>
+  <body>
+    <!-- NAVBAR -->
+      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Forritari.is</a>
+        </div><!--/.navbar-header -->
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/" class="hvr-underline-from-left">Heim</a></li>
+            <li><a href="/about" class="hvr-underline-from-left">Um okkur</a></li>
+            <li><a href="/forum" class="hvr-underline-from-left">Umræða</a></li>
+            <li class="active"><a href="/contact" class="hvr-underline-from-left">Auglýstu starf</a></li>
+              <% if(user){ %>
+                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= user.local.firstname + " " + user.local.lastname %><b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="/profile" class="hvr-underline-from-left">Stillingar</a></li>
+                <li><a href="/logout" class="hvr-underline-from-left">Útskráning</a></li>
+            </li>
+               <% } else{ %>  
+                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Skrá inn<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="/login" class="hvr-underline-from-left">Innskráning</a></li>
+                <li><a href="/signup" class="hvr-underline-from-left">Nýr notandi</a></li>
+            </li>
+              <% } %>
+        </div><!--/.navbar-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+    <div class="container marketing">
+
+      <legend>Auglýstu starf</legend>
+        <div class="contact col-lg-12">
+          <p> Vinsamlega fylltu út formið hér að neðan og við munum senda þér greiðsluupplýsingar.</p>
+          <p> Þegar við erum búin að staðfesta greiðslu munum við notafæra okkur gagnagrunn forritari.is til að senda auglýsingar á þá forritara sem hafa áhuga á starfinu.</p> 
+          <p> Við munum láta þig vita í tölvupósti þegar auglýsingin hefur verið samþykkt.</p>
+          <p> Hver auglýsing kostar 5.000 kr.</p>
+          <p> Athugið að ekki er hægt að fá auglýsingar endurgreiddar. </p>
+        </div>
+  
+      <form method="POST" action="/contact" name="contactus" id="contactus">
+        <div class="form-group">
+          <label class="col-md-2 control-label" type:"text"> Nafn:</label>
+          <div class="col-md-6">
+            <input class="form-control fillOut" type="text" name="name" id="name" value="">
+          </div>
+        </div>
+ 
+        <div class="form-group">
+          <label class="col-md-2 control-label" type:"text"> Netfang:</label>
+          <div class="col-md-6">
+            <input class="form-control fillOut" type="text" name="email" id="email" value="">
+           </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-2 control-label" type:"text"> Starfstitill:</label>
+          <div class="col-md-6">
+            <input class="form-control fillOut" type="text" name="jobTitle" id="jobTitle" value="">
+          </div>
+        </div>
+ 
+        <label>
+          Vinna:
+          <select name="jobType" id ="jobType">
+            <option></option>
+            <option>Framtíðarstarf</option>
+            <option>Sumarstarf</option>
+            <option>Tímabundið start</option>
+            <option>verkefni</option>
+            <option>startup samstarf</option>
+          </select>
+        </label>
+
+        <div class="form-group">
+          <label class="col-md-2 control-label">Starfslýsing:</label>
+          <div class="col-md-6">
+            <textarea name="jobDescription" class="form-control" cols ="40" rows="10" id="jobDescription"> </textarea>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-2 control-label">Hvernig skal sækja um:</label>
+          <div class="col-md-6">
+            <textarea name="applyInfo" class="form-control" cols ="40" rows="10" id="applyInfo"> </textarea>
+          </div>
+        </div>
+
+        <input type="submit" value="Send" name="submit" id="submit">
+  
+      </form>
+
+
+    </div> <!--end of "container div" -->
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/javascript/bootstrap.min.js"></script>
+    <script src="/javascript/jquery-2.1.1.js"></script>
+    <script src="/javascript/jquery.mixitup.min.js"></script>
+    <script src="/javascript/instafilta.min.js"></script>
+    <script src="/javascript/userfilter.js"></script>
+    <script src="/javascript/forumFrontend.js"></script>
+  </body>
+</html>

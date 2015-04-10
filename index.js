@@ -10,7 +10,14 @@ var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-var multipart = require('multer')
+var multipart = require('multer');
+var nodemailer = require('nodemailer');
+
+
+
+
+
+
 
 
 mongoose.connect('mongodb://localhost/db_name', function(err) {
