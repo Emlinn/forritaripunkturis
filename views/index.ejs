@@ -126,7 +126,15 @@
 
 <ul id="container">
         <% usersprofile.forEach( function( info ){ %>
-          <li data-kunáttu="<%= info.local.knowledge.knowledge %>" data-menntun="<%= info.local.degrees.education %>" data-stöðu="">
+
+          <li 
+            <%if(info.local.knowledge.knowledge) { 
+              var knowledge = info.local.knowledge.knowledge.toLowerCase().split(","); 
+              var knowledgeString = "";
+              for(var i=0; i<knowledge.length; i++){
+                knowledgeString += knowledge[i] +", "
+              }
+             %> data-kunáttu="<%= knowledgeString %>"<% } %> data-menntun="<%= info.local.degrees.education %>" data-stöðu="">
           <img  <%if(info.local.userPhoto) {%>src=<%=info.local.userPhoto%> class="img-circle" alt="Generic placeholder image" style="width: 140px; height: 140px;"<%}
             else{ 
               if(info.local.men=="checked"){%> src="/images/unknown-man.jpeg" class=" avatar img-circle" alt="avatar" style="width: 140px; height: 140px;"<%}
@@ -134,7 +142,9 @@
                 }%>>
           <h2><%= info.local.firstname  %> <%= info.local.lastname %></h2>
           <p><%= info.local.birthday %> </p>
-          <p><%= info.local.knowledge.knowledge %> </p>
+          <% if(info.local.knowledge.knowledge) { %>
+            <p><%= info.local.knowledge.knowledge %> </p>
+          <% } %>
           <p><%= info.local.degrees.education %> </p>
           <p><a class="btn btn-default" href="/<%= info._id %>" role="button">Skoða nánar &raquo;</a></p>
         </li>
