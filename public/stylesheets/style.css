@@ -75,3 +75,7 @@
 .comments {
   background-color: #c0c0c0;
 }
+
+select {
+  height: 26px;
+}
