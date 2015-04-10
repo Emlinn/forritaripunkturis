@@ -9,13 +9,23 @@
 
 
     <!-- Bootstrap -->
-    <!-- Bootstrap fengið frá Bootstrap : link(http://getbootstrap.com/) -->
     <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
     <link href="http://getbootstrap.com/examples/carousel/carousel.css" rel="stylesheet">
     <link href="/stylesheets/hover.css" rel="stylesheet">
     <link href="/stylesheets/style.css" rel="stylesheet">
-    <link href="/stylesheets/stylefilter.css" rel="stylesheet">
-    <script src="/javascript/modernizr.js"></script> <!-- Modernizr -->
+    <link href="/stylesheets/hover.css" rel="stylesheet">
+    <link href="/stylesheets/style.css" rel="stylesheet">
+    <link href="/stylesheets/filtrify.css" rel="stylesheet">
+    <link href="/stylesheets/stylefilta.css" rel="stylesheet">
+    <link href="/stylesheets/sunburst.css" rel="stylesheet">
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </head>
   <body>
     <!-- NAVBAR -->
@@ -34,7 +44,6 @@
           <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href="/" class="hvr-underline-from-left">Heim</a></li>
             <li><a href="/about" class="hvr-underline-from-left">Um okkur</a></li>
-            <li><a href="/forum" class="hvr-underline-from-left">Umræða</a></li>
               <% if(user){ %>
                  <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= user.local.firstname + " " + user.local.lastname %><b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -104,67 +113,57 @@
     </div>
     <!-- SLIDER -->
 
-<!-- Filter -->
-<!-- Filter plugin var fengið frá chromawoods : link(https://github.com/chromawoods/instaFilta) -->
-<main class="cd-main-content">
-    <div class="cd-tab-filter-wrapper">
-      <div class="cd-tab-filter">
-
-      </div> <!-- cd-tab-filter -->
-    </div> <!-- cd-tab-filter-wrapper -->
-
 <div class="container marketing">
-  <ul class="list">
   <div class="row">
+<div id="main" role="main">
+<div id="content" class="demo">
+
+<h2>Ég vil leita eftir ...</h2>
+
+
+<div id="placeHolder"></div>
+
+
+<ul id="container">
         <% usersprofile.forEach( function( info ){ %>
-        <li class="section-item">
-          <div class="col-lg-4">
-            <img  <%if(info.local.userPhoto) {%>src=<%=info.local.userPhoto%> class="img-circle" alt="Generic placeholder image" style="width: 140px; height: 140px;"<%}
-              else{ 
-                 if(info.local.men=="checked"){%> src="/images/unknown-man.jpeg" class=" avatar img-circle" alt="avatar" style="width: 140px; height: 140px;"<%}
-                    else{%> src="/images/Unknown-woman.png" class=" avatar img-circle" alt="avatar" style="width: 140px; height: 140px;"<%}
-                        }%>>
-                      <h2 class="name"><%= info.local.firstname %> <%= info.local.lastname %></h2>
-                      <p class="born"<span class="instafilta-target"><%= info.local.birthday %></span></p>
-                      <p class="knowledge"><%= info.local.knowledge.knowledge %></p>
-                      <p><a class="btn btn-default" href="/<%= info._id %>" role="button">Skoða nánar &raquo;</a></p>
-            </div>
-          </li>
-          <% }); %>
-      </ul>
- </div>
+          <li data-kunáttu="<%= info.local.knowledge.knowledge %>" data-menntun="<%= info.local.degrees.education %>" data-stöðu="">
+          <img  <%if(info.local.userPhoto) {%>src=<%=info.local.userPhoto%> class="img-circle" alt="Generic placeholder image" style="width: 140px; height: 140px;"<%}
+            else{ 
+              if(info.local.men=="checked"){%> src="/images/unknown-man.jpeg" class=" avatar img-circle" alt="avatar" style="width: 140px; height: 140px;"<%}
+                else{%> src="/images/unknown-woman.png" class=" avatar img-circle" alt="avatar" style="width: 140px; height: 140px;"<%}
+                }%>>
+          <h2><%= info.local.firstname  %> <%= info.local.lastname %></h2>
+          <p><%= info.local.birthday %> </p>
+          <p><%= info.local.knowledge.knowledge %> </p>
+          <p><%= info.local.degrees.education %> </p>
+          <p><a class="btn btn-default" href="/<%= info._id %>" role="button">Skoða nánar &raquo;</a></p>
+        </li>
+        <% }); %>
+</ul>
+</div>
+</div>
+</div>
 </div>
 
-
-<!-- Filter gluggi -->
-<!-- Plugin var fengið frá CodyHouse : link (http://codyhouse.co/gem/content-filter/) -->
-    <div class="cd-filter">
-      <form>
-        <div class="cd-filter-block">
-          <h4>Leit</h4>
-          
-          <div class="cd-filter-content">
-            <input type="text" id="instafilta-field" placeholder="Skrifaðu til að leita">
-          </div> <!-- cd-filter-content -->
-        </div> <!-- cd-filter-block -->
-       
-      </form>
-
-      <a href="#0" class="cd-close">Loka</a>
-    </div> <!-- cd-filter -->
-
-    <a href="#0" class="cd-filter-trigger">Sía</a>
-  </main> <!-- cd-main-content -->
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="/javascript/bootstrap.min.js"></script>
     <script src="/javascript/timer.js"></script>
-    <script src="/javascript/jquery-2.1.1.js"></script>
-    <script src="/javascript/jquery.mixitup.min.js"></script>
-    <script src="/javascript/main.js"></script> <!-- Resource jQuery -->
-    <script src="/javascript/instafilta.min.js"></script>
-    <script src="/javascript/userfilter.js"></script>
+     
+
+    <script>
+    var $_1112 = $.noConflict(true);
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="/javascript/filtrify.min.js"></script>
+    <script src="/javascript/script.js"></script>
+    <script type="text/javascript">
+
+    $(function() {
+
+      $.filtrify("container", "placeHolder");
+
+    });
+
+    </script>
   </body>
 </html>
