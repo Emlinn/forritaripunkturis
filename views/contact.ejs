@@ -64,54 +64,54 @@
         </div>
   
       <form method="POST" action="/contact" name="contactus" id="contactus">
-        <div class="form-group">
-          <label class="col-md-2 control-label" type:"text"> Nafn:</label>
+        <div class="form-group col-md-12">
+          <label class="col-md-1 control-label" type:"text"> Nafn:</label>
           <div class="col-md-6">
             <input class="form-control fillOut" type="text" name="name" id="name" value="">
           </div>
         </div>
  
-        <div class="form-group">
-          <label class="col-md-2 control-label" type:"text"> Netfang:</label>
+        <div class="form-group col-md-12">
+          <label class="col-md-1 control-label" type:"text"> Netfang:</label>
           <div class="col-md-6">
             <input class="form-control fillOut" type="text" name="email" id="email" value="">
            </div>
         </div>
 
-        <div class="form-group">
-          <label class="col-md-2 control-label" type:"text"> Starfstitill:</label>
+        <div class="form-group col-md-12">
+          <label class="col-md-1 control-label" type:"text"> Starfstitill:</label>
           <div class="col-md-6">
             <input class="form-control fillOut" type="text" name="jobTitle" id="jobTitle" value="">
           </div>
         </div>
  
-        <label>
-          Vinna:
-          <select name="jobType" id ="jobType">
-            <option></option>
-            <option>Framtíðarstarf</option>
-            <option>Sumarstarf</option>
-            <option>Tímabundið start</option>
-            <option>verkefni</option>
-            <option>startup samstarf</option>
-          </select>
-        </label>
+        <div class="form-group col-md-12">
+          <label  class="col-md-1 control-label workCon">Vinna:</label>
+            <select name="jobType" id ="jobType" class="col-md-4">
+              <option></option>
+              <option>Framtíðarstarf</option>
+              <option>Sumarstarf</option>
+              <option>Tímabundið starf</option>
+              <option>Verkefni</option>
+              <option>Startup samstarf</option>
+            </select>
+        </div>
 
-        <div class="form-group">
-          <label class="col-md-2 control-label">Starfslýsing:</label>
+        <div class="form-group col-md-12">
+          <label class="col-md-1 control-label">Starfslýsing:</label>
           <div class="col-md-6">
             <textarea name="jobDescription" class="form-control" cols ="40" rows="10" id="jobDescription"> </textarea>
           </div>
         </div>
 
-        <div class="form-group">
-          <label class="col-md-2 control-label">Hvernig skal sækja um:</label>
+        <div class="form-group col-md-12">
+          <label class="col-md-1 control-label">Hvernig skal sækja um:</label>
           <div class="col-md-6">
             <textarea name="applyInfo" class="form-control" cols ="40" rows="10" id="applyInfo"> </textarea>
           </div>
         </div>
 
-        <input type="submit" value="Send" name="submit" id="submit">
+        <input type="submit" value="Senda" name="submit" id="submit" class="btn btn-primary">
   
       </form>
 
