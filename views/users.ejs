@@ -37,7 +37,7 @@
             <li><a href="/forum" class="hvr-underline-from-left">Umræða</a></li>
             <li><a href="/contact" class="hvr-underline-from-left">Auglýstu starf</a></li>
             <% if(user){ %>
-            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= user.local.firstname + " " + user.local.lastname %><b class="caret"></b></a>
+            <li class="dropdown text-capitalize"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= user.local.firstname + " " + user.local.lastname %><b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="/profile" class="hvr-underline-from-left">Stillingar</a></li>
                 <li><a href="/logout" class="hvr-underline-from-left">Útskráning</a></li>
@@ -77,10 +77,10 @@
                             <p><%= info.local.birthday %></p> 
                           </div>
 
-                          <div class =" col-xs-12 col-sm-9 col-md-8 text-left ">
+                          <div class =" col-xs-12 col-sm-9 col-md-8 text-left  text-capitalize ">
                             <h2><%= info.local.firstname %></h2>
                           </div>
-                          <div class="col-xs-12">
+                          <div class="col-xs-12 text-capitalize">
                             <div class="row-contaioner">
                               <p class="text-muted text-left"><%= info.local.textColumn %></p>
                             </div>
@@ -88,6 +88,7 @@
                           <div class="col-xs-12">
                             <div class="row-contaioner">
                               <h4 class="text-left text-info"> Menntun </h4>
+                              <hr class="line-color"></hr>
                             <%if(info.local.degrees.school != undefined) { 
                                var deg = info.local.degrees;
                                 var school = deg.school.split(",");
@@ -98,7 +99,7 @@
                                 var statuss = deg.statuss.split(",");
                                 for(var i=0; i<school.length; i++) {  %>
                           
-                              <hr class="line-color"></hr>
+                              
 
                               <div class="row bg-info kunnatabg" >
 
@@ -125,6 +126,7 @@
                            <div class="col-xs-12">
                             <div class="row-contaioner">
                               <h4 class="text-left text-info"> Starfsreynsla </h4>
+                              <hr class="line-color"></hr>
                         <%if(info.local.job.job!= undefined) { 
                             var jobs = info.local.job;
                             var job = jobs.job.split(",");
@@ -133,7 +135,7 @@
                             var jobStartDate = jobs.jobStartDate.split(",");
                             var jobEndDate = jobs.jobEndDate.split(",");
                             for(var i=0; i<job.length; i++) {  %>
-                              <hr class="line-color"></hr>
+                              
 
                               <div class="row bg-info kunnatabg" >
                                 <div class=" col-xs-4 text-left ">

@@ -7,6 +7,7 @@
       <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
       <link href="/stylesheets/hover.css" rel="stylesheet">
       <link href="/stylesheets/style.css" rel="stylesheet">
+      <link href="/stylesheets/profilestyle.css" rel="stylesheet">
     </head>
     <body>
 
@@ -47,200 +48,318 @@
 
     <div class="container marketing">
 <form method="post" enctype="multipart/form-data" action="/profile" class="form-horizontal">
-      <h1>Stillingar</h1>
-      <hr>
-      <div class="row">
-        <!-- left column -->
-        <div class="col-md-3">
-          <div class="text-center">
-            <img <%if(user.local.userPhoto) {%>src=<%=user.local.userPhoto%> class="img-circle" alt="Generic placeholder image" style="width: 140px; height: 140px;"<%}else{%> src="//placehold.it/100" class=" avatar img-circle" alt="avatar"<% }%>>
-            <h6>Hlaða inn mynd</h6>
-              <input type="file" name="thumbnail" >
- 
-          </div>
-        </div>
-        <div class="container">
-         <div class="col-md-9 personal-info">
-          <h3 >Síðan mín</h3>
+      
+            <h1>Stillingar</h1>
+            <hr>
+            <div class="row">
+              <!-- left column -->
+              <div class="col-md-3 ">
+                <div class="text-center">
+                  <img <%if(user.local.userPhoto) {%>src=<%=user.local.userPhoto%> class="img-circle" alt="Generic placeholder image" style="width: 140px; height: 140px;"<%}else{%> src="//placehold.it/100" class=" avatar img-circle" alt="avatar"<% }%>>
+                  <h6>Hlaða inn mynd</h6>
+                  <input class="btn center-block "type="file" name="thumbnail" >
+                </div>
 
-            <div class="form-group">
-              <label class="col-md-2 control-label" type:"text"> Fornafn:</label>
-              <div class="col-md-6">
+
+              </div>
+              <div class="container">
+               <div class="col-md-9 personal-info">
+                 <h3 >Síðan mín</h3>
+
+                
+                  <div class="form-group">
+
+              <label class="col-xs-3 control-label" type:"text"> Fornafn:</label>
+              
+              <div class="col-xs-8">
                 <input class="form-control fillOut" type="text" name="firstName" value="<%= user.local.firstname %>">
               </div>
             </div>
 
             <div class="form-group">
-              <label class="col-md-2 control-label" type:"text"> Eftirnafn:</label>
-              <div class="col-md-6">
+              <label class="col-xs-3 control-label" type:"text"> Eftirnafn:</label>
+              <div class="col-xs-8">
                 <input class="form-control fillOut" type="text" name="lastName" value="<%= user.local.lastname %>">
               </div>
             </div>
-
-            <div class="form-group">
-              <label for="birthday" class="col-sm-2 control-label">Fæðingardagur:</label>
-              <div class="col-md-6">
-               <input class="form-control datepicker fillOut" type="text" name="dateBirth" value="<%= user.local.birthday %>">
-             </div>
-           </div>
-           <div class="form-group">
-            <label class="col-md-2 control-label">Kyn:</label>
-            <div class="col-md-6">
-              <label class="radio-inline"><input type="radio" name="men" <%= user.local.men %>>kk</label>
-
-              <label class="radio-inline"><input type="radio" name="women" <%= user.local.women %>>kvk</label>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="col-md-2 control-label">Vinna:</label>
-            <div class="col-md-6">
-              <label class="radio-inline"><input type="checkbox" name="careerJob" <%= user.local.careerJob%> >Framtíðarstarf</label>
-              <label class="radio-inline"><input type="checkbox" name="summerJob" <%= user.local.summerJob%>>Sumarstarf</label>
-              <label class="radio-inline"><input type="checkbox" name="partialJob" <%= user.local.partialJob%>>Tímabundið starf</label>
-              <label class="radio-inline"><input type="checkbox" name="assignmentJob" <%= user.local.assignmentJob%>>Verkefni</label>
-              <label class="radio-inline"><input type="checkbox" name="startupJob" <%= user.local.startupJob%>>Startup samstarf</label>
-            </div>
-          </div>
-            <h3 class="col-md-12">Menntun</h3>
-             <div class="form-group">
-            <label class="col-md-2">Skóli:</label>
-            <label class="col-md-2">Gráða:</label>
-            <label class="col-md-2">Námsgrein:</label>
-            <label class="col-md-2">Dags.frá:</label>
-            <label class="col-md-2">Dags.til:</label>
-            <label class="col-md-1">Staða:</label>
-            </div>
-          <div id="degree">
-            <%  if(typeof user.local.degrees.school != 'undefined') {
-              var deg = user.local.degrees;
-            var school = deg.school.split(",");
-            var degree = deg.degree.split(",");
-            var education = deg.education.split(",");
-            var startDate = deg.startDate.split(",");
-            var endDate = deg.endDate.split(",");
-            var statuss = deg.statuss.split(",");
-            for(var i=0; i<school.length; i++) {  %>
-            <div class="form-group" class="jebb">
-      <input class="col-md-2 fillOut" type="text" name="school" value="<%=school[i]%>">
-      <select class="col-md-2 fillOut" name="degree">
-                  <option value=" "> </option>
-                  <option value="Grunnskólapróf" <%if(degree[i]=== "Grunnskólapróf") {%> Selected <%}%>>Grunnskólapróf</option>
-                  <option value="Framhaldsskólapróf" <%if(degree[i]=== "Framhaldsskólapróf") {%> Selected <%}%>>Framhaldsskólapróf</option>
-                  <option value="Háskólanám grunnnám" <%if(degree[i]=== "Háskólanám grunnnám") {%> Selected <%}%>>Háskólanám grunnnám</option>
-                  <option value="Háskólanám framhaldsnám" <%if(degree[i]=== "Háskólanám framhaldsnám") {%> Selected <%}%>>Háskólanám framhaldsnám</option>
-                  <option value="Háskólanám annað" <%if(degree[i]=== "Háskólanám annað") {%> Selected <%}%>>Háskólanám annað</option>
-                  <option value="Starfsmenntun" <%if(degree[i]=== "Starfsmenntun") {%> Selected <%}%>>Starfsmenntun</option>
-                  <option value="Annað" <%if(degree[i]=== "Annað") {%> Selected <%}%>>Annað</option>
-                </select>
-                <input class="col-md-2 fillOut" type="text" name="education" value="<%= education[i] %>">
-                <input type="text" class="col-md-2 datepicker fillOut" name="startDate" value=<%=startDate[i]%>>
-                <input type="text" class="col-md-2 datepicker fillOut" name="finishDate" value=<%=endDate[i]%>>
-                <select class="fillOut" name = "statuss">
-                <OPTION value=" "> </OPTION>
-                <OPTION value="Lokið" <%if(statuss[i]=== "Lokið") {%> Selected <%}%>>Lokið</OPTION>
-                <OPTION value="Ólokið" <%if(statuss[i]=== "Ólokið") {%> Selected <%}%>>Ólokið</OPTION>
-              </select>
-              <input type="button" id="virk" class="eyda" value="X"></div>
-              <% } }%>
-        </div>
-        <input type="submitDegree" class="btn btn-default btn-sm" id="submitDegrees" value="Bæta við">
-
-         <h3 class="col-md-12">Starfsreynsla</h3>
-             <div class="form-group">
-            <label class="col-md-3">Fyrirtæki:</label>
-            <label class="col-md-2">Starfsheiti:</label>
-            <label class="col-md-2">Starfshlutfall:</label>
-            <label class="col-md-2">Dags.frá:</label>
-            <label class="col-md-2">Dags.til:</label>
-            </div>
-            <div id="workedJobs">
-            <%  if(typeof user.local.job.job != 'undefined') {
-              var jobs = user.local.job;
-            var job = jobs.job.split(",");
-            var jobName = jobs.jobName.split(",");
-            var jobPerc = jobs.jobPerc.split(",");
-            var jobStartDate = jobs.jobStartDate.split(",");
-            var jobEndDate = jobs.jobEndDate.split(",");
-            for(var i=0; i<job.length; i++) {  %>
-          <div class="form-group" class="work">
-      <input class="col-md-3 fillOut" type="text" name="job" value="<%=job[i]%>">
-      <input class="col-md-3 fillOut" type="text" name="jobName" value="<%=jobName[i]%>">
-      <input class="col-md-1 fillOut" type="text" name="jobPerc" value="<%=jobPerc[i]%>">
-      <input type="text" class="col-md-2 datepicker fillOut" name="jobStartDate" value=<%=jobStartDate[i]%>>
-      <input type="text" class="col-md-2 datepicker fillOut" name="jobEndDate" value=<%=jobEndDate[i]%>>
-      <input type="button" class="eyda" value="X">
-    </div>
- <% } } %>
-    </div>
-            <input type="submitDegree" class="btn btn-default btn-sm" id="submitJob" value="Bæta við">
-
-  <h3 class="col-md-12">Kunnátta</h3>
-             <div class="form-group">
-            <label class="col-md-4">Forritunarmál, kerfi eða annað:</label>
-            <label class="col-md-3">Reynsla:</label>
-            </div>
-            <div id="techknow">
-               <%  if(typeof user.local.knowledge.knowledge != 'undefined') {
-               var know = user.local.knowledge;
-               var knowledges = know.knowledge.split(",");
-               var rateKnowledge = know.rateKnowledge.split(","); 
-               for(var i=0; i<knowledges.length; i++){ %>
-          <div class="form-group" class="knowing">
-          <input class="col-md-4 fillOut" type="text" name="knowledge" value= "<%= knowledges[i] %>"> 
-            <select class ="fillOut" name="rateKnowledge">
-              <OPTION value=" "> </OPTION>
-              <OPTION value ="Grunnreynsla"<%if(rateKnowledge[i]=== "Grunnreynsla"){ %> Selected <% } %>>Grunnreynsla</OPTION>
-              <OPTION value="Meðalreynsla" <%if(rateKnowledge[i]=== "Meðalreynsla"){ %> Selected <% } %>>Meðalreynsla</OPTION>
-              <OPTION value="Sérfræðingur" <%if(rateKnowledge[i]=== "Sérfræðingur"){ %> Selected <% } %>>Sérfræðingur</OPTION>
-            </select>
-             <input type="button" class="eyda" value="X">
-          </div>
-          <% } } %>
-        </div>
-        <input type="submitDegree" class="btn btn-default btn-sm" id="submitKnow" value="Bæta við">
-
-          <p></p>
-
-          <div class="form-group">
-            <label class="col-md-2 control-label">Um mig:</label>
-            <div class="col-md-6">
-              <textarea name="textColumn" class="form-control" rows="5"><%=user.local.textColumn%> </textarea>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="col-md-2 control-label" >Vefsíða:</label>
-            <div class="col-md-6">
-              <input class="form-control" type="text" name="website" value=<%= user.local.website %>>
-            </div>
-          </div>
+               
 
 
-          <div class="form-group">
-            <label class="col-md-2 control-label" >Facebook:</label>
-            <div class="col-md-6">
-              <input class="form-control" type="text" name="facebook" value=<%= user.local.feisbook %>>
-            </div>
-          </div>
+
+                <div class="form-group">
+                  <label for="birthday" class="col-xs-3 control-label">Fæðingardagur:</label>
+                  <div class="col-xs-3">
+                   <input class="form-control datepicker fillOut" type="text" name="dateBirth" value="<%= user.local.birthday %>">
+                 </div>
+               </div>
+               <div class="form-group">
+                <label class="col-xs-3 control-label">Kyn:</label>
+                <div class="col-xs-6">
+                  <label class="radio-inline"><input type="radio" name="men" <%= user.local.men %>>kk</label>
+
+                  <label class="radio-inline"><input type="radio" name="women" <%= user.local.women %>>kvk</label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-xs-3 control-label">Vinna:</label>
+                <div class="col-xs-6">
+                  <div="checkbox">
+
+                  <label class="checkbox-inline ">
+                    <input type="checkbox" name="careerJob" <%= user.local.careerJob%> >Framtíðarstarf
+                  </label>
+
+                  <label class="checkbox-inline ">
+                    <input type="checkbox" name="summerJob" <%= user.local.summerJob%>>Sumarstarf
+                  </label>
 
 
-          <div class="form-group">
-            <label class="col-md-2 control-label" >Skype:</label>
-            <div class="col-md-6">
-              <input class="form-control" type="text" name="skype" value=<%= user.local.skype %>>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-2 control-label" >Símanúmer:</label>
-            <div class="col-md-6">
-              <input class="form-control" type="text" name="telephone" value=<%= user.local.telephone %>>
-            </div>
-          </div>
+                  <label class=" checkbox-inline  ">
+                    <input type="checkbox" name="partialJob" <%= user.local.partialJob%>>Tímabundið starf
+                  </label>
 
-      <h3 class="col-md-12">Myndir af gömlum verkefnum</h3>
 
-          <div class = "imagescontainer">
+
+                  <label class=" checkbox-inline ">
+                    <input type="checkbox" name="assignmentJob" <%= user.local.assignmentJob%>>Verkefni
+                  </label>
+
+
+
+                  <label class=" checkbox-inline ">
+                    <input type="checkbox" name="startupJob" <%= user.local.startupJob%>>Startup samstarf
+                  </label>
+
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <h4 class="col-xs-3 control-label ">Menntun</h4>
+                <div class="col-xs-8 control-label work">
+
+                  <div id="degree">
+                    <%  if(typeof user.local.degrees.school != 'undefined') {
+                      var deg = user.local.degrees;
+                      var school = deg.school.split(",");
+                      var degree = deg.degree.split(",");
+                      var education = deg.education.split(",");
+                      var startDate = deg.startDate.split(",");
+                      var endDate = deg.endDate.split(",");
+                      var statuss = deg.statuss.split(",");
+                      for(var i=0; i<school.length; i++) {  %>
+                      <div class="form-group" class="jebb">
+                       <table class="table table-condensed">
+                         <thead>
+                          <tr>
+                            <th class="col-sm-6 col-md-2"> Skóli:</th>
+                            <th class="col-sm-6 col-md-2"> Gráða:</th>
+                            <th class="col-sm-6 col-md-2"> Námsgrein:</th>
+                            <th class="col-sm-6 col-md-2"> Dags.frá:</th>
+                            <th class="col-sm-6 col-md-2"> Dags.til:</th>
+                            <th class="col-sm-6 col-md-2"> Staða:</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <td> 
+                            <input class="form-control fillOut" type="text" name="school" value="<%=school[i]%>">
+                          </td>
+                          <td>
+                            <select class="form-control fillOut" name="degree">
+                              <option value=" "> </option>
+                              <option value="Grunnskólapróf" <%if(degree[i]=== "Grunnskólapróf") {%> Selected <%}%>>Grunnskólapróf</option>
+                              <option value="Framhaldsskólapróf" <%if(degree[i]=== "Framhaldsskólapróf") {%> Selected <%}%>>Framhaldsskólapróf</option>
+                              <option value="Háskólanám grunnnám" <%if(degree[i]=== "Háskólanám grunnnám") {%> Selected <%}%>>Háskólanám grunnnám</option>
+                              <option value="Háskólanám framhaldsnám" <%if(degree[i]=== "Háskólanám framhaldsnám") {%> Selected <%}%>>Háskólanám framhaldsnám</option>
+                              <option value="Háskólanám annað" <%if(degree[i]=== "Háskólanám annað") {%> Selected <%}%>>Háskólanám annað</option>
+                              <option value="Starfsmenntun" <%if(degree[i]=== "Starfsmenntun") {%> Selected <%}%>>Starfsmenntun</option>
+                              <option value="Annað" <%if(degree[i]=== "Annað") {%> Selected <%}%>>Annað</option>
+                            </select>
+                          </td>
+
+                          <td>
+                            <input class="form-control fillOut" type="text" name="education" value="<%= education[i] %>">
+                          </td>
+                          <td>
+                            <input type="text" class="form-control datepicker fillOut" name="startDate" value=<%=startDate[i]%>>
+                          </td>
+                          <td>
+                            <input type="text" class="form-control datepicker fillOut" name="finishDate" value=<%=endDate[i]%>>
+                          </td>
+
+                          <td>
+                            <select class=" form-control fillOut" name = "statuss">
+                              <OPTION value=" "> </OPTION>
+                              <OPTION value="Lokið" <%if(statuss[i]=== "Lokið") {%> Selected <%}%>>Lokið</OPTION>
+                              <OPTION value="Ólokið" <%if(statuss[i]=== "Ólokið") {%> Selected <%}%>>Ólokið</OPTION>
+                            </select>
+                          </td>
+
+                        </tbody>
+                      </table>
+  
+                      <input type="button" id="virk" class="eyda btn" value="X"></div>
+                      <% } }%>
+                    </div >
+                    <div class="submit-btn" >
+                      <input type="submitDegree" class="btn btn-info btn-sm" id="submitDegrees" value="Bæta við">
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+         
+                <div class="form-group">
+                  <h4 class="col-xs-3 control-label">Starfsreynsla</h4>
+                  <div class="col-xs-8 control-label work">
+
+                    <div id="workedJobs">
+                      <%  if(typeof user.local.job.job != 'undefined') {
+                        var jobs = user.local.job;
+                        var job = jobs.job.split(",");
+                        var jobName = jobs.jobName.split(",");
+                        var jobPerc = jobs.jobPerc.split(",");
+                        var jobStartDate = jobs.jobStartDate.split(",");
+                        var jobEndDate = jobs.jobEndDate.split(",");
+                        for(var i=0; i<job.length; i++) {  %>
+                        <div class="form-group" class="work">
+                          <table class="table table-condensed">
+                           <thead>
+                            <tr>
+                              <th class="col-sm-6 col-md-2"> Fyrirtæki:</th>
+                              <th class="col-sm-6 col-md-2"> Starfsheiti:</th>
+                              <th class="col-sm-6 col-md-2" > Starfshlutfall:</th>
+                              <th class="col-sm-4 col-md-2"> Dags.frá:</th>
+                              <th class="col-sm-6 col-md-2"> Dags.til:</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <td>
+                              <input class="form-control fillOut" type="text" name="job" value="<%=job[i]%>">
+                            </td> 
+
+                            <td>
+                              <input class="form-control fillOut" type="text" name="jobName" value="<%=jobName[i]%>">
+                            </td>
+
+                            <td>
+                              <input class="form-control fillOut" type="text" name="jobPerc" value="<%=jobPerc[i]%>">
+                            </td>
+
+                            <td>
+                              <input type="text" class=" form-control datepicker fillOut" name="jobStartDate" value=<%=jobStartDate[i]%>>
+                            </td>
+
+                            <td>
+                              <input type="text" class="form-control datepicker fillOut" name="jobEndDate" value=<%=jobEndDate[i]%>>
+
+                            </td>
+
+                          </tbody>
+
+
+
+                        </table>
+                        <input type="button" class=" eyda btn" value="X">
+                      </div>
+                      <% } } %>
+
+                    </div>
+                    
+
+                    <div class="submit-btn" >
+                      <input type="submitDegree" class=" btn btn-info btn-sm" id="submitJob" value="Bæta við">
+                    </div>
+                  </div>
+                </div>
+
+          
+                <div class="form-group">
+                  <h4 class="col-xs-3 control-label "> Kunnátta</h4>
+                  <div class="col-xs-9">
+                   <label class="col-xs-4 textkunnata">Forritunarmál, kerfi eða annað:</label>
+                   <label class="col-xs-5 textkunnata">Reynsla:</label> 
+
+                   <br></br>
+                   <br></br>
+
+                   <div id="techknow">
+                     <%  if(typeof user.local.knowledge.knowledge != 'undefined') {
+                       var know = user.local.knowledge;
+                       var knowledges = know.knowledge.split(",");
+                       var rateKnowledge = know.rateKnowledge.split(","); 
+                       for(var i=0; i<knowledges.length; i++){ %>
+
+                       <div class="form-group" class="knowing">
+                        <input class="col-xs-4 form-control knowledge fillOut" type="text" name="knowledge" value= "<%= knowledges[i] %>"> 
+                        <select class =" col-xs-3  form-control  rateknowledge fillOut" name="rateKnowledge">
+                          <OPTION value=" "> </OPTION>
+                          <OPTION value ="Grunnreynsla"<%if(rateKnowledge[i]=== "Grunnreynsla"){ %> Selected <% } %>>Grunnreynsla</OPTION>
+                          <OPTION value="Meðalreynsla" <%if(rateKnowledge[i]=== "Meðalreynsla"){ %> Selected <% } %>>Meðalreynsla</OPTION>
+                          <OPTION value="Sérfræðingur" <%if(rateKnowledge[i]=== "Sérfræðingur"){ %> Selected <% } %>>Sérfræðingur</OPTION>
+                        </select>
+                        <input type="button" class="eyda btn" value="X">
+                      </div>
+                      <% } } %>
+                    </div>
+
+                    <input type="submitDegree" class="btn btn-info btn-sm" id="submitKnow" value="Bæta við">
+
+                  </div>
+
+                </div>
+
+
+
+
+
+
+
+                <p></p>
+
+         <div class="form-group">
+                  <label class="col-xs-3 control-label">Um mig:</label>
+                  <div class="col-xs-8">
+                    <textarea name="textColumn" class="form-control" rows="5"><%=user.local.textColumn%> </textarea>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-xs-3 control-label" >Vefsíða:</label>
+                  <div class="col-xs-8">
+                    <input class="form-control" type="text" name="website" value=<%= user.local.website %>>
+                  </div>
+                </div>
+
+
+                <div class="form-group">
+                  <label class="col-xs-3 control-label" >Facebook:</label>
+                  <div class="col-xs-8">
+                    <input class="form-control" type="text" name="facebook" value=<%= user.local.feisbook %>>
+                  </div>
+                </div>
+
+
+                <div class="form-group">
+                  <label class="col-xs-3 control-label" >Skype:</label>
+                  <div class="col-xs-8">
+                    <input class="form-control" type="text" name="skype" value=<%= user.local.skype %>>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-xs-3 control-label" >Símanúmer:</label>
+                  <div class="col-xs-8">
+                    <input class="form-control" type="text" name="telephone" value=<%= user.local.telephone %>>
+                  </div>
+                </div>
+
+      <h3 class="col-md-">Myndir af gömlum verkefnum</h3>
+
+          <div class = "imagescontainer profile">
                         <div class = "row">
                           <div class="col-xs-8 ">
                             <hr >

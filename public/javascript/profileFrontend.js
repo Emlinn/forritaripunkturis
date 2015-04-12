@@ -1,29 +1,84 @@
 //Frontend jQuery fyrir /profile
 //Höfundur: Sigurbjörn Jónsson
 $(document).ready(function() {
+
 	//Ýtt á bæta við gráðu.
+	// $('#submitDegrees').click(function() {
+	// 	$('#degree').append('<div class="form-group" class="work">'+
+	// 		'<input class="col-md-2 fillOut" name="school">'+
+	// 		'<select class="col-md-2 fillOut" name="degree">'+
+	//                 '<option value=" " Selected > </option>'+
+	//                 '<option value="Grunnskólapróf">Grunnskólapróf</option>'+
+	//                 '<option value="Framhaldsskólapróf">Framhaldsskólapróf</option>'+
+	//                 '<option value="Háskólanámsgr">Háskólanám grunnnám</option>'+
+	//                 '<option value="Háskólanámfr">Háskólanám framhaldsnám</option>'+
+	//                 '<option value="Háskólanáman">Háskólanám annað</option>'+
+	//                 '<option value="Starfsmenntun">Starfsmenntun</option>'+
+	//                 '<option value="Annað">Annað</option>'+
+	//               '</select>'+
+	//               '<input class="col-md-2 fillOut" name="education">'+
+	//               '<input type="text" class="col-md-2 datepicker fillOut" name="startDate">'+
+	//               '<input type="text" class="col-md-2 datepicker fillOut" name="finishDate" >'+
+	//               '<select class="fillOut" name = "statuss">'+
+	//               '<OPTION> </OPTION>'+
+	//               '<OPTION>Lokið</OPTION>'+
+	//               '<OPTION>Ólokið</OPTION>'+
+	//             '</select>'+
+	//             '<input type="button" class="eyda" value="X"></div>');
+	// 	$(function() {
+ //    		$( ".datepicker" ).datepicker({
+ //      			changeMonth: true,
+ //      			changeYear: true,
+ //      			yearRange: "-100:+0"
+ //      		});
+ //    	});
+ //    	$('.eyda').click(function() {
+	// 		$(this).parent().remove();
+	// 	}); 
+	// });
+
+
+
 	$('#submitDegrees').click(function() {
-		$('#degree').append('<div class="form-group" class="work">'+
-			'<input class="col-md-2 fillOut" name="school">'+
-			'<select class="col-md-2 fillOut" name="degree">'+
-	                '<option value=" " Selected > </option>'+
-	                '<option value="Grunnskólapróf">Grunnskólapróf</option>'+
-	                '<option value="Framhaldsskólapróf">Framhaldsskólapróf</option>'+
-	                '<option value="Háskólanámsgr">Háskólanám grunnnám</option>'+
-	                '<option value="Háskólanámfr">Háskólanám framhaldsnám</option>'+
-	                '<option value="Háskólanáman">Háskólanám annað</option>'+
-	                '<option value="Starfsmenntun">Starfsmenntun</option>'+
-	                '<option value="Annað">Annað</option>'+
-	              '</select>'+
-	              '<input class="col-md-2 fillOut" name="education">'+
-	              '<input type="text" class="col-md-2 datepicker fillOut" name="startDate">'+
-	              '<input type="text" class="col-md-2 datepicker fillOut" name="finishDate" >'+
-	              '<select class="fillOut" name = "statuss">'+
+		$('#degree').append('<div class="form-group" class="jebb">'+
+			'  <table class="table table-condensed">'+
+				' <thead>'+
+					'<tr>'+
+						'<th class="col-sm-6 col-md-2"> Skóli:</th>'+
+						 '<th class="col-sm-6 col-md-2"> Gráða:</th>'+
+                          '<th class="col-sm-6 col-md-2"> Námsgrein:</th>'+
+                          '<th class="col-sm-6 col-md-2"> Dags.frá:</th>'+
+                          '<th class="col-sm-6 col-md-2"> Dags.til:</th>'+
+                          '<th class="col-sm-6 col-md-2"> Staða:</th>'+
+                     '</tr>'+
+               '<thead>'+
+               '<tbody>'+
+               		'<td><input class="form-control fillOut" name="school"></td>'+
+					'<td>'+
+						'<select class="form-control fillOut" name="degree">'+
+	            	    	'<option value=" " Selected > </option>'+
+	            		    '<option value="Grunnskólapróf">Grunnskólapróf</option>'+
+	    	           		'<option value="Framhaldsskólapróf">Framhaldsskólapróf</option>'+
+	    		            '<option value="Háskólanámsgr">Háskólanám grunnnám</option>'+
+	        		        '<option value="Háskólanámfr">Háskólanám framhaldsnám</option>'+
+	            		    '<option value="Háskólanáman">Háskólanám annað</option>'+
+		    	            '<option value="Starfsmenntun">Starfsmenntun</option>'+
+	    	    	        '<option value="Annað">Annað</option>'+
+	        		     '</select>'+
+	       		   '</td>'+
+	              '<td><input class="form-control fillOut" name="education"></td>'+
+	              '<td><input type="text" class="form-control datepicker fillOut" name="startDate"></td>'+
+	              '<td><input type="text" class="form-control datepicker fillOut" name="finishDate" ></td>'+
+	              '<td><select class=" form-control fillOut" name = "statuss">'+
 	              '<OPTION> </OPTION>'+
 	              '<OPTION>Lokið</OPTION>'+
 	              '<OPTION>Ólokið</OPTION>'+
 	            '</select>'+
-	            '<input type="button" class="eyda" value="X"></div>');
+	            '</td>'+
+                     	'</tbody>'+
+                '</table>'+
+			
+	            '<input type="button" class="eyda btn" value="X"></div>');
 		$(function() {
     		$( ".datepicker" ).datepicker({
       			changeMonth: true,
@@ -41,14 +96,48 @@ $(document).ready(function() {
 	});
 
 	// Ýtt á bæta við atvinnu
-	$('#submitJob').click(function() {
+	// $('#submitJob').click(function() {
+	// 	$('#workedJobs').append('<div class="form-group" class="work">'+
+	//       '<input class="col-md-3 fillOut" name="job">'+
+	//       '<input class="col-md-3 fillOut" name="jobName">'+
+	//       '<input class="col-md-1 fillOut" name="jobPerc">'+
+	//       '<input type="text" class="col-md-2 datepicker fillOut" name="jobStartDate">'+
+	//       '<input type="text" class="col-md-2 datepicker fillOut" name="jobEndDate">'+
+	//       '<input type="button" class="eyda" value="X"></div>'+
+ //    	  '</div> ');
+	// 	$(function() {
+ //    		$( ".datepicker" ).datepicker({
+ //      			changeMonth: true,
+ //      			changeYear: true,
+ //      			yearRange: "-100:+0"
+ //      		});
+ //    	});
+ //    	$('.eyda').click(function() {
+	// 		$(this).parent().remove();
+	// 	}); 
+	// });
+
+$('#submitJob').click(function() {
 		$('#workedJobs').append('<div class="form-group" class="work">'+
-	      '<input class="col-md-3 fillOut" name="job">'+
-	      '<input class="col-md-3 fillOut" name="jobName">'+
-	      '<input class="col-md-1 fillOut" name="jobPerc">'+
-	      '<input type="text" class="col-md-2 datepicker fillOut" name="jobStartDate">'+
-	      '<input type="text" class="col-md-2 datepicker fillOut" name="jobEndDate">'+
-	      '<input type="button" class="eyda" value="X"></div>'+
+			'<table class="table table-condensed">'+
+                '<thead>'+
+                   '<tr>'+
+     	               '<th class="col-sm-6 col-md-2"> Fyrirtæki:</th>' +
+                       '<th class="col-sm-6 col-md-2"> Starfsheiti:</th>'+
+                       '<th class="col-sm-6 col-md-2" > Starfshlutfall:</th>'+
+                       '<th class="col-sm-4 col-md-2"> Dags.frá:</th>'+
+                       '<th class="col-sm-6 col-md-2"> Dags.til:</th>'+
+                   '</tr>'+
+                '</thead>'+
+	            '<tbody>'+
+                 	'<td><input class="form-control fillOut" name="job"></td>'+
+	      			'<td><input class="form-control fillOut" name="jobName"></td>'+
+	     		 	'<td><input class="form-control fillOut" name="jobPerc"></td>'+
+	      			'<td><input type="text" class="form-control datepicker fillOut" name="jobStartDate"></td>'+
+	      			'<td><input type="text" class="form-control datepicker fillOut" name="jobEndDate"></td>'+
+    	  		'</tbody>'+		
+    	  	'</table>'	+
+    	  	'<input type="button" class="eyda  btn" value="X">'+
     	  '</div> ');
 		$(function() {
     		$( ".datepicker" ).datepicker({
@@ -61,17 +150,41 @@ $(document).ready(function() {
 			$(this).parent().remove();
 		}); 
 	});
+   
 	//Ýtt á bæta við kunnáttu
+	// $('#submitKnow').click(function() {
+	// 	$('#techknow').append('<div class="form-group" class="knowing">'+
+ //          '<input class="col-md-4 fillOut" name="knowledge" >'+ 
+ //            '<select class="fillOut" name="rateKnowledge">'+
+ //              '<OPTION value" "> </OPTION>'+
+ //              '<OPTION value ="Grunnreynsla">Grunnreynsla</OPTION>'+
+ //              '<OPTION value="Meðalreynsla">Meðalreynsla</OPTION>'+
+ //              '<OPTION value="Sérfræðingur">Sérfræðingur</OPTION>'+
+ //            '</select>'+
+ //            ' <input type="button" class="eyda" value="X">'+
+ //          '</div> ');
+	// 	$('.eyda').click(function() {
+	// 		$(this).parent().remove();
+	// 	}); 
+	// });
+	$(function() {
+    	$( ".datepicker" ).datepicker({
+    		changeMonth: true,
+    		changeYear: true,
+    		yearRange: "-100:+0"
+    	});
+    });
+    //Ýtt á bæta við kunnáttu
 	$('#submitKnow').click(function() {
 		$('#techknow').append('<div class="form-group" class="knowing">'+
-          '<input class="col-md-4 fillOut" name="knowledge" >'+ 
-            '<select class="fillOut" name="rateKnowledge">'+
+          '<input class="col-xs-4 form-control knowledge fillOut" name="knowledge" >'+ 
+            '<select class="col-xs-3 form-control rateknowledge fillOut" name="rateKnowledge">'+
               '<OPTION value" "> </OPTION>'+
               '<OPTION value ="Grunnreynsla">Grunnreynsla</OPTION>'+
               '<OPTION value="Meðalreynsla">Meðalreynsla</OPTION>'+
               '<OPTION value="Sérfræðingur">Sérfræðingur</OPTION>'+
             '</select>'+
-            ' <input type="button" class="eyda" value="X">'+
+            ' <input type="button" class="eyda btn" value="X">'+
           '</div> ');
 		$('.eyda').click(function() {
 			$(this).parent().remove();

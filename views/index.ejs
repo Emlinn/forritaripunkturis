@@ -42,7 +42,7 @@
 <li><a href="/about" class="hvr-underline-from-left">Um okkur</a></li>
 <li><a href="/contact" class="hvr-underline-from-left">Auglýstu starf</a></li>
 <% if(user){ %>
-<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= user.local.firstname + " " + user.local.lastname %><b class="caret"></b></a>
+<li class="dropdown text-capitalize"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= user.local.firstname + " " + user.local.lastname %><b class="caret"></b></a>
 <ul class="dropdown-menu">
 <li><a href="/profile" class="hvr-underline-from-left">Stillingar</a></li>
 <li><a href="/logout" class="hvr-underline-from-left">Útskráning</a></li>
@@ -129,7 +129,7 @@ else{
 if(info.local.men=="checked"){%> src="/images/unknown-man.jpeg" class=" avatar img-circle" alt="avatar" style="width: 140px; height: 140px;"<%}
 else{%> src="/images/unknown-woman.png" class=" avatar img-circle" alt="avatar" style="width: 140px; height: 140px;"<%}
 }%>>
-<h2><%= info.local.firstname %> <%= info.local.lastname %></h2>
+<h2 class="text-capitalize"><%= info.local.firstname %> <%= info.local.lastname %></h2>
 <p><%= info.local.birthday %> </p>
 <% if(info.local.knowledge.knowledge) { %>
 <p><%= info.local.knowledge.knowledge %> </p>
