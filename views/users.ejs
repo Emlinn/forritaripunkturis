@@ -253,25 +253,25 @@
 
                               <!-- ég er að leita eftir -->
 
-                              <%if((info.local.careerJob || info.local.summerJob || info.local.partialJob || info.local.assignmentJob || info.local.startupJob)== "checked"){ %>
+                              <%if(info.local.careerJob == "Framtíðarstarf" || info.local.summerJob == "Sumarstarf" || info.local.partialJob == "Tímabundið starf" || info.local.assignmentJob == "Verkefni" || info.local.startupJob== "Startup samstarf"){ %>
 
                               <h4 class="text-left infostyle text-info">Ég er að leita eftir</h4> 
                               <hr class="line-color"></hr>
 
 
-                              <%if(info.local.careerJob == "checked"){ %>
+                              <%if(info.local.careerJob == "Framtíðarstarf"){ %>
                               <p class="bg-primary careerJob "><strong> Framtíðarstarf </strong></p><%}%>
 
-                              <%if(info.local.summerJob == "checked"){ %>
+                              <%if(info.local.summerJob == "Sumarstarf"){ %>
                               <p class="bg-primary  careerJob"><strong>  Sumarstarf</strong> </p><%}%>
 
-                              <%if(info.local.partialJob == "checked"){ %>
+                              <%if(info.local.partialJob == "Tímabundið starf"){ %>
                               <p class="bg-primary careerJob"> <strong> Tímabundið starf </strong></p><%}%>
 
-                              <%if(info.local.assignmentJob == "checked"){ %>
+                              <%if(info.local.assignmentJob == "Verkefni"){ %>
                               <p class="bg-primary careerJob"> <strong> Verkefni </strong></p><%}%>
 
-                              <%if(info.local.startupJob == "checked"){ %>
+                              <%if(info.local.startupJob == "Startup samstarf"){ %>
                               <p class="bg-primary  careerJob"> <strong> Startup samstarf </strong></p><%}%>
                               <%}%>
                               <!-- Kunnáta -->

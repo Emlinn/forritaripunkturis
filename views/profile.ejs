@@ -103,28 +103,28 @@
                 <label class="col-xs-3 control-label">Vinna:</label>
                 <div class="col-xs-6">
                   <label class="checkbox-inline ">
-                    <input type="checkbox" name="careerJob" <%= user.local.careerJob%> >Framtíðarstarf
+                    <input type="checkbox" name="careerJob" <%if(user.local.careerJob){%>checked<%}%> >Framtíðarstarf
                   </label>
 
                   <label class="checkbox-inline ">
-                    <input type="checkbox" name="summerJob" <%= user.local.summerJob%>>Sumarstarf
+                    <input type="checkbox" name="summerJob" <%if(user.local.summerJob){%>checked<%}%>>Sumarstarf
                   </label>
 
 
                   <label class=" checkbox-inline  ">
-                    <input type="checkbox" name="partialJob" <%= user.local.partialJob%>>Tímabundið starf
+                    <input type="checkbox" name="partialJob" <%if(user.local.partialJob){%>checked<%}%>>Tímabundið starf
                   </label>
 
 
 
                   <label class=" checkbox-inline ">
-                    <input type="checkbox" name="assignmentJob" <%= user.local.assignmentJob%>>Verkefni
+                    <input type="checkbox" name="assignmentJob" <%if(user.local.assignmentJob){%>checked<%}%>>Verkefni
                   </label>
 
 
 
                   <label class=" checkbox-inline ">
-                    <input type="checkbox" name="startupJob" <%= user.local.startupJob%>>Startup samstarf
+                    <input type="checkbox" name="startupJob" <%if(user.local.startupJob){%>checked<%}%>>Startup samstarf
                   </label>
 
                 </div>

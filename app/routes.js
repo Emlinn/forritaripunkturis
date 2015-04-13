@@ -90,7 +90,7 @@ module.exports = function(app, passport) {
 			req.user.local.careerJob = "";	
 		}
 		if(req.body.summerJob) {
-			req.user.local.summerJob = "Sumarvinna";
+			req.user.local.summerJob = "Sumarstarf";
 		}
 		else {
 			req.user.local.summerJob = "";	
