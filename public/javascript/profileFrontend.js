@@ -53,9 +53,9 @@ $(document).ready(function() {
                      '</tr>'+
                '<thead>'+
                '<tbody>'+
-               		'<td><input class="form-control fillOut degreefield" name="school"></td>'+
+               		'<td><input class="form-control schoolSizeBg fillOut degreefield" name="school"></td>'+
 					'<td>'+
-						'<select class="form-control fillOut degreefield" name="degree">'+
+						'<select class="form-control schoolSizeBg fillOut degreefield" name="degree">'+
 	            	    	'<option value=" " Selected > </option>'+
 	            		    '<option value="Grunnskólapróf">Grunnskólapróf</option>'+
 	    	           		'<option value="Framhaldsskólapróf">Framhaldsskólapróf</option>'+
@@ -66,7 +66,7 @@ $(document).ready(function() {
 	    	    	        '<option value="Annað">Annað</option>'+
 	        		     '</select>'+
 	       		   '</td>'+
-	              '<td><input class="form-control fillOut degreefield" name="education"></td>'+
+	              '<td><input class="form-control schoolSizeBg fillOut degreefield" name="education"></td>'+
 	              '<td><input type="text" class="form-control datepicker field fillOut" name="startDate"></td>'+
 	              '<td><input type="text" class="form-control datepicker field fillOut" name="finishDate" ></td>'+
 	              '<td><select class=" form-control fillOut statuss" name = "statuss">'+
@@ -176,16 +176,16 @@ $('#submitJob').click(function() {
     });
     //Ýtt á bæta við kunnáttu
 	$('#submitKnow').click(function() {
-		$('#techknow').append('<div class="form-group" class="knowing">'+
-          '<input class="col-xs-4 form-control knowledge fillOut" name="knowledge" >'+ 
-            '<select class="col-xs-3 form-control rateknowledge fillOut" name="rateKnowledge">'+
-              '<OPTION value" "> </OPTION>'+
-              '<OPTION value ="Grunnreynsla">Grunnreynsla</OPTION>'+
-              '<OPTION value="Meðalreynsla">Meðalreynsla</OPTION>'+
-              '<OPTION value="Sérfræðingur">Sérfræðingur</OPTION>'+
-            '</select>'+
-            ' <input type="button" class="eyda btn" value="X">'+
-          '</div> ');
+		$('#techknow').append('<div class="form-inline knowing">'+
+            '<div class="col-md-5"><input class="col-xs-5 form-control knowledge fillOut" type="text" name="knowledge"> </div>'+
+                '<div class="col-md-5"><select class =" col-xs-4  form-control  rateknowledge fillOut" name="rateKnowledge">'+
+                    '<OPTION value=" "> </OPTION>'+
+                    '<OPTION value ="Grunnreynsla">Grunnreynsla</OPTION>'+
+                    '<OPTION value="Meðalreynsla">Meðalreynsla</OPTION>'+
+                    '<OPTION value="Sérfræðingur">Sérfræðingur</OPTION>'+
+                '</select></div>'+
+                '<input type="button" class="eyda btn" value="X">'+
+             '</div>');
 		$('.eyda').click(function() {
 			$(this).parent().remove();
 		}); 
@@ -200,7 +200,7 @@ $('#submitJob').click(function() {
 
 	$('#submitProfile').click(function(event) {
 		$('.fillOut').each(function(){
-			if(!$(this).val()) {
+			if(!$(this).val() || $(this).val()=== " " ) {
 				$(this).addClass('warning');
 				$('#problemMessage').text("Þú verður að fylla út í rauða reiti eða eyða línum.");
 				event.preventDefault();

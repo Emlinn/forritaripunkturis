@@ -102,8 +102,6 @@
               <div class="form-group">
                 <label class="col-xs-3 control-label">Vinna:</label>
                 <div class="col-xs-6">
-                  <div="checkbox">
-
                   <label class="checkbox-inline ">
                     <input type="checkbox" name="careerJob" <%= user.local.careerJob%> >Framtíðarstarf
                   </label>
@@ -131,11 +129,14 @@
 
                 </div>
               </div>
-
+            </div>
+          </div>  
+            <div class="container marketing">
 
               <div class="form-group">
-                <h4 class="col-xs-3 control-label ">Menntun</h4>
-                <div class="col-xs-8 control-label work">
+                  <h4 class="col-xs-1 control-label">Menntun</h4>
+                </br> 
+                  <div class="col-xs-10 control-label work">
 
                   <div id="degree">
                     <%  if(typeof user.local.degrees.school != 'undefined') {
@@ -161,10 +162,10 @@
                         </thead>
                         <tbody>
                           <td> 
-                            <input class="form-control fillOut" type="text" name="school" value="<%=school[i]%>">
+                            <input class="form-control schoolSizeBg fillOut" type="text" name="school" value="<%=school[i]%>">
                           </td>
                           <td>
-                            <select class="form-control fillOut" name="degree">
+                            <select class="form-control schoolSizeBg fillOut" name="degree">
                               <option value=" "> </option>
                               <option value="Grunnskólapróf" <%if(degree[i]=== "Grunnskólapróf") {%> Selected <%}%>>Grunnskólapróf</option>
                               <option value="Framhaldsskólapróf" <%if(degree[i]=== "Framhaldsskólapróf") {%> Selected <%}%>>Framhaldsskólapróf</option>
@@ -177,7 +178,7 @@
                           </td>
 
                           <td>
-                            <input class="form-control fillOut" type="text" name="education" value="<%= education[i] %>">
+                            <input class="form-control schoolSizeBg fillOut" type="text" name="education" value="<%= education[i] %>">
                           </td>
                           <td>
                             <input type="text" class="form-control datepicker fillOut" name="startDate" value=<%=startDate[i]%>>
@@ -194,32 +195,30 @@
                             </select>
                           </td>
 
-
+                          <td>
+                            
+                          </td>
 
                         </tbody>
                       </table>
-
-                      
-                      
-                      
-                      
                       
                       <input type="button" id="virk" class="eyda btn" value="X"></div>
                       <% } }%>
                     </div >
                     <div class="submit-btn" >
-                      <input type="submitDegree" class="btn btn-info btn-sm" id="submitDegrees" value="Bæta við">
+                      <input type="submitDegree" class="btn btn-primary btn-sm" id="submitDegrees" value="Bæta við">
                     </div>
                   </div>
                 </div>
 
 
-
+                <div class="lineDown"></div>
 
 
                 <div class="form-group">
-                  <h4 class="col-xs-3 control-label">Starfsreynsla</h4>
-                  <div class="col-xs-8 control-label work">
+                  <h4 class="col-xs-1 control-label">Starfsreynsla</h4>
+                </br>
+                  <div class="col-xs-10 control-label work">
 
                     <div id="workedJobs">
                       <%  if(typeof user.local.job.job != 'undefined') {
@@ -282,15 +281,14 @@
                 </div>
 
 
-                <div class="form-group">
-                  <h4 class="col-xs-3 control-label "> Kunnátta</h4>
+                <div>
+                  <h4 class="col-xs-1 control-label "> Kunnátta</h4>
+                  </br>
                   <div class="col-xs-9">
-                   <label class="col-xs-4 textkunnata">Forritunarmál, kerfi eða annað:</label>
+                   <label class="col-xs-5 textkunnata">Forritunarmál, kerfi eða annað:</label>
                    <label class="col-xs-5 textkunnata">Reynsla:</label> 
-
-                   <br></br>
-                   <br></br>
-
+                 </br>
+                 </br>
                    <div id="techknow">
                      <%  if(typeof user.local.knowledge.knowledge != 'undefined') {
                        var know = user.local.knowledge;
@@ -298,16 +296,19 @@
                        var rateKnowledge = know.rateKnowledge.split(","); 
                        for(var i=0; i<knowledges.length; i++){ %>
 
-                       <div class="form-group" class="knowing">
-                        <input class="col-xs-4 form-control knowledge fillOut" type="text" name="knowledge" value= "<%= knowledges[i] %>"> 
-                        <select class =" col-xs-3  form-control  rateknowledge fillOut" name="rateKnowledge">
+                       <div class="form-inline knowing">
+                        
+                        <div class="col-md-5"><input class="col-xs-5 form-control knowledge fillOut" type="text" name="knowledge" value= "<%= knowledges[i] %>"> </div>
+                        <div class="col-md-5"><select class =" col-xs-4  form-control  rateknowledge fillOut" name="rateKnowledge">
                           <OPTION value=" "> </OPTION>
                           <OPTION value ="Grunnreynsla"<%if(rateKnowledge[i]=== "Grunnreynsla"){ %> Selected <% } %>>Grunnreynsla</OPTION>
                           <OPTION value="Meðalreynsla" <%if(rateKnowledge[i]=== "Meðalreynsla"){ %> Selected <% } %>>Meðalreynsla</OPTION>
                           <OPTION value="Sérfræðingur" <%if(rateKnowledge[i]=== "Sérfræðingur"){ %> Selected <% } %>>Sérfræðingur</OPTION>
-                        </select>
+                        </select></div>
                         <input type="button" class="eyda btn" value="X">
-                      </div>
+         
+                    </div>
+
                       <% } } %>
                     </div>
 
@@ -317,14 +318,8 @@
 
                 </div>
 
-
-
-
-
-
-
-                <p></p>
-
+                <div class="lineDown"></div>
+              </br>
                 <div class="form-group">
                   <label class="col-xs-3 control-label">Um mig:</label>
                   <div class="col-xs-8">

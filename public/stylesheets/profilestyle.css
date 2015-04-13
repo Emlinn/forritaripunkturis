@@ -29,6 +29,7 @@ td {
 {
 	margin-right: 405px
 }
+
 /*Kunnátta*/
 input.col-xs-4.form-control.knowledge.fillOut
 {
@@ -37,6 +38,26 @@ input.col-xs-4.form-control.knowledge.fillOut
      height: 30px; 
      margin-right: 10px;
      width: 150px;   
+}
+
+input.form-control.schoolSizeBg.fillOut 
+{
+	 border-radius: 3px;
+     border: 1px solid rgba(19, 27, 1, 0.24);
+     height: 35px; 
+     margin-right: 0px;
+     width: 200px; 
+}
+
+
+
+select.form-control.schoolSizeBg.fillOut 
+{
+		border-radius: 3px;
+     border: 1px solid rgba(19, 27, 1, 0.24);
+     height: 35px; 
+     margin-right: 0px;
+     width: 200px; 
 }
 
 label.col-xs-4.textkunnata
@@ -63,4 +84,8 @@ select.col-xs-3.form-control.rateknowledge.fillOut
 /*mynd*/
 .imagescontainer.profile{
 	padding-left: 260px;
+}
+
+.lineDown {
+	clear: both;
 }
