@@ -84,31 +84,31 @@ module.exports = function(app, passport) {
 			req.user.local.men = "";
 		}
 		if(req.body.careerJob) {
-			req.user.local.careerJob = "checked";
+			req.user.local.careerJob = "Framtíðarstarf";
 		}
 		else {
 			req.user.local.careerJob = "";	
 		}
 		if(req.body.summerJob) {
-			req.user.local.summerJob = "checked";
+			req.user.local.summerJob = "Sumarvinna";
 		}
 		else {
 			req.user.local.summerJob = "";	
 		}
 		if(req.body.partialJob) {
-			req.user.local.partialJob = "checked";
+			req.user.local.partialJob = "Tímabundið starf";
 		}
 		else {
 			req.user.local.partialJob = "";	
 		}
 		if(req.body.assignmentJob) {
-			req.user.local.assignmentJob = "checked";
+			req.user.local.assignmentJob = "Verkefni";
 		}
 		else {
 			req.user.local.assignmentJob = "";	
 		}
 		if(req.body.startupJob) {
-			req.user.local.startupJob = "checked";
+			req.user.local.startupJob = "Startup samstarf";
 		}
 		else {
 			req.user.local.startupJob = "";	

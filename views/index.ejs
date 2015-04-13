@@ -136,14 +136,7 @@ educationString += education[i] +", "
 
 %> data-menntun="<%= educationString %>"<% } %>
 
-<%if(info.local.degrees.statuss) {
-var statuss = info.local.degrees.statuss.toLowerCase().split(",");
-var statussString = "";
-for(var i=0; i<statuss.length; i++){
-statussString += statuss[i] +", "
-}
-
-%> data-stöðu="<%= statussString %>"><% } %>
+ data-starf="<%= info.local.careerJob %>, <%= info.local.summerJob %>, <%= info.local.partialJob %>, <%= info.local.assignmentJob %>, <%= info.local.startupJob %>">
 <img <%if(info.local.userPhoto) {%>src=<%=info.local.userPhoto%> class="img-circle" alt="Generic placeholder image" style="width: 140px; height: 140px;"<%}
 else{
 if(info.local.men=="checked"){%> src="/images/unknown-man.jpeg" class=" avatar img-circle" alt="avatar" style="width: 140px; height: 140px;"<%}
