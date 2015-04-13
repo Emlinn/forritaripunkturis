@@ -4,6 +4,31 @@ label.checkbox-inline.vinna
 margin-right: 20px;
 
 }
+/*menntun*/
+
+input.form-control.fillOut.degreefield
+{
+	width: 150px;
+}
+select.form-control.fillOut.degreefield
+{
+	width: 150px;
+}
+
+input.form-control.datepicker.field.fillOut
+{
+	width: 120px;
+}
+
+select.form-control.fillOut.statuss
+{
+	width: 80px;
+}
+input#virk.eyda.btn{
+	margin-right: 800px;
+}
+
+
 /*Starfreynsla*/
 /*input.worktable 
 {
@@ -23,12 +48,27 @@ td {
 .col-xs-8.control-label.work
 {
 
-	margin: 0px
+	padding-left: 30px;
 }
 .submit-btn
 {
-	margin-right: 405px
+	margin-right: 600px
 }
+
+input.form-control.fillOut.workfield
+{
+	width: 180px;
+}
+input.form-control.fillOut.workfieldper
+{
+	width: 110px;
+}
+
+input.form-control.datepicker.workfield.fillOut
+{
+	width: 150px;
+}
+
 /*Kunnátta*/
 input.col-xs-4.form-control.knowledge.fillOut
 {
@@ -59,8 +99,19 @@ select.col-xs-3.form-control.rateknowledge.fillOut
 	width: 130px;
 	margin-right: 10px;
 }
+/*um mig*/
+
+textarea.form-control.aboutme
+{
+	height: 250px;
+}
 
 /*mynd*/
 .imagescontainer.profile{
-	padding-left: 260px;
+	padding-left: 130px;
 }
+
+hr.line{
+	width: 80%;
+}
+

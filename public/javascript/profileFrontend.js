@@ -53,9 +53,9 @@ $(document).ready(function() {
                      '</tr>'+
                '<thead>'+
                '<tbody>'+
-               		'<td><input class="form-control fillOut" name="school"></td>'+
+               		'<td><input class="form-control fillOut degreefield" name="school"></td>'+
 					'<td>'+
-						'<select class="form-control fillOut" name="degree">'+
+						'<select class="form-control fillOut degreefield" name="degree">'+
 	            	    	'<option value=" " Selected > </option>'+
 	            		    '<option value="Grunnskólapróf">Grunnskólapróf</option>'+
 	    	           		'<option value="Framhaldsskólapróf">Framhaldsskólapróf</option>'+
@@ -66,10 +66,10 @@ $(document).ready(function() {
 	    	    	        '<option value="Annað">Annað</option>'+
 	        		     '</select>'+
 	       		   '</td>'+
-	              '<td><input class="form-control fillOut" name="education"></td>'+
-	              '<td><input type="text" class="form-control datepicker fillOut" name="startDate"></td>'+
-	              '<td><input type="text" class="form-control datepicker fillOut" name="finishDate" ></td>'+
-	              '<td><select class=" form-control fillOut" name = "statuss">'+
+	              '<td><input class="form-control fillOut degreefield" name="education"></td>'+
+	              '<td><input type="text" class="form-control datepicker field fillOut" name="startDate"></td>'+
+	              '<td><input type="text" class="form-control datepicker field fillOut" name="finishDate" ></td>'+
+	              '<td><select class=" form-control fillOut statuss" name = "statuss">'+
 	              '<OPTION> </OPTION>'+
 	              '<OPTION>Lokið</OPTION>'+
 	              '<OPTION>Ólokið</OPTION>'+
@@ -78,7 +78,7 @@ $(document).ready(function() {
                      	'</tbody>'+
                 '</table>'+
 			
-	            '<input type="button" class="eyda btn" value="X"></div>');
+	            '<input type="button" id="virk" class="eyda btn" value="X"></div>');
 		$(function() {
     		$( ".datepicker" ).datepicker({
       			changeMonth: true,
@@ -130,14 +130,14 @@ $('#submitJob').click(function() {
                    '</tr>'+
                 '</thead>'+
 	            '<tbody>'+
-                 	'<td><input class="form-control fillOut" name="job"></td>'+
-	      			'<td><input class="form-control fillOut" name="jobName"></td>'+
-	     		 	'<td><input class="form-control fillOut" name="jobPerc"></td>'+
-	      			'<td><input type="text" class="form-control datepicker fillOut" name="jobStartDate"></td>'+
-	      			'<td><input type="text" class="form-control datepicker fillOut" name="jobEndDate"></td>'+
+                 	'<td><input class="form-control fillOut workfield" name="job"></td>'+
+	      			'<td><input class="form-control fillOut workfield" name="jobName"></td>'+
+	     		 	'<td><input class="form-control fillOut workfieldper" name="jobPerc"></td>'+
+	      			'<td><input type="text" class="form-control datepicker workfield fillOut" name="jobStartDate"></td>'+
+	      			'<td><input type="text" class="form-control datepicker workfield fillOut" name="jobEndDate"></td>'+
     	  		'</tbody>'+		
     	  	'</table>'	+
-    	  	'<input type="button" class="eyda  btn" value="X">'+
+    	  	'<input type="button" id="virk"class="eyda  btn" value="X">'+
     	  '</div> ');
 		$(function() {
     		$( ".datepicker" ).datepicker({
