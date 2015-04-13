@@ -12,6 +12,7 @@ module.exports = function(app, passport) {
 			'local.lastname': 1, 
 			'local.birthday': 1, 
 			'local.degrees':1,
+			'local.degrees.statuss': 1,
 			'local.job':1, 
 			'local.headline':1, 
 			'local.telephone': 1,

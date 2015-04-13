@@ -123,7 +123,26 @@ var knowledgeString = "";
 for(var i=0; i<knowledge.length; i++){
 knowledgeString += knowledge[i] +", "
 }
-%> data-kunáttu="<%= knowledgeString %>"<% } %> data-menntun="<%= info.local.degrees.education %>" data-stöðu="">
+
+%> data-kunáttu="<%= knowledgeString %>"<% } %>
+
+<%if(info.local.degrees.education) {
+var education = info.local.degrees.education.toLowerCase().split(",");
+var educationString = "";
+for(var i=0; i<education.length; i++){
+educationString += education[i] +", "
+}
+
+%> data-menntun="<%= educationString %>"<% } %>
+
+<%if(info.local.degrees.statuss) {
+var statuss = info.local.degrees.statuss.toLowerCase().split(",");
+var statussString = "";
+for(var i=0; i<statuss.length; i++){
+statussString += statuss[i] +", "
+}
+
+%> data-stöðu="<%= statussString %>"><% } %>
 <img <%if(info.local.userPhoto) {%>src=<%=info.local.userPhoto%> class="img-circle" alt="Generic placeholder image" style="width: 140px; height: 140px;"<%}
 else{
 if(info.local.men=="checked"){%> src="/images/unknown-man.jpeg" class=" avatar img-circle" alt="avatar" style="width: 140px; height: 140px;"<%}
